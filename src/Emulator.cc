@@ -130,6 +130,7 @@ int Emulator::step(uint32_t num) {
         std::cerr << "failed to open retire.log\n";
         return -4;
     }
+    retireLog << "[" << std::endl;
     std::thread printThread([this](){
         while(true){
             std::this_thread::sleep_for(std::chrono::seconds(1));
@@ -144,6 +145,8 @@ int Emulator::step(uint32_t num) {
     uint32_t *cmtPCs[2] = {&cpu->io_dbg_cmt_robDeq_deq_0_bits_pc, &cpu->io_dbg_cmt_robDeq_deq_1_bits_pc};
     uint8_t *cmtPrds[2] = {&cpu->io_dbg_cmt_robDeq_deq_0_bits_prd, &cpu->io_dbg_cmt_robDeq_deq_1_bits_prd};
     uint32_t *dbgRf = &cpu->io_dbg_rf_rf_0;
+    uint32_t startCycles = 0;
+    uint32_t seq = 0;
     while(num-- > 0){
         stat->addCycles(1);
         for(int i = 0; i < NCOMMIT; i++){
@@ -162,11 +165,14 @@ int Emulator::step(uint32_t num) {
                 << "\"name\": \"" << asmStr << "\", "
                 << "\"cname\": \"good\", "
                 << "\"ph\": \"X\", "
-                << "\"pid\": \"warp0\", "
-                << "\"tid\": \"cpu\", "
-                << "\"ts\": \"0\", "
-                << "\"dur\": " << stat->getCycles()
+                << "\"pid\": \"cpu\", "
+                << "\"tid\": \"" << seq << "\", "
+                << "\"ts\": \"" << startCycles << "\", "
+                << "\"dur\": " << stat->getCycles() - startCycles
                 << "}" << std::endl;
+
+                seq++;
+                startCycles = stat->getCycles() ;
 
                 uint8_t cmtRd = bits(cmtInst, 11, 7);
                 if(simEnd(cmtInst)){
@@ -195,6 +201,7 @@ int Emulator::step(uint32_t num) {
         simTime++;
 #endif
     }
+    retireLog << "]" << std::endl;
     return 1;
 }
 
