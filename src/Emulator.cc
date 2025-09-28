@@ -1,5 +1,6 @@
 #include "Emulator.h"
 #include <iostream>
+#include <filesystem>
 #include <thread>
 #include <chrono>
 #include "utils.h"
@@ -124,13 +125,17 @@ std::string disassemble(uint32_t inst) {
 }
 
 
-int Emulator::step(uint32_t num) {
-    std::ofstream retireLog("retire.log");
-    if (!retireLog.is_open()) {
-        std::cerr << "failed to open retire.log\n";
+int Emulator::step(uint32_t num, std::string imgName) {
+    std::string reportsDir = "profiling/" + imgName;
+    if(!std::filesystem::exists(reportsDir)){
+        std::filesystem::create_directories(reportsDir);
+    }
+    std::ofstream baselog = std::ofstream(reportsDir + "/base.log");
+    if (!baselog.is_open()) {
+        std::cerr << "failed to open base.log\n";
         return -4;
     }
-    retireLog << "[" << std::endl;
+    
     std::thread printThread([this](){
         while(true){
             std::this_thread::sleep_for(std::chrono::seconds(1));
@@ -145,7 +150,7 @@ int Emulator::step(uint32_t num) {
     uint32_t *cmtPCs[2] = {&cpu->io_dbg_cmt_robDeq_deq_0_bits_pc, &cpu->io_dbg_cmt_robDeq_deq_1_bits_pc};
     uint8_t *cmtPrds[2] = {&cpu->io_dbg_cmt_robDeq_deq_0_bits_prd, &cpu->io_dbg_cmt_robDeq_deq_1_bits_prd};
     uint32_t *dbgRf = &cpu->io_dbg_rf_rf_0;
-    uint32_t startCycles = 0;
+    uint32_t lastCmtCycles = 0;
     uint32_t seq = 0;
     while(num-- > 0){
         stat->addCycles(1);
@@ -160,19 +165,16 @@ int Emulator::step(uint32_t num) {
                 uint32_t cmtInst = memory->debugRead(*cmtPCs[i]);
 
                 std::string asmStr = disassemble(cmtInst);
-
-                retireLog << "{"
-                << "\"name\": \"" << asmStr << "\", "
-                << "\"cname\": \"good\", "
-                << "\"ph\": \"X\", "
-                << "\"pid\": \"cpu\", "
-                << "\"tid\": \"" << seq << "\", "
-                << "\"ts\": \"" << startCycles << "\", "
-                << "\"dur\": " << stat->getCycles() - startCycles
-                << "}" << std::endl;
-
+                uint8_t opcode  = bits(cmtInst, 6, 0);
+                bool isBranch = opcode == 0x6F || opcode == 0x63 || opcode == 0x67;
+                baselog << seq << ","
+                << "0x" << std::hex << *cmtPCs[i] << std::dec << ","
+                << "\"" << asmStr << "\"" << ","
+                << lastCmtCycles << ","
+                << (stat->getCycles() - lastCmtCycles) << ","
+                << isBranch 
+                << std::endl;          
                 seq++;
-                startCycles = stat->getCycles() ;
 
                 uint8_t cmtRd = bits(cmtInst, 11, 7);
                 if(simEnd(cmtInst)){
@@ -185,8 +187,9 @@ int Emulator::step(uint32_t num) {
                     return -2;
                 }
             }
-            
-
+        }
+        if(*cmtVlds[0]){
+            lastCmtCycles = stat->getCycles();
         }
         memory->write(cpu);
         memory->read(cpu);
@@ -201,7 +204,7 @@ int Emulator::step(uint32_t num) {
         simTime++;
 #endif
     }
-    retireLog << "]" << std::endl;
+    baselog << "]" << std::endl;
     return 1;
 }
 

@@ -55,7 +55,7 @@ class Emulator {
         return stallCount > stallThreshold;
     }
     void reset();
-    int step(uint32_t num);
+    int step(uint32_t num,std::string imgName);
 
 };
 

@@ -27,7 +27,8 @@ int main(int argc, char** argv) {
     std::cout << ANSI_FG_CYAN << "SIMULATION STARTED." << ANSI_NONE << std::endl;
 
     emulator->reset();
-    int ret = emulator->step(-1);
+    std::string imgName = imgPath.substr(imgPath.find_last_of('/') + 1, imgPath.find_last_of('.') - imgPath.find_last_of('/') - 1);
+    int ret = emulator->step(-1,imgName);
 
     std::cout << "========================================" <<  std::endl;
     if(ret == -3) {
@@ -42,8 +43,6 @@ int main(int argc, char** argv) {
     }
     stat->printLastInstrucions(memory);
     stat->printPerformance();
-
-    std::string imgName = imgPath.substr(imgPath.find_last_of('/') + 1, imgPath.find_last_of('.') - imgPath.find_last_of('/') - 1);
     stat->printMarkdownReport(cpu, imgName, simulator);
     std::cout <<  "========================================" << std::endl;
     m_trace->close();
