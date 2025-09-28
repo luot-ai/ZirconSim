@@ -5,6 +5,7 @@ void Simulator::step(uint32_t num) {
     uint8_t opcode = bits(inst, 6, 0);
     // std::cout << std::hex <<  <<  std::dec << std::endl;
     switch(opcode){
+        case 0x0b: executeStreamType(inst); break;
         case 0x37: executeUType(inst); break;
         case 0x17: executeUType(inst); break;
         case 0x6F: executeJType(inst); break;
@@ -199,3 +200,16 @@ void Simulator::executeJType(uint32_t inst) {
         default: break;
     }
 }
+
+void Simulator::executeStreamType(uint32_t inst) {
+    uint8_t opcode  = bits(inst, 6, 0);
+    uint8_t rd      = bits(inst, 11, 7);
+    uint8_t rs1     = bits(inst, 19, 15);
+    uint8_t rs2     = bits(inst, 24, 20);
+    uint8_t funct7  = bits(inst, 31, 25);
+    uint8_t funct3  = bits(inst, 14, 12);
+    uint32_t value1 = rf[rs1];
+    uint32_t value2 = rf[rs2];
+    pc += 4;
+}
+

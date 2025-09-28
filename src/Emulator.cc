@@ -37,8 +37,99 @@ bool Emulator::difftestStep(uint8_t rd, uint32_t rdData, uint32_t pc, uint32_t s
     }
     return true;
 }
-int Emulator::step(uint32_t num) {
 
+uint32_t bits(uint32_t value, uint32_t hi, uint32_t lo){
+    return (value >> lo) & ~((-1) << (hi - lo + 1));
+}
+
+std::string disassemble(uint32_t inst) {
+    uint8_t opcode  = bits(inst, 6, 0);
+    uint8_t rd      = bits(inst, 11, 7);
+    uint8_t rs1     = bits(inst, 19, 15);
+    uint8_t rs2     = bits(inst, 24, 20);
+    uint8_t funct7  = bits(inst, 31, 25);
+    uint8_t funct3  = bits(inst, 14, 12);
+
+    char buf[64];
+    switch (opcode)
+    {
+    case 0x0b:
+        switch (funct3)
+        {
+        case 0x0:
+            sprintf(buf, "cfg_i");
+            break;
+        case 0x1:
+            sprintf(buf, "cfg_store");
+            break;
+        case 0x2:
+            sprintf(buf, "cal_stream",
+                    rs2, (rs1 & 0x3), (rs1 >> 2) & 0x3);
+            break;
+        case 0x3:
+            sprintf(buf, "step_i");
+            break;
+        case 0x5:
+            sprintf(buf, "cfg_load");
+            break;
+        default:
+            sprintf(buf, "unknown stream");
+            break;
+        }
+        break;
+    case 0x33: // R-type
+        if (funct3 == 0 && funct7 == 0x00)
+            sprintf(buf, "add a%d, a%d, a%d", rd, rs1, rs2);
+        else if (funct3 == 0 && funct7 == 0x20)
+            sprintf(buf, "sub a%d, a%d, a%d", rd, rs1, rs2);
+        else if (funct3 == 0x7)
+            sprintf(buf, "and a%d, a%d, a%d", rd, rs1, rs2);
+        else
+            sprintf(buf, "unknown");
+        break;
+    case 0x13: // I-type (addi)
+        sprintf(buf, "addi a%d, a%d, %d", rd, rs1, (int32_t)(inst) >> 20);
+        break;
+    case 0x03: // load
+        if (funct3 == 0x2)
+            sprintf(buf, "lw a%d, %d(a%d)", rd, (int32_t)(inst) >> 20, rs1);
+        else
+            sprintf(buf, "unknown");
+        break;
+    case 0x23: // store
+        if (funct3 == 0x2)
+        {
+            int imm = ((inst >> 7) & 0x1f) | ((inst >> 25) << 5);
+            sprintf(buf, "sw a%d, %d(a%d)", rs2, imm, rs1);
+        }
+        else
+            sprintf(buf, "unknown");
+        break;
+    case 0x63: // branch
+        if (funct3 == 0x0)
+        {
+            int imm = ((inst >> 7 & 0x1) << 11) |
+                      ((inst >> 8 & 0xf) << 1) |
+                      ((inst >> 25 & 0x3f) << 5) |
+                      ((inst >> 31) << 12);
+            sprintf(buf, "beq a%d, a%d, %d", rs1, rs2, imm);
+        }
+        else
+            sprintf(buf, "unknown");
+        break;
+    default:
+        sprintf(buf, "unknown");
+    }
+    return std::string(buf);
+}
+
+
+int Emulator::step(uint32_t num) {
+    std::ofstream retireLog("retire.log");
+    if (!retireLog.is_open()) {
+        std::cerr << "failed to open retire.log\n";
+        return -4;
+    }
     std::thread printThread([this](){
         while(true){
             std::this_thread::sleep_for(std::chrono::seconds(1));
@@ -64,6 +155,19 @@ int Emulator::step(uint32_t num) {
                 stat->addInsts(1);
                 stat->pcBufferPush(*cmtPCs[i]);
                 uint32_t cmtInst = memory->debugRead(*cmtPCs[i]);
+
+                std::string asmStr = disassemble(cmtInst);
+
+                retireLog << "{"
+                << "\"name\": \"" << asmStr << "\", "
+                << "\"cname\": \"good\", "
+                << "\"ph\": \"X\", "
+                << "\"pid\": \"warp0\", "
+                << "\"tid\": \"cpu\", "
+                << "\"ts\": \"0\", "
+                << "\"dur\": " << stat->getCycles()
+                << "}" << std::endl;
+
                 uint8_t cmtRd = bits(cmtInst, 11, 7);
                 if(simEnd(cmtInst)){
                     return (dbgRf[rnmTable[10]] == 0 ? 0 : -1);

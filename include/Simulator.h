@@ -38,6 +38,7 @@ class Simulator {
     void executeSType(uint32_t inst);
     void executeJType(uint32_t inst);
     void executeUType(uint32_t inst);
+    void executeStreamType(uint32_t inst);
 
     // instruction type
     InstStatistic instStat;
