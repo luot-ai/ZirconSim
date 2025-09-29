@@ -56,10 +56,12 @@ class BasicBlock:
                 "iter_id": idx + 1,  # 原始迭代号
                 "cycles": cycles,
                 "ipc": ipc,
-                "instrs": [(instr.pc, instr.asm, instr.ipc) for instr in it],
-                "below_avg": ipc < avg_ipc
+                "instrs": it,   # 直接存 Instruction 对象
+                "below_avg": ipc < avg_ipc +0.5
             })
         return infos
+
+
 
 def parse_trace_file(filename):
     instrs = []
@@ -163,14 +165,21 @@ def main():
             savings_percent = savings / total_cycles if total_cycles else 0
             block_savings.append((bb, savings_percent, bb_cycles))
         # 按 savings_percent 排序
+        cumulative_percent = 0.0
         block_savings.sort(key=lambda x: x[1], reverse=True)
         for bb, savings_percent, bb_cycles in block_savings:
             if savings_percent < avg_percent:
                 continue
+            block_percent = bb_cycles / total_cycles * 100
+            cumulative_percent += block_percent
             outfile.write(
-                f"Block {bb.block_id}: 原总cycles={bb_cycles}, 预估节省占比={savings_percent*100:.2f}%, 当前IPC={bb.avg_ipc():.2f}\n"
+                f"Block {bb.block_id}: 原总cycles={bb_cycles}, "
+                f"cycles占比={block_percent:.2f}%, "
+                f"累计占比={cumulative_percent:.2f}%, "
+                f"当前IPC={bb.avg_ipc():.2f}\n"
             )
         outfile.write("\n")
+        #f"Block {bb.block_id}: 原总cycles={bb_cycles}, cycles占比={bb_cycles/total_cycles*100:.2f}%, 预估节省占比={savings_percent*100:.2f}%, 当前IPC={bb.avg_ipc():.2f}\n"
         # --- 详细基本块信息（按预估优化收益排序） ---
         for bb, savings_percent, bb_cycles in block_savings:
             if savings_percent < avg_percent:
@@ -186,8 +195,20 @@ def main():
                 if not info["below_avg"]:
                     continue
                 outfile.write(f" 迭代 {info['iter_id']}: 耗时={info['cycles']} cycles, IPC={info['ipc']:.2f}\n")
-                for pc, asm, ipc in info["instrs"]:
-                    outfile.write(f"    {pc}  {asm}  IPC={ipc:.2f}\n")
+
+                prev_start = None
+                for instr in info["instrs"]:
+                    pc_str = f"{instr.pc:<12}"
+                    asm_str = f"{instr.asm:<30}"
+                    start_str = f"start={instr.start:<5}"
+                    delay_str = f"delay={instr.latency:<3}"
+
+                    # 如果当前周期与上一条不同，则标记为第一条指令
+                    mark = "*" if instr.start != prev_start else ""
+                    prev_start = instr.start
+
+                    outfile.write(f"    {pc_str} {asm_str} {start_str} {delay_str} {mark}\n")
+
 
 if __name__ == "__main__":
     main()
