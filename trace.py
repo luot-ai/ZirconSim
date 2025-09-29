@@ -90,44 +90,75 @@ def parse_trace_file(filename):
     return instrs
 
 def build_basic_blocks(instrs):
-    blocks = {}
+    """
+    更稳健的 basic-block 构造：
+    1) 先识别所有 block 起点（block_starts）：
+       - 第 0 条指令一定是一个起点
+       - 如果 instr[i].pc != instr[i-1].pc + 4（非顺序），则 instr[i] 是起点
+       - 如果 instr[i-1] 是分支/跳转指令（instr[i-1].is_branch），则 instr[i] 也是起点
+    2) 第二遍按起点切分：遇到起点就把上一个积累的 current_block 收尾并加入对应的 BasicBlock（按起点地址做 key）
+    3) 保证每次到达某个起点都会产生一次迭代（即便只有 1 条指令）
+    返回值：list(BasicBlock)，顺序是按首次出现顺序分配 block_id。
+    """
+    if not instrs:
+        return []
+
+    # 规范化 pc 字符串 (小写 hex)，避免大小写或格式问题
+    def pc_norm(pc_str):
+        return pc_str.lower()
+
+    # 1) 识别所有 block 起点
+    block_starts = set()
+    block_starts.add(pc_norm(instrs[0].pc))
+    for i in range(1, len(instrs)):
+        prev = instrs[i-1]
+        cur = instrs[i]
+        try:
+            expected = f"0x{int(prev.pc, 16) + 4:x}"
+        except Exception:
+            expected = None
+        if expected is None or pc_norm(cur.pc) != expected:
+            # 非顺序取指 -> 新起点（可能是跳转目标或异常/函数边界）
+            block_starts.add(pc_norm(cur.pc))
+        if prev.is_branch:
+            # 上一条是分支/返回/跳转 -> 下一条也是起点（显式）
+            block_starts.add(pc_norm(cur.pc))
+
+    # 2) 第二遍按起点切分并收集 iterations
+    blocks_map = {}           # key: start_pc -> BasicBlock
     block_id_counter = 0
-    current_block_instrs = []
+    current_start = None
+    current_block = []
 
-    def get_block_key(block_instrs):
-        return block_instrs[0].pc if block_instrs else None
+    for instr in instrs:
+        p = pc_norm(instr.pc)
+        if p in block_starts:
+            # 新起点出现：先把上一个积累的 block 关闭并加入对应 BasicBlock
+            if current_block:
+                if instr.start == current_block[-1].start :
+                    print(instr.seq)
+                if current_start not in blocks_map:
+                    blocks_map[current_start] = BasicBlock(block_id_counter)
+                    block_id_counter += 1
+                blocks_map[current_start].add_iteration(current_block)
+            # 启动一个新的 current_block，以当前 pc 作为 key
+            current_start = p
+            current_block = [instr]
+        else:
+            # 继续当前 block 的迭代
+            current_block.append(instr)
 
-    for i, instr in enumerate(instrs):
-        current_block_instrs.append(instr)
-        end_block = False
-
-        if instr.is_branch:
-            end_block = True
-        elif i + 1 < len(instrs):
-            next_pc = instrs[i + 1].pc
-            expected_pc = f"0x{int(instr.pc, 16) + 4:x}"
-            if next_pc.lower() != expected_pc.lower():
-                end_block = True
-
-        if end_block:
-            key = get_block_key(current_block_instrs)
-            if key not in blocks:
-                bb = BasicBlock(block_id_counter)
-                block_id_counter += 1
-                blocks[key] = bb
-            blocks[key].add_iteration(list(current_block_instrs))
-            current_block_instrs = []
-
-    if current_block_instrs:
-        key = get_block_key(current_block_instrs)
-        if key not in blocks:
-            bb = BasicBlock(block_id_counter)
+    # 处理末尾残余
+    if current_block:
+        if current_start not in blocks_map:
+            blocks_map[current_start] = BasicBlock(block_id_counter)
             block_id_counter += 1
-            blocks[key] = bb
-        blocks[key].add_iteration(list(current_block_instrs))
+        blocks_map[current_start].add_iteration(current_block)
 
-    return list(blocks.values())
-
+    # 按首次出现顺序返回 blocks（blocks_map 的值已经按创建顺序分配 block_id）
+    # 返回 list 按 block_id 排序，保证输出稳定
+    blocks_list = sorted(blocks_map.values(), key=lambda b: b.block_id)
+    return blocks_list
 def main():
     imgname = sys.argv[1]
     trace_file = os.path.join("profiling", imgname, "base.log")
@@ -154,7 +185,7 @@ def main():
         sorted_blocks = sorted(blocks, key=lambda bb: bb.total_cycles(), reverse=True)
         # --- 粗略基本块信息（按预估优化收益排序） ---
         outfile.write("按预估优化收益排序的基本块（占比高于平均）:\n")
-        avg_percent = 1 / 200 #len(blocks) if blocks else 0
+        avg_percent = 0 # 1 / 200 #len(blocks) if blocks else 0
         block_savings = []
         for bb in blocks:
             bb_instr_count = sum(len(it) for it in bb.iterations)
@@ -166,16 +197,20 @@ def main():
             block_savings.append((bb, savings_percent, bb_cycles))
         # 按 savings_percent 排序
         cumulative_percent = 0.0
+        cumulative_cycles = 0
         block_savings.sort(key=lambda x: x[1], reverse=True)
         for bb, savings_percent, bb_cycles in block_savings:
             if savings_percent < avg_percent:
                 continue
             block_percent = bb_cycles / total_cycles * 100
             cumulative_percent += block_percent
+            cumulative_cycles += bb_cycles
             outfile.write(
-                f"Block {bb.block_id}: 原总cycles={bb_cycles}, "
-                f"cycles占比={block_percent:.2f}%, "
-                f"累计占比={cumulative_percent:.2f}%, "
+                f"Block {bb.block_id}: 总cycles={bb_cycles}, "
+                f"迭代次数 {len(bb.iterations)}, "
+                # f"cycles占比={block_percent:.2f}%, "
+                f"累计cycles={cumulative_cycles}, "
+                # f"累计占比={cumulative_cycles/ total_cycles * 100:.2f}%, "
                 f"当前IPC={bb.avg_ipc():.2f}\n"
             )
         outfile.write("\n")
