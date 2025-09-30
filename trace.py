@@ -1,6 +1,8 @@
 import csv
 import sys
 import os
+import json
+import string
 from collections import defaultdict
 
 class Instruction:
@@ -135,12 +137,14 @@ def build_basic_blocks(instrs):
         if p in block_starts:
             # 新起点出现：先把上一个积累的 block 关闭并加入对应 BasicBlock
             if current_block:
-                if instr.start == current_block[-1].start :
-                    print(instr.seq)
+                # if instr.start == current_block[-1].start :
+                #     print(instr.seq)
                 if current_start not in blocks_map:
                     blocks_map[current_start] = BasicBlock(block_id_counter)
                     block_id_counter += 1
                 blocks_map[current_start].add_iteration(current_block)
+                if p != current_start:
+                    print(blocks_map[current_start].block_id,"迭代次数：",len(blocks_map[current_start].iterations))
             # 启动一个新的 current_block，以当前 pc 作为 key
             current_start = p
             current_block = [instr]
@@ -165,6 +169,7 @@ def main():
     output_dir = os.path.join("profiling", imgname)
     os.makedirs(output_dir, exist_ok=True)
     output_file = os.path.join(output_dir, "blkinfo")
+    view_file = os.path.join(output_dir, "blkview.json")  # 新增 view 文件
 
     instrs = parse_trace_file(trace_file)
     blocks = build_basic_blocks(instrs)
@@ -244,6 +249,27 @@ def main():
 
                     outfile.write(f"    {pc_str} {asm_str} {start_str} {delay_str} {mark}\n")
 
-
+    # ========== 新增 blkview.json 输出 ==========
+    colors = list(string.ascii_lowercase) 
+    view_events = []
+    for bb in blocks:
+        for iter_idx, it in enumerate(bb.iterations, start=1):
+            if not it:
+                continue
+            color = colors[(iter_idx - 1) % len(colors)]
+            min_start = min(instr.start for instr in it)
+            max_end = max(instr.start + instr.latency for instr in it)
+            event = {
+                "name": f"{color}: {iter_idx} Iter",
+                "cname": color,   # 可换成 red/blue 等颜色
+                "ph": "X",
+                "pid": "cpu",
+                "tid": f"Block {bb.block_id}",   # 每个迭代号作为 thread id
+                "ts": min_start,
+                "dur": max_end - min_start
+            }
+            view_events.append(event)
+    with open(view_file, "w") as vf:
+        json.dump(view_events, vf, indent=2)
 if __name__ == "__main__":
     main()

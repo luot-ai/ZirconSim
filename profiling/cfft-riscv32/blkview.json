@@ -1,0 +1,6185 @@
+[
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 0",
+    "ts": 0,
+    "dur": 63
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 1",
+    "ts": 63,
+    "dur": 108
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 2",
+    "ts": 171,
+    "dur": 5
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 3",
+    "ts": 176,
+    "dur": 94
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 4",
+    "ts": 269,
+    "dur": 5
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 4",
+    "ts": 274,
+    "dur": 87
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 4",
+    "ts": 361,
+    "dur": 4
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 4",
+    "ts": 365,
+    "dur": 6
+  },
+  {
+    "name": "e: 5 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 4",
+    "ts": 371,
+    "dur": 4
+  },
+  {
+    "name": "f: 6 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 4",
+    "ts": 375,
+    "dur": 5
+  },
+  {
+    "name": "g: 7 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 4",
+    "ts": 380,
+    "dur": 6
+  },
+  {
+    "name": "h: 8 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 4",
+    "ts": 386,
+    "dur": 5
+  },
+  {
+    "name": "i: 9 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 4",
+    "ts": 391,
+    "dur": 6
+  },
+  {
+    "name": "j: 10 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 4",
+    "ts": 397,
+    "dur": 5
+  },
+  {
+    "name": "k: 11 Iter",
+    "cname": "k",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 4",
+    "ts": 402,
+    "dur": 6
+  },
+  {
+    "name": "l: 12 Iter",
+    "cname": "l",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 4",
+    "ts": 408,
+    "dur": 5
+  },
+  {
+    "name": "m: 13 Iter",
+    "cname": "m",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 4",
+    "ts": 413,
+    "dur": 6
+  },
+  {
+    "name": "n: 14 Iter",
+    "cname": "n",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 4",
+    "ts": 419,
+    "dur": 5
+  },
+  {
+    "name": "o: 15 Iter",
+    "cname": "o",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 4",
+    "ts": 424,
+    "dur": 6
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 5",
+    "ts": 430,
+    "dur": 11
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 6",
+    "ts": 441,
+    "dur": 70
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 6",
+    "ts": 2680,
+    "dur": 17
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 6",
+    "ts": 4386,
+    "dur": 69
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 6",
+    "ts": 6188,
+    "dur": 62
+  },
+  {
+    "name": "e: 5 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 6",
+    "ts": 7742,
+    "dur": 16
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 511,
+    "dur": 14
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 525,
+    "dur": 6
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 531,
+    "dur": 5
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 536,
+    "dur": 6
+  },
+  {
+    "name": "e: 5 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 542,
+    "dur": 5
+  },
+  {
+    "name": "f: 6 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 547,
+    "dur": 12
+  },
+  {
+    "name": "g: 7 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 559,
+    "dur": 5
+  },
+  {
+    "name": "h: 8 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 564,
+    "dur": 6
+  },
+  {
+    "name": "i: 9 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 570,
+    "dur": 5
+  },
+  {
+    "name": "j: 10 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 575,
+    "dur": 6
+  },
+  {
+    "name": "k: 11 Iter",
+    "cname": "k",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 581,
+    "dur": 5
+  },
+  {
+    "name": "l: 12 Iter",
+    "cname": "l",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 586,
+    "dur": 6
+  },
+  {
+    "name": "m: 13 Iter",
+    "cname": "m",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 592,
+    "dur": 5
+  },
+  {
+    "name": "n: 14 Iter",
+    "cname": "n",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 597,
+    "dur": 12
+  },
+  {
+    "name": "o: 15 Iter",
+    "cname": "o",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 609,
+    "dur": 5
+  },
+  {
+    "name": "p: 16 Iter",
+    "cname": "p",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 614,
+    "dur": 6
+  },
+  {
+    "name": "q: 17 Iter",
+    "cname": "q",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 2696,
+    "dur": 6
+  },
+  {
+    "name": "r: 18 Iter",
+    "cname": "r",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 2702,
+    "dur": 6
+  },
+  {
+    "name": "s: 19 Iter",
+    "cname": "s",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 2708,
+    "dur": 5
+  },
+  {
+    "name": "t: 20 Iter",
+    "cname": "t",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 2713,
+    "dur": 6
+  },
+  {
+    "name": "u: 21 Iter",
+    "cname": "u",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 2719,
+    "dur": 5
+  },
+  {
+    "name": "v: 22 Iter",
+    "cname": "v",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 2724,
+    "dur": 6
+  },
+  {
+    "name": "w: 23 Iter",
+    "cname": "w",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 2730,
+    "dur": 5
+  },
+  {
+    "name": "x: 24 Iter",
+    "cname": "x",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 2735,
+    "dur": 6
+  },
+  {
+    "name": "y: 25 Iter",
+    "cname": "y",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 2741,
+    "dur": 5
+  },
+  {
+    "name": "z: 26 Iter",
+    "cname": "z",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 2746,
+    "dur": 6
+  },
+  {
+    "name": "a: 27 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 2752,
+    "dur": 5
+  },
+  {
+    "name": "b: 28 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 2757,
+    "dur": 6
+  },
+  {
+    "name": "c: 29 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 2763,
+    "dur": 5
+  },
+  {
+    "name": "d: 30 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 2768,
+    "dur": 6
+  },
+  {
+    "name": "e: 31 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 2774,
+    "dur": 5
+  },
+  {
+    "name": "f: 32 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 2779,
+    "dur": 6
+  },
+  {
+    "name": "g: 33 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 4454,
+    "dur": 6
+  },
+  {
+    "name": "h: 34 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 4460,
+    "dur": 6
+  },
+  {
+    "name": "i: 35 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 4466,
+    "dur": 5
+  },
+  {
+    "name": "j: 36 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 4471,
+    "dur": 6
+  },
+  {
+    "name": "k: 37 Iter",
+    "cname": "k",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 4477,
+    "dur": 5
+  },
+  {
+    "name": "l: 38 Iter",
+    "cname": "l",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 4482,
+    "dur": 6
+  },
+  {
+    "name": "m: 39 Iter",
+    "cname": "m",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 4488,
+    "dur": 5
+  },
+  {
+    "name": "n: 40 Iter",
+    "cname": "n",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 4493,
+    "dur": 6
+  },
+  {
+    "name": "o: 41 Iter",
+    "cname": "o",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 4499,
+    "dur": 5
+  },
+  {
+    "name": "p: 42 Iter",
+    "cname": "p",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 4504,
+    "dur": 6
+  },
+  {
+    "name": "q: 43 Iter",
+    "cname": "q",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 4510,
+    "dur": 5
+  },
+  {
+    "name": "r: 44 Iter",
+    "cname": "r",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 4515,
+    "dur": 6
+  },
+  {
+    "name": "s: 45 Iter",
+    "cname": "s",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 4521,
+    "dur": 5
+  },
+  {
+    "name": "t: 46 Iter",
+    "cname": "t",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 4526,
+    "dur": 6
+  },
+  {
+    "name": "u: 47 Iter",
+    "cname": "u",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 4532,
+    "dur": 5
+  },
+  {
+    "name": "v: 48 Iter",
+    "cname": "v",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 4537,
+    "dur": 6
+  },
+  {
+    "name": "w: 49 Iter",
+    "cname": "w",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 6249,
+    "dur": 6
+  },
+  {
+    "name": "x: 50 Iter",
+    "cname": "x",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 6255,
+    "dur": 6
+  },
+  {
+    "name": "y: 51 Iter",
+    "cname": "y",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 6261,
+    "dur": 5
+  },
+  {
+    "name": "z: 52 Iter",
+    "cname": "z",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 6266,
+    "dur": 6
+  },
+  {
+    "name": "a: 53 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 6272,
+    "dur": 5
+  },
+  {
+    "name": "b: 54 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 6277,
+    "dur": 6
+  },
+  {
+    "name": "c: 55 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 6283,
+    "dur": 5
+  },
+  {
+    "name": "d: 56 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 6288,
+    "dur": 6
+  },
+  {
+    "name": "e: 57 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 6294,
+    "dur": 5
+  },
+  {
+    "name": "f: 58 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 6299,
+    "dur": 6
+  },
+  {
+    "name": "g: 59 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 6305,
+    "dur": 5
+  },
+  {
+    "name": "h: 60 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 6310,
+    "dur": 6
+  },
+  {
+    "name": "i: 61 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 6316,
+    "dur": 5
+  },
+  {
+    "name": "j: 62 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 6321,
+    "dur": 6
+  },
+  {
+    "name": "k: 63 Iter",
+    "cname": "k",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 6327,
+    "dur": 5
+  },
+  {
+    "name": "l: 64 Iter",
+    "cname": "l",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 6332,
+    "dur": 6
+  },
+  {
+    "name": "m: 65 Iter",
+    "cname": "m",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 7757,
+    "dur": 7
+  },
+  {
+    "name": "n: 66 Iter",
+    "cname": "n",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 7764,
+    "dur": 5
+  },
+  {
+    "name": "o: 67 Iter",
+    "cname": "o",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 7769,
+    "dur": 6
+  },
+  {
+    "name": "p: 68 Iter",
+    "cname": "p",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 7775,
+    "dur": 5
+  },
+  {
+    "name": "q: 69 Iter",
+    "cname": "q",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 7780,
+    "dur": 6
+  },
+  {
+    "name": "r: 70 Iter",
+    "cname": "r",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 7786,
+    "dur": 5
+  },
+  {
+    "name": "s: 71 Iter",
+    "cname": "s",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 7791,
+    "dur": 6
+  },
+  {
+    "name": "t: 72 Iter",
+    "cname": "t",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 7797,
+    "dur": 5
+  },
+  {
+    "name": "u: 73 Iter",
+    "cname": "u",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 7802,
+    "dur": 6
+  },
+  {
+    "name": "v: 74 Iter",
+    "cname": "v",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 7808,
+    "dur": 5
+  },
+  {
+    "name": "w: 75 Iter",
+    "cname": "w",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 7813,
+    "dur": 6
+  },
+  {
+    "name": "x: 76 Iter",
+    "cname": "x",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 7819,
+    "dur": 5
+  },
+  {
+    "name": "y: 77 Iter",
+    "cname": "y",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 7824,
+    "dur": 6
+  },
+  {
+    "name": "z: 78 Iter",
+    "cname": "z",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 7830,
+    "dur": 5
+  },
+  {
+    "name": "a: 79 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 7835,
+    "dur": 6
+  },
+  {
+    "name": "b: 80 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 7",
+    "ts": 7841,
+    "dur": 5
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 8",
+    "ts": 620,
+    "dur": 11
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 8",
+    "ts": 2785,
+    "dur": 11
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 8",
+    "ts": 4543,
+    "dur": 11
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 8",
+    "ts": 6338,
+    "dur": 11
+  },
+  {
+    "name": "e: 5 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 8",
+    "ts": 7846,
+    "dur": 11
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 631,
+    "dur": 15
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 646,
+    "dur": 56
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 702,
+    "dur": 33
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 735,
+    "dur": 6
+  },
+  {
+    "name": "e: 5 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 741,
+    "dur": 5
+  },
+  {
+    "name": "f: 6 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 746,
+    "dur": 12
+  },
+  {
+    "name": "g: 7 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 758,
+    "dur": 5
+  },
+  {
+    "name": "h: 8 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 763,
+    "dur": 6
+  },
+  {
+    "name": "i: 9 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 769,
+    "dur": 5
+  },
+  {
+    "name": "j: 10 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 774,
+    "dur": 6
+  },
+  {
+    "name": "k: 11 Iter",
+    "cname": "k",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 780,
+    "dur": 5
+  },
+  {
+    "name": "l: 12 Iter",
+    "cname": "l",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 785,
+    "dur": 6
+  },
+  {
+    "name": "m: 13 Iter",
+    "cname": "m",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 791,
+    "dur": 5
+  },
+  {
+    "name": "n: 14 Iter",
+    "cname": "n",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 796,
+    "dur": 6
+  },
+  {
+    "name": "o: 15 Iter",
+    "cname": "o",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 802,
+    "dur": 5
+  },
+  {
+    "name": "p: 16 Iter",
+    "cname": "p",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 807,
+    "dur": 6
+  },
+  {
+    "name": "q: 17 Iter",
+    "cname": "q",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 2796,
+    "dur": 8
+  },
+  {
+    "name": "r: 18 Iter",
+    "cname": "r",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 2804,
+    "dur": 6
+  },
+  {
+    "name": "s: 19 Iter",
+    "cname": "s",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 2810,
+    "dur": 5
+  },
+  {
+    "name": "t: 20 Iter",
+    "cname": "t",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 2815,
+    "dur": 6
+  },
+  {
+    "name": "u: 21 Iter",
+    "cname": "u",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 2821,
+    "dur": 5
+  },
+  {
+    "name": "v: 22 Iter",
+    "cname": "v",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 2826,
+    "dur": 6
+  },
+  {
+    "name": "w: 23 Iter",
+    "cname": "w",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 2832,
+    "dur": 5
+  },
+  {
+    "name": "x: 24 Iter",
+    "cname": "x",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 2837,
+    "dur": 6
+  },
+  {
+    "name": "y: 25 Iter",
+    "cname": "y",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 2843,
+    "dur": 5
+  },
+  {
+    "name": "z: 26 Iter",
+    "cname": "z",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 2848,
+    "dur": 6
+  },
+  {
+    "name": "a: 27 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 2854,
+    "dur": 5
+  },
+  {
+    "name": "b: 28 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 2859,
+    "dur": 6
+  },
+  {
+    "name": "c: 29 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 2865,
+    "dur": 5
+  },
+  {
+    "name": "d: 30 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 2870,
+    "dur": 6
+  },
+  {
+    "name": "e: 31 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 2876,
+    "dur": 5
+  },
+  {
+    "name": "f: 32 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 2881,
+    "dur": 6
+  },
+  {
+    "name": "g: 33 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 4554,
+    "dur": 21
+  },
+  {
+    "name": "h: 34 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 4575,
+    "dur": 6
+  },
+  {
+    "name": "i: 35 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 4581,
+    "dur": 47
+  },
+  {
+    "name": "j: 36 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 4628,
+    "dur": 6
+  },
+  {
+    "name": "k: 37 Iter",
+    "cname": "k",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 4634,
+    "dur": 5
+  },
+  {
+    "name": "l: 38 Iter",
+    "cname": "l",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 4639,
+    "dur": 6
+  },
+  {
+    "name": "m: 39 Iter",
+    "cname": "m",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 4645,
+    "dur": 5
+  },
+  {
+    "name": "n: 40 Iter",
+    "cname": "n",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 4650,
+    "dur": 6
+  },
+  {
+    "name": "o: 41 Iter",
+    "cname": "o",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 4656,
+    "dur": 5
+  },
+  {
+    "name": "p: 42 Iter",
+    "cname": "p",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 4661,
+    "dur": 6
+  },
+  {
+    "name": "q: 43 Iter",
+    "cname": "q",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 4667,
+    "dur": 5
+  },
+  {
+    "name": "r: 44 Iter",
+    "cname": "r",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 4672,
+    "dur": 6
+  },
+  {
+    "name": "s: 45 Iter",
+    "cname": "s",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 4678,
+    "dur": 5
+  },
+  {
+    "name": "t: 46 Iter",
+    "cname": "t",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 4683,
+    "dur": 6
+  },
+  {
+    "name": "u: 47 Iter",
+    "cname": "u",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 4689,
+    "dur": 5
+  },
+  {
+    "name": "v: 48 Iter",
+    "cname": "v",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 4694,
+    "dur": 6
+  },
+  {
+    "name": "w: 49 Iter",
+    "cname": "w",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 6349,
+    "dur": 9
+  },
+  {
+    "name": "x: 50 Iter",
+    "cname": "x",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 6358,
+    "dur": 6
+  },
+  {
+    "name": "y: 51 Iter",
+    "cname": "y",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 6364,
+    "dur": 51
+  },
+  {
+    "name": "z: 52 Iter",
+    "cname": "z",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 6415,
+    "dur": 6
+  },
+  {
+    "name": "a: 53 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 6421,
+    "dur": 6
+  },
+  {
+    "name": "b: 54 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 6427,
+    "dur": 6
+  },
+  {
+    "name": "c: 55 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 6433,
+    "dur": 6
+  },
+  {
+    "name": "d: 56 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 6439,
+    "dur": 6
+  },
+  {
+    "name": "e: 57 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 6445,
+    "dur": 6
+  },
+  {
+    "name": "f: 58 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 6451,
+    "dur": 6
+  },
+  {
+    "name": "g: 59 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 6457,
+    "dur": 6
+  },
+  {
+    "name": "h: 60 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 6463,
+    "dur": 6
+  },
+  {
+    "name": "i: 61 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 6469,
+    "dur": 6
+  },
+  {
+    "name": "j: 62 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 6475,
+    "dur": 6
+  },
+  {
+    "name": "k: 63 Iter",
+    "cname": "k",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 6481,
+    "dur": 6
+  },
+  {
+    "name": "l: 64 Iter",
+    "cname": "l",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 6487,
+    "dur": 6
+  },
+  {
+    "name": "m: 65 Iter",
+    "cname": "m",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 7857,
+    "dur": 15
+  },
+  {
+    "name": "n: 66 Iter",
+    "cname": "n",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 7872,
+    "dur": 5
+  },
+  {
+    "name": "o: 67 Iter",
+    "cname": "o",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 7877,
+    "dur": 6
+  },
+  {
+    "name": "p: 68 Iter",
+    "cname": "p",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 7883,
+    "dur": 5
+  },
+  {
+    "name": "q: 69 Iter",
+    "cname": "q",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 7888,
+    "dur": 6
+  },
+  {
+    "name": "r: 70 Iter",
+    "cname": "r",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 7894,
+    "dur": 5
+  },
+  {
+    "name": "s: 71 Iter",
+    "cname": "s",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 7899,
+    "dur": 6
+  },
+  {
+    "name": "t: 72 Iter",
+    "cname": "t",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 7905,
+    "dur": 5
+  },
+  {
+    "name": "u: 73 Iter",
+    "cname": "u",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 7910,
+    "dur": 6
+  },
+  {
+    "name": "v: 74 Iter",
+    "cname": "v",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 7916,
+    "dur": 5
+  },
+  {
+    "name": "w: 75 Iter",
+    "cname": "w",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 7921,
+    "dur": 6
+  },
+  {
+    "name": "x: 76 Iter",
+    "cname": "x",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 7927,
+    "dur": 5
+  },
+  {
+    "name": "y: 77 Iter",
+    "cname": "y",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 7932,
+    "dur": 6
+  },
+  {
+    "name": "z: 78 Iter",
+    "cname": "z",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 7938,
+    "dur": 5
+  },
+  {
+    "name": "a: 79 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 7943,
+    "dur": 6
+  },
+  {
+    "name": "b: 80 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 9",
+    "ts": 7949,
+    "dur": 5
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 10",
+    "ts": 813,
+    "dur": 12
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 10",
+    "ts": 2887,
+    "dur": 13
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 10",
+    "ts": 4700,
+    "dur": 12
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 10",
+    "ts": 6493,
+    "dur": 12
+  },
+  {
+    "name": "e: 5 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 10",
+    "ts": 7954,
+    "dur": 12
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 825,
+    "dur": 86
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 911,
+    "dur": 19
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 930,
+    "dur": 10
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 940,
+    "dur": 19
+  },
+  {
+    "name": "e: 5 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 959,
+    "dur": 10
+  },
+  {
+    "name": "f: 6 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 969,
+    "dur": 10
+  },
+  {
+    "name": "g: 7 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 979,
+    "dur": 10
+  },
+  {
+    "name": "h: 8 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 989,
+    "dur": 10
+  },
+  {
+    "name": "i: 9 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 999,
+    "dur": 10
+  },
+  {
+    "name": "j: 10 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 1009,
+    "dur": 10
+  },
+  {
+    "name": "k: 11 Iter",
+    "cname": "k",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 1019,
+    "dur": 10
+  },
+  {
+    "name": "l: 12 Iter",
+    "cname": "l",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 1029,
+    "dur": 10
+  },
+  {
+    "name": "m: 13 Iter",
+    "cname": "m",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 1039,
+    "dur": 10
+  },
+  {
+    "name": "n: 14 Iter",
+    "cname": "n",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 1049,
+    "dur": 10
+  },
+  {
+    "name": "o: 15 Iter",
+    "cname": "o",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 1059,
+    "dur": 11
+  },
+  {
+    "name": "p: 16 Iter",
+    "cname": "p",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 1070,
+    "dur": 10
+  },
+  {
+    "name": "q: 17 Iter",
+    "cname": "q",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 2900,
+    "dur": 14
+  },
+  {
+    "name": "r: 18 Iter",
+    "cname": "r",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 2914,
+    "dur": 10
+  },
+  {
+    "name": "s: 19 Iter",
+    "cname": "s",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 2924,
+    "dur": 10
+  },
+  {
+    "name": "t: 20 Iter",
+    "cname": "t",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 2934,
+    "dur": 10
+  },
+  {
+    "name": "u: 21 Iter",
+    "cname": "u",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 2944,
+    "dur": 11
+  },
+  {
+    "name": "v: 22 Iter",
+    "cname": "v",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 2955,
+    "dur": 10
+  },
+  {
+    "name": "w: 23 Iter",
+    "cname": "w",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 2965,
+    "dur": 10
+  },
+  {
+    "name": "x: 24 Iter",
+    "cname": "x",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 2975,
+    "dur": 10
+  },
+  {
+    "name": "y: 25 Iter",
+    "cname": "y",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 2985,
+    "dur": 10
+  },
+  {
+    "name": "z: 26 Iter",
+    "cname": "z",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 2995,
+    "dur": 11
+  },
+  {
+    "name": "a: 27 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 3006,
+    "dur": 10
+  },
+  {
+    "name": "b: 28 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 3016,
+    "dur": 10
+  },
+  {
+    "name": "c: 29 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 3026,
+    "dur": 11
+  },
+  {
+    "name": "d: 30 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 3037,
+    "dur": 10
+  },
+  {
+    "name": "e: 31 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 3047,
+    "dur": 10
+  },
+  {
+    "name": "f: 32 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 3057,
+    "dur": 10
+  },
+  {
+    "name": "g: 33 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 4712,
+    "dur": 21
+  },
+  {
+    "name": "h: 34 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 4733,
+    "dur": 19
+  },
+  {
+    "name": "i: 35 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 4752,
+    "dur": 10
+  },
+  {
+    "name": "j: 36 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 4762,
+    "dur": 10
+  },
+  {
+    "name": "k: 37 Iter",
+    "cname": "k",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 4772,
+    "dur": 11
+  },
+  {
+    "name": "l: 38 Iter",
+    "cname": "l",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 4783,
+    "dur": 10
+  },
+  {
+    "name": "m: 39 Iter",
+    "cname": "m",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 4793,
+    "dur": 10
+  },
+  {
+    "name": "n: 40 Iter",
+    "cname": "n",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 4803,
+    "dur": 11
+  },
+  {
+    "name": "o: 41 Iter",
+    "cname": "o",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 4814,
+    "dur": 10
+  },
+  {
+    "name": "p: 42 Iter",
+    "cname": "p",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 4824,
+    "dur": 10
+  },
+  {
+    "name": "q: 43 Iter",
+    "cname": "q",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 4834,
+    "dur": 10
+  },
+  {
+    "name": "r: 44 Iter",
+    "cname": "r",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 4844,
+    "dur": 10
+  },
+  {
+    "name": "s: 45 Iter",
+    "cname": "s",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 4854,
+    "dur": 10
+  },
+  {
+    "name": "t: 46 Iter",
+    "cname": "t",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 4864,
+    "dur": 10
+  },
+  {
+    "name": "u: 47 Iter",
+    "cname": "u",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 4874,
+    "dur": 10
+  },
+  {
+    "name": "v: 48 Iter",
+    "cname": "v",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 4884,
+    "dur": 10
+  },
+  {
+    "name": "w: 49 Iter",
+    "cname": "w",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 6505,
+    "dur": 21
+  },
+  {
+    "name": "x: 50 Iter",
+    "cname": "x",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 6526,
+    "dur": 19
+  },
+  {
+    "name": "y: 51 Iter",
+    "cname": "y",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 6545,
+    "dur": 11
+  },
+  {
+    "name": "z: 52 Iter",
+    "cname": "z",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 6556,
+    "dur": 11
+  },
+  {
+    "name": "a: 53 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 6567,
+    "dur": 12
+  },
+  {
+    "name": "b: 54 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 6579,
+    "dur": 11
+  },
+  {
+    "name": "c: 55 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 6590,
+    "dur": 11
+  },
+  {
+    "name": "d: 56 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 6601,
+    "dur": 19
+  },
+  {
+    "name": "e: 57 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 6620,
+    "dur": 11
+  },
+  {
+    "name": "f: 58 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 6631,
+    "dur": 11
+  },
+  {
+    "name": "g: 59 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 6642,
+    "dur": 11
+  },
+  {
+    "name": "h: 60 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 6653,
+    "dur": 11
+  },
+  {
+    "name": "i: 61 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 6664,
+    "dur": 11
+  },
+  {
+    "name": "j: 62 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 6675,
+    "dur": 12
+  },
+  {
+    "name": "k: 63 Iter",
+    "cname": "k",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 6687,
+    "dur": 11
+  },
+  {
+    "name": "l: 64 Iter",
+    "cname": "l",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 6698,
+    "dur": 11
+  },
+  {
+    "name": "m: 65 Iter",
+    "cname": "m",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 7966,
+    "dur": 15
+  },
+  {
+    "name": "n: 66 Iter",
+    "cname": "n",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 7981,
+    "dur": 11
+  },
+  {
+    "name": "o: 67 Iter",
+    "cname": "o",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 7992,
+    "dur": 11
+  },
+  {
+    "name": "p: 68 Iter",
+    "cname": "p",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 8003,
+    "dur": 11
+  },
+  {
+    "name": "q: 69 Iter",
+    "cname": "q",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 8014,
+    "dur": 11
+  },
+  {
+    "name": "r: 70 Iter",
+    "cname": "r",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 8025,
+    "dur": 11
+  },
+  {
+    "name": "s: 71 Iter",
+    "cname": "s",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 8036,
+    "dur": 11
+  },
+  {
+    "name": "t: 72 Iter",
+    "cname": "t",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 8047,
+    "dur": 11
+  },
+  {
+    "name": "u: 73 Iter",
+    "cname": "u",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 8058,
+    "dur": 11
+  },
+  {
+    "name": "v: 74 Iter",
+    "cname": "v",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 8069,
+    "dur": 11
+  },
+  {
+    "name": "w: 75 Iter",
+    "cname": "w",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 8080,
+    "dur": 11
+  },
+  {
+    "name": "x: 76 Iter",
+    "cname": "x",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 8091,
+    "dur": 11
+  },
+  {
+    "name": "y: 77 Iter",
+    "cname": "y",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 8102,
+    "dur": 11
+  },
+  {
+    "name": "z: 78 Iter",
+    "cname": "z",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 8113,
+    "dur": 11
+  },
+  {
+    "name": "a: 79 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 8124,
+    "dur": 11
+  },
+  {
+    "name": "b: 80 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 11",
+    "ts": 8135,
+    "dur": 11
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 12",
+    "ts": 1080,
+    "dur": 12
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 12",
+    "ts": 3067,
+    "dur": 12
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 12",
+    "ts": 4894,
+    "dur": 12
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 12",
+    "ts": 6709,
+    "dur": 12
+  },
+  {
+    "name": "e: 5 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 12",
+    "ts": 8146,
+    "dur": 12
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 1092,
+    "dur": 71
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 1163,
+    "dur": 18
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 1181,
+    "dur": 18
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 1199,
+    "dur": 18
+  },
+  {
+    "name": "e: 5 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 1217,
+    "dur": 18
+  },
+  {
+    "name": "f: 6 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 1235,
+    "dur": 18
+  },
+  {
+    "name": "g: 7 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 1253,
+    "dur": 18
+  },
+  {
+    "name": "h: 8 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 1271,
+    "dur": 18
+  },
+  {
+    "name": "i: 9 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 3079,
+    "dur": 19
+  },
+  {
+    "name": "j: 10 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 3098,
+    "dur": 18
+  },
+  {
+    "name": "k: 11 Iter",
+    "cname": "k",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 3116,
+    "dur": 18
+  },
+  {
+    "name": "l: 12 Iter",
+    "cname": "l",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 3134,
+    "dur": 18
+  },
+  {
+    "name": "m: 13 Iter",
+    "cname": "m",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 3152,
+    "dur": 18
+  },
+  {
+    "name": "n: 14 Iter",
+    "cname": "n",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 3170,
+    "dur": 18
+  },
+  {
+    "name": "o: 15 Iter",
+    "cname": "o",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 3188,
+    "dur": 18
+  },
+  {
+    "name": "p: 16 Iter",
+    "cname": "p",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 3206,
+    "dur": 18
+  },
+  {
+    "name": "q: 17 Iter",
+    "cname": "q",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 4906,
+    "dur": 19
+  },
+  {
+    "name": "r: 18 Iter",
+    "cname": "r",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 4925,
+    "dur": 18
+  },
+  {
+    "name": "s: 19 Iter",
+    "cname": "s",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 4943,
+    "dur": 19
+  },
+  {
+    "name": "t: 20 Iter",
+    "cname": "t",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 4962,
+    "dur": 18
+  },
+  {
+    "name": "u: 21 Iter",
+    "cname": "u",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 4980,
+    "dur": 20
+  },
+  {
+    "name": "v: 22 Iter",
+    "cname": "v",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 5000,
+    "dur": 19
+  },
+  {
+    "name": "w: 23 Iter",
+    "cname": "w",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 5019,
+    "dur": 20
+  },
+  {
+    "name": "x: 24 Iter",
+    "cname": "x",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 5039,
+    "dur": 18
+  },
+  {
+    "name": "y: 25 Iter",
+    "cname": "y",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 6721,
+    "dur": 20
+  },
+  {
+    "name": "z: 26 Iter",
+    "cname": "z",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 6741,
+    "dur": 19
+  },
+  {
+    "name": "a: 27 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 6760,
+    "dur": 18
+  },
+  {
+    "name": "b: 28 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 6778,
+    "dur": 19
+  },
+  {
+    "name": "c: 29 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 6797,
+    "dur": 19
+  },
+  {
+    "name": "d: 30 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 6816,
+    "dur": 19
+  },
+  {
+    "name": "e: 31 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 6835,
+    "dur": 18
+  },
+  {
+    "name": "f: 32 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 6853,
+    "dur": 19
+  },
+  {
+    "name": "g: 33 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 8158,
+    "dur": 19
+  },
+  {
+    "name": "h: 34 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 8177,
+    "dur": 18
+  },
+  {
+    "name": "i: 35 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 8195,
+    "dur": 19
+  },
+  {
+    "name": "j: 36 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 8214,
+    "dur": 19
+  },
+  {
+    "name": "k: 37 Iter",
+    "cname": "k",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 8233,
+    "dur": 18
+  },
+  {
+    "name": "l: 38 Iter",
+    "cname": "l",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 8251,
+    "dur": 18
+  },
+  {
+    "name": "m: 39 Iter",
+    "cname": "m",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 8269,
+    "dur": 19
+  },
+  {
+    "name": "n: 40 Iter",
+    "cname": "n",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 13",
+    "ts": 8288,
+    "dur": 18
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 14",
+    "ts": 1289,
+    "dur": 18
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 14",
+    "ts": 3224,
+    "dur": 13
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 14",
+    "ts": 5057,
+    "dur": 13
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 14",
+    "ts": 6872,
+    "dur": 13
+  },
+  {
+    "name": "e: 5 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 14",
+    "ts": 8306,
+    "dur": 13
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 15",
+    "ts": 1307,
+    "dur": 139
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 15",
+    "ts": 1446,
+    "dur": 42
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 15",
+    "ts": 1488,
+    "dur": 42
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 15",
+    "ts": 1530,
+    "dur": 43
+  },
+  {
+    "name": "e: 5 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 15",
+    "ts": 3237,
+    "dur": 43
+  },
+  {
+    "name": "f: 6 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 15",
+    "ts": 3280,
+    "dur": 44
+  },
+  {
+    "name": "g: 7 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 15",
+    "ts": 3324,
+    "dur": 42
+  },
+  {
+    "name": "h: 8 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 15",
+    "ts": 3366,
+    "dur": 44
+  },
+  {
+    "name": "i: 9 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 15",
+    "ts": 5070,
+    "dur": 43
+  },
+  {
+    "name": "j: 10 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 15",
+    "ts": 5113,
+    "dur": 44
+  },
+  {
+    "name": "k: 11 Iter",
+    "cname": "k",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 15",
+    "ts": 5157,
+    "dur": 42
+  },
+  {
+    "name": "l: 12 Iter",
+    "cname": "l",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 15",
+    "ts": 5199,
+    "dur": 44
+  },
+  {
+    "name": "m: 13 Iter",
+    "cname": "m",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 15",
+    "ts": 6885,
+    "dur": 44
+  },
+  {
+    "name": "n: 14 Iter",
+    "cname": "n",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 15",
+    "ts": 6929,
+    "dur": 45
+  },
+  {
+    "name": "o: 15 Iter",
+    "cname": "o",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 15",
+    "ts": 6974,
+    "dur": 42
+  },
+  {
+    "name": "p: 16 Iter",
+    "cname": "p",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 15",
+    "ts": 7016,
+    "dur": 43
+  },
+  {
+    "name": "q: 17 Iter",
+    "cname": "q",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 15",
+    "ts": 8319,
+    "dur": 44
+  },
+  {
+    "name": "r: 18 Iter",
+    "cname": "r",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 15",
+    "ts": 8363,
+    "dur": 43
+  },
+  {
+    "name": "s: 19 Iter",
+    "cname": "s",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 15",
+    "ts": 8406,
+    "dur": 41
+  },
+  {
+    "name": "t: 20 Iter",
+    "cname": "t",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 15",
+    "ts": 8447,
+    "dur": 43
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 16",
+    "ts": 1573,
+    "dur": 15
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 16",
+    "ts": 3410,
+    "dur": 14
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 16",
+    "ts": 5243,
+    "dur": 14
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 16",
+    "ts": 7059,
+    "dur": 14
+  },
+  {
+    "name": "e: 5 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 16",
+    "ts": 8490,
+    "dur": 14
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 17",
+    "ts": 1586,
+    "dur": 6
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 17",
+    "ts": 1769,
+    "dur": 3
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 17",
+    "ts": 3423,
+    "dur": 3
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 17",
+    "ts": 3551,
+    "dur": 3
+  },
+  {
+    "name": "e: 5 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 17",
+    "ts": 5256,
+    "dur": 3
+  },
+  {
+    "name": "f: 6 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 17",
+    "ts": 5384,
+    "dur": 3
+  },
+  {
+    "name": "g: 7 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 17",
+    "ts": 7072,
+    "dur": 3
+  },
+  {
+    "name": "h: 8 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 17",
+    "ts": 7201,
+    "dur": 3
+  },
+  {
+    "name": "i: 9 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 17",
+    "ts": 8503,
+    "dur": 3
+  },
+  {
+    "name": "j: 10 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 17",
+    "ts": 8631,
+    "dur": 3
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 1592,
+    "dur": 81
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 1673,
+    "dur": 30
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 1703,
+    "dur": 28
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 1731,
+    "dur": 27
+  },
+  {
+    "name": "e: 5 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 1772,
+    "dur": 32
+  },
+  {
+    "name": "f: 6 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 1804,
+    "dur": 27
+  },
+  {
+    "name": "g: 7 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 1831,
+    "dur": 29
+  },
+  {
+    "name": "h: 8 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 1860,
+    "dur": 28
+  },
+  {
+    "name": "i: 9 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 3426,
+    "dur": 31
+  },
+  {
+    "name": "j: 10 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 3457,
+    "dur": 28
+  },
+  {
+    "name": "k: 11 Iter",
+    "cname": "k",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 3485,
+    "dur": 27
+  },
+  {
+    "name": "l: 12 Iter",
+    "cname": "l",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 3512,
+    "dur": 28
+  },
+  {
+    "name": "m: 13 Iter",
+    "cname": "m",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 3554,
+    "dur": 32
+  },
+  {
+    "name": "n: 14 Iter",
+    "cname": "n",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 3586,
+    "dur": 28
+  },
+  {
+    "name": "o: 15 Iter",
+    "cname": "o",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 3614,
+    "dur": 29
+  },
+  {
+    "name": "p: 16 Iter",
+    "cname": "p",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 3643,
+    "dur": 28
+  },
+  {
+    "name": "q: 17 Iter",
+    "cname": "q",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 5259,
+    "dur": 31
+  },
+  {
+    "name": "r: 18 Iter",
+    "cname": "r",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 5290,
+    "dur": 28
+  },
+  {
+    "name": "s: 19 Iter",
+    "cname": "s",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 5318,
+    "dur": 27
+  },
+  {
+    "name": "t: 20 Iter",
+    "cname": "t",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 5345,
+    "dur": 28
+  },
+  {
+    "name": "u: 21 Iter",
+    "cname": "u",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 5387,
+    "dur": 32
+  },
+  {
+    "name": "v: 22 Iter",
+    "cname": "v",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 5419,
+    "dur": 28
+  },
+  {
+    "name": "w: 23 Iter",
+    "cname": "w",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 5447,
+    "dur": 29
+  },
+  {
+    "name": "x: 24 Iter",
+    "cname": "x",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 5476,
+    "dur": 28
+  },
+  {
+    "name": "y: 25 Iter",
+    "cname": "y",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 7075,
+    "dur": 31
+  },
+  {
+    "name": "z: 26 Iter",
+    "cname": "z",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 7106,
+    "dur": 28
+  },
+  {
+    "name": "a: 27 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 7134,
+    "dur": 29
+  },
+  {
+    "name": "b: 28 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 7163,
+    "dur": 27
+  },
+  {
+    "name": "c: 29 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 7204,
+    "dur": 30
+  },
+  {
+    "name": "d: 30 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 7234,
+    "dur": 30
+  },
+  {
+    "name": "e: 31 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 7264,
+    "dur": 26
+  },
+  {
+    "name": "f: 32 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 7290,
+    "dur": 30
+  },
+  {
+    "name": "g: 33 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 8506,
+    "dur": 31
+  },
+  {
+    "name": "h: 34 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 8537,
+    "dur": 27
+  },
+  {
+    "name": "i: 35 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 8564,
+    "dur": 30
+  },
+  {
+    "name": "j: 36 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 8594,
+    "dur": 26
+  },
+  {
+    "name": "k: 37 Iter",
+    "cname": "k",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 8634,
+    "dur": 31
+  },
+  {
+    "name": "l: 38 Iter",
+    "cname": "l",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 8665,
+    "dur": 29
+  },
+  {
+    "name": "m: 39 Iter",
+    "cname": "m",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 8694,
+    "dur": 26
+  },
+  {
+    "name": "n: 40 Iter",
+    "cname": "n",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 18",
+    "ts": 8720,
+    "dur": 27
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 19",
+    "ts": 1758,
+    "dur": 11
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 19",
+    "ts": 1888,
+    "dur": 11
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 19",
+    "ts": 3540,
+    "dur": 11
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 19",
+    "ts": 3671,
+    "dur": 11
+  },
+  {
+    "name": "e: 5 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 19",
+    "ts": 5373,
+    "dur": 11
+  },
+  {
+    "name": "f: 6 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 19",
+    "ts": 5504,
+    "dur": 11
+  },
+  {
+    "name": "g: 7 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 19",
+    "ts": 7190,
+    "dur": 11
+  },
+  {
+    "name": "h: 8 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 19",
+    "ts": 7320,
+    "dur": 11
+  },
+  {
+    "name": "i: 9 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 19",
+    "ts": 8620,
+    "dur": 11
+  },
+  {
+    "name": "j: 10 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 19",
+    "ts": 8747,
+    "dur": 11
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 20",
+    "ts": 1899,
+    "dur": 10
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 20",
+    "ts": 3682,
+    "dur": 11
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 20",
+    "ts": 5515,
+    "dur": 11
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 20",
+    "ts": 7331,
+    "dur": 10
+  },
+  {
+    "name": "e: 5 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 20",
+    "ts": 8758,
+    "dur": 10
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 1909,
+    "dur": 131
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 2040,
+    "dur": 30
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 2070,
+    "dur": 30
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 2100,
+    "dur": 27
+  },
+  {
+    "name": "e: 5 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 2127,
+    "dur": 29
+  },
+  {
+    "name": "f: 6 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 2156,
+    "dur": 29
+  },
+  {
+    "name": "g: 7 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 2185,
+    "dur": 30
+  },
+  {
+    "name": "h: 8 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 2215,
+    "dur": 26
+  },
+  {
+    "name": "i: 9 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 3693,
+    "dur": 32
+  },
+  {
+    "name": "j: 10 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 3725,
+    "dur": 27
+  },
+  {
+    "name": "k: 11 Iter",
+    "cname": "k",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 3752,
+    "dur": 27
+  },
+  {
+    "name": "l: 12 Iter",
+    "cname": "l",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 3779,
+    "dur": 28
+  },
+  {
+    "name": "m: 13 Iter",
+    "cname": "m",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 3807,
+    "dur": 27
+  },
+  {
+    "name": "n: 14 Iter",
+    "cname": "n",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 3834,
+    "dur": 27
+  },
+  {
+    "name": "o: 15 Iter",
+    "cname": "o",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 3861,
+    "dur": 28
+  },
+  {
+    "name": "p: 16 Iter",
+    "cname": "p",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 3889,
+    "dur": 27
+  },
+  {
+    "name": "q: 17 Iter",
+    "cname": "q",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 5526,
+    "dur": 32
+  },
+  {
+    "name": "r: 18 Iter",
+    "cname": "r",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 5558,
+    "dur": 27
+  },
+  {
+    "name": "s: 19 Iter",
+    "cname": "s",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 5585,
+    "dur": 27
+  },
+  {
+    "name": "t: 20 Iter",
+    "cname": "t",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 5612,
+    "dur": 28
+  },
+  {
+    "name": "u: 21 Iter",
+    "cname": "u",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 5640,
+    "dur": 27
+  },
+  {
+    "name": "v: 22 Iter",
+    "cname": "v",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 5667,
+    "dur": 27
+  },
+  {
+    "name": "w: 23 Iter",
+    "cname": "w",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 5694,
+    "dur": 28
+  },
+  {
+    "name": "x: 24 Iter",
+    "cname": "x",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 5722,
+    "dur": 27
+  },
+  {
+    "name": "y: 25 Iter",
+    "cname": "y",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 7341,
+    "dur": 32
+  },
+  {
+    "name": "z: 26 Iter",
+    "cname": "z",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 7373,
+    "dur": 29
+  },
+  {
+    "name": "a: 27 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 7402,
+    "dur": 26
+  },
+  {
+    "name": "b: 28 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 7428,
+    "dur": 30
+  },
+  {
+    "name": "c: 29 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 7458,
+    "dur": 28
+  },
+  {
+    "name": "d: 30 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 7486,
+    "dur": 29
+  },
+  {
+    "name": "e: 31 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 7515,
+    "dur": 26
+  },
+  {
+    "name": "f: 32 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 7541,
+    "dur": 28
+  },
+  {
+    "name": "g: 33 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 8768,
+    "dur": 31
+  },
+  {
+    "name": "h: 34 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 8799,
+    "dur": 29
+  },
+  {
+    "name": "i: 35 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 8828,
+    "dur": 28
+  },
+  {
+    "name": "j: 36 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 8856,
+    "dur": 29
+  },
+  {
+    "name": "k: 37 Iter",
+    "cname": "k",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 8885,
+    "dur": 28
+  },
+  {
+    "name": "l: 38 Iter",
+    "cname": "l",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 8913,
+    "dur": 27
+  },
+  {
+    "name": "m: 39 Iter",
+    "cname": "m",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 8940,
+    "dur": 28
+  },
+  {
+    "name": "n: 40 Iter",
+    "cname": "n",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 21",
+    "ts": 8968,
+    "dur": 27
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 22",
+    "ts": 2241,
+    "dur": 17
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 22",
+    "ts": 3916,
+    "dur": 17
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 22",
+    "ts": 5749,
+    "dur": 17
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 22",
+    "ts": 7569,
+    "dur": 17
+  },
+  {
+    "name": "e: 5 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 22",
+    "ts": 8995,
+    "dur": 17
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 23",
+    "ts": 2258,
+    "dur": 21
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 24",
+    "ts": 2279,
+    "dur": 57
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 24",
+    "ts": 2338,
+    "dur": 17
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 24",
+    "ts": 2357,
+    "dur": 15
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 24",
+    "ts": 2374,
+    "dur": 14
+  },
+  {
+    "name": "e: 5 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 24",
+    "ts": 2390,
+    "dur": 15
+  },
+  {
+    "name": "f: 6 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 24",
+    "ts": 2407,
+    "dur": 14
+  },
+  {
+    "name": "g: 7 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 24",
+    "ts": 2423,
+    "dur": 15
+  },
+  {
+    "name": "h: 8 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 24",
+    "ts": 2440,
+    "dur": 13
+  },
+  {
+    "name": "i: 9 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 24",
+    "ts": 2455,
+    "dur": 14
+  },
+  {
+    "name": "j: 10 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 24",
+    "ts": 2471,
+    "dur": 14
+  },
+  {
+    "name": "k: 11 Iter",
+    "cname": "k",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 24",
+    "ts": 2487,
+    "dur": 15
+  },
+  {
+    "name": "l: 12 Iter",
+    "cname": "l",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 24",
+    "ts": 2504,
+    "dur": 14
+  },
+  {
+    "name": "m: 13 Iter",
+    "cname": "m",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 24",
+    "ts": 2520,
+    "dur": 15
+  },
+  {
+    "name": "n: 14 Iter",
+    "cname": "n",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 24",
+    "ts": 2537,
+    "dur": 13
+  },
+  {
+    "name": "o: 15 Iter",
+    "cname": "o",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 24",
+    "ts": 2552,
+    "dur": 17
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 25",
+    "ts": 2336,
+    "dur": 2
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 25",
+    "ts": 2355,
+    "dur": 2
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 25",
+    "ts": 2372,
+    "dur": 2
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 25",
+    "ts": 2388,
+    "dur": 2
+  },
+  {
+    "name": "e: 5 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 25",
+    "ts": 2405,
+    "dur": 2
+  },
+  {
+    "name": "f: 6 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 25",
+    "ts": 2421,
+    "dur": 2
+  },
+  {
+    "name": "g: 7 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 25",
+    "ts": 2438,
+    "dur": 2
+  },
+  {
+    "name": "h: 8 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 25",
+    "ts": 2453,
+    "dur": 2
+  },
+  {
+    "name": "i: 9 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 25",
+    "ts": 2469,
+    "dur": 2
+  },
+  {
+    "name": "j: 10 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 25",
+    "ts": 2485,
+    "dur": 2
+  },
+  {
+    "name": "k: 11 Iter",
+    "cname": "k",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 25",
+    "ts": 2502,
+    "dur": 2
+  },
+  {
+    "name": "l: 12 Iter",
+    "cname": "l",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 25",
+    "ts": 2518,
+    "dur": 2
+  },
+  {
+    "name": "m: 13 Iter",
+    "cname": "m",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 25",
+    "ts": 2535,
+    "dur": 2
+  },
+  {
+    "name": "n: 14 Iter",
+    "cname": "n",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 25",
+    "ts": 2550,
+    "dur": 2
+  },
+  {
+    "name": "o: 15 Iter",
+    "cname": "o",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 25",
+    "ts": 2569,
+    "dur": 2
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 26",
+    "ts": 2571,
+    "dur": 14
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 27",
+    "ts": 2584,
+    "dur": 3
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 27",
+    "ts": 2587,
+    "dur": 7
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 27",
+    "ts": 2594,
+    "dur": 4
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 27",
+    "ts": 2598,
+    "dur": 5
+  },
+  {
+    "name": "e: 5 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 27",
+    "ts": 2603,
+    "dur": 5
+  },
+  {
+    "name": "f: 6 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 27",
+    "ts": 2608,
+    "dur": 6
+  },
+  {
+    "name": "g: 7 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 27",
+    "ts": 2614,
+    "dur": 5
+  },
+  {
+    "name": "h: 8 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 27",
+    "ts": 2619,
+    "dur": 6
+  },
+  {
+    "name": "i: 9 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 27",
+    "ts": 2625,
+    "dur": 5
+  },
+  {
+    "name": "j: 10 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 27",
+    "ts": 2630,
+    "dur": 6
+  },
+  {
+    "name": "k: 11 Iter",
+    "cname": "k",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 27",
+    "ts": 2636,
+    "dur": 5
+  },
+  {
+    "name": "l: 12 Iter",
+    "cname": "l",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 27",
+    "ts": 2641,
+    "dur": 6
+  },
+  {
+    "name": "m: 13 Iter",
+    "cname": "m",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 27",
+    "ts": 2647,
+    "dur": 5
+  },
+  {
+    "name": "n: 14 Iter",
+    "cname": "n",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 27",
+    "ts": 2652,
+    "dur": 6
+  },
+  {
+    "name": "o: 15 Iter",
+    "cname": "o",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 27",
+    "ts": 2658,
+    "dur": 5
+  },
+  {
+    "name": "p: 16 Iter",
+    "cname": "p",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 27",
+    "ts": 2663,
+    "dur": 6
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 28",
+    "ts": 2669,
+    "dur": 11
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 29",
+    "ts": 3933,
+    "dur": 58
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 30",
+    "ts": 3991,
+    "dur": 17
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 31",
+    "ts": 4008,
+    "dur": 17
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 31",
+    "ts": 4027,
+    "dur": 13
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 31",
+    "ts": 4042,
+    "dur": 10
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 31",
+    "ts": 4054,
+    "dur": 13
+  },
+  {
+    "name": "e: 5 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 31",
+    "ts": 4069,
+    "dur": 12
+  },
+  {
+    "name": "f: 6 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 31",
+    "ts": 4083,
+    "dur": 12
+  },
+  {
+    "name": "g: 7 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 31",
+    "ts": 4097,
+    "dur": 10
+  },
+  {
+    "name": "h: 8 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 31",
+    "ts": 4109,
+    "dur": 12
+  },
+  {
+    "name": "i: 9 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 31",
+    "ts": 4123,
+    "dur": 11
+  },
+  {
+    "name": "j: 10 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 31",
+    "ts": 4136,
+    "dur": 12
+  },
+  {
+    "name": "k: 11 Iter",
+    "cname": "k",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 31",
+    "ts": 4150,
+    "dur": 12
+  },
+  {
+    "name": "l: 12 Iter",
+    "cname": "l",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 31",
+    "ts": 4164,
+    "dur": 12
+  },
+  {
+    "name": "m: 13 Iter",
+    "cname": "m",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 31",
+    "ts": 4178,
+    "dur": 10
+  },
+  {
+    "name": "n: 14 Iter",
+    "cname": "n",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 31",
+    "ts": 4190,
+    "dur": 11
+  },
+  {
+    "name": "o: 15 Iter",
+    "cname": "o",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 31",
+    "ts": 4203,
+    "dur": 12
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 32",
+    "ts": 4025,
+    "dur": 2
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 32",
+    "ts": 4040,
+    "dur": 2
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 32",
+    "ts": 4052,
+    "dur": 2
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 32",
+    "ts": 4067,
+    "dur": 2
+  },
+  {
+    "name": "e: 5 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 32",
+    "ts": 4081,
+    "dur": 2
+  },
+  {
+    "name": "f: 6 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 32",
+    "ts": 4095,
+    "dur": 2
+  },
+  {
+    "name": "g: 7 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 32",
+    "ts": 4107,
+    "dur": 2
+  },
+  {
+    "name": "h: 8 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 32",
+    "ts": 4121,
+    "dur": 2
+  },
+  {
+    "name": "i: 9 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 32",
+    "ts": 4134,
+    "dur": 2
+  },
+  {
+    "name": "j: 10 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 32",
+    "ts": 4148,
+    "dur": 2
+  },
+  {
+    "name": "k: 11 Iter",
+    "cname": "k",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 32",
+    "ts": 4162,
+    "dur": 2
+  },
+  {
+    "name": "l: 12 Iter",
+    "cname": "l",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 32",
+    "ts": 4176,
+    "dur": 2
+  },
+  {
+    "name": "m: 13 Iter",
+    "cname": "m",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 32",
+    "ts": 4188,
+    "dur": 2
+  },
+  {
+    "name": "n: 14 Iter",
+    "cname": "n",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 32",
+    "ts": 4201,
+    "dur": 2
+  },
+  {
+    "name": "o: 15 Iter",
+    "cname": "o",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 32",
+    "ts": 4215,
+    "dur": 2
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 33",
+    "ts": 4217,
+    "dur": 10
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 34",
+    "ts": 4227,
+    "dur": 4
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 35",
+    "ts": 4231,
+    "dur": 155
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 36",
+    "ts": 5766,
+    "dur": 16
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 37",
+    "ts": 5782,
+    "dur": 1
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 37",
+    "ts": 5857,
+    "dur": 1
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 37",
+    "ts": 5869,
+    "dur": 1
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 37",
+    "ts": 5889,
+    "dur": 12
+  },
+  {
+    "name": "e: 5 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 37",
+    "ts": 5918,
+    "dur": 1
+  },
+  {
+    "name": "f: 6 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 37",
+    "ts": 5932,
+    "dur": 1
+  },
+  {
+    "name": "g: 7 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 37",
+    "ts": 5946,
+    "dur": 1
+  },
+  {
+    "name": "h: 8 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 37",
+    "ts": 5958,
+    "dur": 1
+  },
+  {
+    "name": "i: 9 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 37",
+    "ts": 5971,
+    "dur": 1
+  },
+  {
+    "name": "j: 10 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 37",
+    "ts": 5984,
+    "dur": 1
+  },
+  {
+    "name": "k: 11 Iter",
+    "cname": "k",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 37",
+    "ts": 5997,
+    "dur": 1
+  },
+  {
+    "name": "l: 12 Iter",
+    "cname": "l",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 37",
+    "ts": 6010,
+    "dur": 1
+  },
+  {
+    "name": "m: 13 Iter",
+    "cname": "m",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 37",
+    "ts": 6024,
+    "dur": 1
+  },
+  {
+    "name": "n: 14 Iter",
+    "cname": "n",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 37",
+    "ts": 6036,
+    "dur": 1
+  },
+  {
+    "name": "o: 15 Iter",
+    "cname": "o",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 37",
+    "ts": 6049,
+    "dur": 1
+  },
+  {
+    "name": "p: 16 Iter",
+    "cname": "p",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 37",
+    "ts": 6063,
+    "dur": 1
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 38",
+    "ts": 5783,
+    "dur": 72
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 38",
+    "ts": 5870,
+    "dur": 17
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 38",
+    "ts": 5901,
+    "dur": 15
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 38",
+    "ts": 5919,
+    "dur": 11
+  },
+  {
+    "name": "e: 5 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 38",
+    "ts": 5933,
+    "dur": 11
+  },
+  {
+    "name": "f: 6 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 38",
+    "ts": 5947,
+    "dur": 9
+  },
+  {
+    "name": "g: 7 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 38",
+    "ts": 5959,
+    "dur": 10
+  },
+  {
+    "name": "h: 8 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 38",
+    "ts": 5972,
+    "dur": 10
+  },
+  {
+    "name": "i: 9 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 38",
+    "ts": 5985,
+    "dur": 10
+  },
+  {
+    "name": "j: 10 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 38",
+    "ts": 5998,
+    "dur": 10
+  },
+  {
+    "name": "k: 11 Iter",
+    "cname": "k",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 38",
+    "ts": 6011,
+    "dur": 11
+  },
+  {
+    "name": "l: 12 Iter",
+    "cname": "l",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 38",
+    "ts": 6025,
+    "dur": 9
+  },
+  {
+    "name": "m: 13 Iter",
+    "cname": "m",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 38",
+    "ts": 6037,
+    "dur": 10
+  },
+  {
+    "name": "n: 14 Iter",
+    "cname": "n",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 38",
+    "ts": 6050,
+    "dur": 11
+  },
+  {
+    "name": "o: 15 Iter",
+    "cname": "o",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 38",
+    "ts": 6064,
+    "dur": 10
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 39",
+    "ts": 5855,
+    "dur": 2
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 39",
+    "ts": 5858,
+    "dur": 11
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 39",
+    "ts": 5887,
+    "dur": 2
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 39",
+    "ts": 5916,
+    "dur": 2
+  },
+  {
+    "name": "e: 5 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 39",
+    "ts": 5930,
+    "dur": 2
+  },
+  {
+    "name": "f: 6 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 39",
+    "ts": 5944,
+    "dur": 2
+  },
+  {
+    "name": "g: 7 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 39",
+    "ts": 5956,
+    "dur": 2
+  },
+  {
+    "name": "h: 8 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 39",
+    "ts": 5969,
+    "dur": 2
+  },
+  {
+    "name": "i: 9 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 39",
+    "ts": 5982,
+    "dur": 2
+  },
+  {
+    "name": "j: 10 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 39",
+    "ts": 5995,
+    "dur": 2
+  },
+  {
+    "name": "k: 11 Iter",
+    "cname": "k",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 39",
+    "ts": 6008,
+    "dur": 2
+  },
+  {
+    "name": "l: 12 Iter",
+    "cname": "l",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 39",
+    "ts": 6022,
+    "dur": 2
+  },
+  {
+    "name": "m: 13 Iter",
+    "cname": "m",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 39",
+    "ts": 6034,
+    "dur": 2
+  },
+  {
+    "name": "n: 14 Iter",
+    "cname": "n",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 39",
+    "ts": 6047,
+    "dur": 2
+  },
+  {
+    "name": "o: 15 Iter",
+    "cname": "o",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 39",
+    "ts": 6061,
+    "dur": 2
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 40",
+    "ts": 6074,
+    "dur": 13
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 41",
+    "ts": 6087,
+    "dur": 2
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 42",
+    "ts": 6089,
+    "dur": 7
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 43",
+    "ts": 6096,
+    "dur": 7
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 43",
+    "ts": 6103,
+    "dur": 4
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 43",
+    "ts": 6107,
+    "dur": 6
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 43",
+    "ts": 6113,
+    "dur": 4
+  },
+  {
+    "name": "e: 5 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 43",
+    "ts": 6117,
+    "dur": 5
+  },
+  {
+    "name": "f: 6 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 43",
+    "ts": 6122,
+    "dur": 6
+  },
+  {
+    "name": "g: 7 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 43",
+    "ts": 6128,
+    "dur": 5
+  },
+  {
+    "name": "h: 8 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 43",
+    "ts": 6133,
+    "dur": 6
+  },
+  {
+    "name": "i: 9 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 43",
+    "ts": 6139,
+    "dur": 5
+  },
+  {
+    "name": "j: 10 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 43",
+    "ts": 6144,
+    "dur": 6
+  },
+  {
+    "name": "k: 11 Iter",
+    "cname": "k",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 43",
+    "ts": 6150,
+    "dur": 5
+  },
+  {
+    "name": "l: 12 Iter",
+    "cname": "l",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 43",
+    "ts": 6155,
+    "dur": 6
+  },
+  {
+    "name": "m: 13 Iter",
+    "cname": "m",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 43",
+    "ts": 6161,
+    "dur": 5
+  },
+  {
+    "name": "n: 14 Iter",
+    "cname": "n",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 43",
+    "ts": 6166,
+    "dur": 6
+  },
+  {
+    "name": "o: 15 Iter",
+    "cname": "o",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 43",
+    "ts": 6172,
+    "dur": 5
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 44",
+    "ts": 6177,
+    "dur": 11
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 45",
+    "ts": 7586,
+    "dur": 2
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 46",
+    "ts": 7587,
+    "dur": 53
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 46",
+    "ts": 7640,
+    "dur": 7
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 46",
+    "ts": 7647,
+    "dur": 6
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 46",
+    "ts": 7653,
+    "dur": 6
+  },
+  {
+    "name": "e: 5 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 46",
+    "ts": 7659,
+    "dur": 6
+  },
+  {
+    "name": "f: 6 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 46",
+    "ts": 7665,
+    "dur": 6
+  },
+  {
+    "name": "g: 7 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 46",
+    "ts": 7671,
+    "dur": 6
+  },
+  {
+    "name": "h: 8 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 46",
+    "ts": 7677,
+    "dur": 6
+  },
+  {
+    "name": "i: 9 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 46",
+    "ts": 7683,
+    "dur": 6
+  },
+  {
+    "name": "j: 10 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 46",
+    "ts": 7689,
+    "dur": 6
+  },
+  {
+    "name": "k: 11 Iter",
+    "cname": "k",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 46",
+    "ts": 7695,
+    "dur": 6
+  },
+  {
+    "name": "l: 12 Iter",
+    "cname": "l",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 46",
+    "ts": 7701,
+    "dur": 6
+  },
+  {
+    "name": "m: 13 Iter",
+    "cname": "m",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 46",
+    "ts": 7707,
+    "dur": 6
+  },
+  {
+    "name": "n: 14 Iter",
+    "cname": "n",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 46",
+    "ts": 7713,
+    "dur": 6
+  },
+  {
+    "name": "o: 15 Iter",
+    "cname": "o",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 46",
+    "ts": 7719,
+    "dur": 6
+  },
+  {
+    "name": "p: 16 Iter",
+    "cname": "p",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 46",
+    "ts": 7725,
+    "dur": 6
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 47",
+    "ts": 7731,
+    "dur": 11
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 48",
+    "ts": 9012,
+    "dur": 1
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 49",
+    "ts": 9013,
+    "dur": 7
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 49",
+    "ts": 9020,
+    "dur": 7
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 49",
+    "ts": 9027,
+    "dur": 7
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 49",
+    "ts": 9034,
+    "dur": 7
+  },
+  {
+    "name": "e: 5 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 49",
+    "ts": 9041,
+    "dur": 7
+  },
+  {
+    "name": "f: 6 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 49",
+    "ts": 9048,
+    "dur": 7
+  },
+  {
+    "name": "g: 7 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 49",
+    "ts": 9055,
+    "dur": 7
+  },
+  {
+    "name": "h: 8 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 49",
+    "ts": 9062,
+    "dur": 7
+  },
+  {
+    "name": "i: 9 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 49",
+    "ts": 9069,
+    "dur": 7
+  },
+  {
+    "name": "j: 10 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 49",
+    "ts": 9076,
+    "dur": 7
+  },
+  {
+    "name": "k: 11 Iter",
+    "cname": "k",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 49",
+    "ts": 9083,
+    "dur": 8
+  },
+  {
+    "name": "l: 12 Iter",
+    "cname": "l",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 49",
+    "ts": 9091,
+    "dur": 7
+  },
+  {
+    "name": "m: 13 Iter",
+    "cname": "m",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 49",
+    "ts": 9098,
+    "dur": 7
+  },
+  {
+    "name": "n: 14 Iter",
+    "cname": "n",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 49",
+    "ts": 9105,
+    "dur": 7
+  },
+  {
+    "name": "o: 15 Iter",
+    "cname": "o",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 49",
+    "ts": 9112,
+    "dur": 8
+  },
+  {
+    "name": "p: 16 Iter",
+    "cname": "p",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 49",
+    "ts": 9120,
+    "dur": 7
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 50",
+    "ts": 9127,
+    "dur": 12
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 51",
+    "ts": 9139,
+    "dur": 15
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 51",
+    "ts": 9157,
+    "dur": 10
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 51",
+    "ts": 9170,
+    "dur": 9
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 51",
+    "ts": 9182,
+    "dur": 8
+  },
+  {
+    "name": "e: 5 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 51",
+    "ts": 9193,
+    "dur": 8
+  },
+  {
+    "name": "f: 6 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 51",
+    "ts": 9204,
+    "dur": 9
+  },
+  {
+    "name": "g: 7 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 51",
+    "ts": 9216,
+    "dur": 8
+  },
+  {
+    "name": "h: 8 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 51",
+    "ts": 9227,
+    "dur": 8
+  },
+  {
+    "name": "i: 9 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 51",
+    "ts": 9238,
+    "dur": 11
+  },
+  {
+    "name": "j: 10 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 51",
+    "ts": 9252,
+    "dur": 8
+  },
+  {
+    "name": "k: 11 Iter",
+    "cname": "k",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 51",
+    "ts": 9263,
+    "dur": 8
+  },
+  {
+    "name": "l: 12 Iter",
+    "cname": "l",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 51",
+    "ts": 9274,
+    "dur": 9
+  },
+  {
+    "name": "m: 13 Iter",
+    "cname": "m",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 51",
+    "ts": 9286,
+    "dur": 8
+  },
+  {
+    "name": "n: 14 Iter",
+    "cname": "n",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 51",
+    "ts": 9297,
+    "dur": 8
+  },
+  {
+    "name": "o: 15 Iter",
+    "cname": "o",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 51",
+    "ts": 9308,
+    "dur": 11
+  },
+  {
+    "name": "p: 16 Iter",
+    "cname": "p",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 51",
+    "ts": 9322,
+    "dur": 8
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 52",
+    "ts": 9154,
+    "dur": 3
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 52",
+    "ts": 9167,
+    "dur": 3
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 52",
+    "ts": 9179,
+    "dur": 3
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 52",
+    "ts": 9190,
+    "dur": 3
+  },
+  {
+    "name": "e: 5 Iter",
+    "cname": "e",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 52",
+    "ts": 9201,
+    "dur": 3
+  },
+  {
+    "name": "f: 6 Iter",
+    "cname": "f",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 52",
+    "ts": 9213,
+    "dur": 3
+  },
+  {
+    "name": "g: 7 Iter",
+    "cname": "g",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 52",
+    "ts": 9224,
+    "dur": 3
+  },
+  {
+    "name": "h: 8 Iter",
+    "cname": "h",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 52",
+    "ts": 9235,
+    "dur": 3
+  },
+  {
+    "name": "i: 9 Iter",
+    "cname": "i",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 52",
+    "ts": 9249,
+    "dur": 3
+  },
+  {
+    "name": "j: 10 Iter",
+    "cname": "j",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 52",
+    "ts": 9260,
+    "dur": 3
+  },
+  {
+    "name": "k: 11 Iter",
+    "cname": "k",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 52",
+    "ts": 9271,
+    "dur": 3
+  },
+  {
+    "name": "l: 12 Iter",
+    "cname": "l",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 52",
+    "ts": 9283,
+    "dur": 3
+  },
+  {
+    "name": "m: 13 Iter",
+    "cname": "m",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 52",
+    "ts": 9294,
+    "dur": 3
+  },
+  {
+    "name": "n: 14 Iter",
+    "cname": "n",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 52",
+    "ts": 9305,
+    "dur": 3
+  },
+  {
+    "name": "o: 15 Iter",
+    "cname": "o",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 52",
+    "ts": 9319,
+    "dur": 3
+  },
+  {
+    "name": "p: 16 Iter",
+    "cname": "p",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 52",
+    "ts": 9330,
+    "dur": 3
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 53",
+    "ts": 9333,
+    "dur": 13
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 54",
+    "ts": 9346,
+    "dur": 3
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 55",
+    "ts": 9349,
+    "dur": 3
+  },
+  {
+    "name": "b: 2 Iter",
+    "cname": "b",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 55",
+    "ts": 9352,
+    "dur": 3
+  },
+  {
+    "name": "c: 3 Iter",
+    "cname": "c",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 55",
+    "ts": 9355,
+    "dur": 3
+  },
+  {
+    "name": "d: 4 Iter",
+    "cname": "d",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 55",
+    "ts": 9358,
+    "dur": 3
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 56",
+    "ts": 9361,
+    "dur": 15
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 57",
+    "ts": 9376,
+    "dur": 7
+  },
+  {
+    "name": "a: 1 Iter",
+    "cname": "a",
+    "ph": "X",
+    "pid": "cpu",
+    "tid": "Block 58",
+    "ts": 9383,
+    "dur": 6
+  }
+]
