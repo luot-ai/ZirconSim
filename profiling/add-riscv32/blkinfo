@@ -1,0 +1,169 @@
+程序的基本块数量: 6
+总执行 cycles: 1718
+总指令数: 2081
+总体 IPC: 1.21
+
+按预估优化收益排序的基本块（占比高于平均）:
+Block 3: 原总cycles=1571, cycles占比=91.44%, 累计cycles=1571, 累计占比=91.44%, 当前IPC=1.30
+Block 0: 原总cycles=65, cycles占比=3.78%, 累计cycles=1636, 累计占比=95.23%, 当前IPC=0.06
+Block 1: 原总cycles=58, cycles占比=3.38%, 累计cycles=1694, 累计占比=98.60%, 当前IPC=0.10
+Block 4: 原总cycles=11, cycles占比=0.64%, 累计cycles=1705, 累计占比=99.24%, 当前IPC=0.36
+Block 2: 原总cycles=11, cycles占比=0.64%, 累计cycles=1716, 累计占比=99.88%, 当前IPC=1.64
+Block 5: 原总cycles=2, cycles占比=0.12%, 累计cycles=1718, 累计占比=100.00%, 当前IPC=0.50
+
+=== 基本块 3 ===
+总耗时: 1571 cycles, 平均IPC: 1.30
+迭代次数: 512
+ 迭代 3: 耗时=94 cycles, IPC=0.04
+    0x80000058   cal_stream                     start=139   delay=1   *
+    0x8000005c   addi a12, a12, -1              start=139   delay=1   
+    0x80000060   step_i                         start=140   delay=93  *
+    0x80000064   unknown                        start=140   delay=93  
+ 迭代 419: 耗时=39 cycles, IPC=0.10
+    0x80000058   cal_stream                     start=1422  delay=1   *
+    0x8000005c   addi a12, a12, -1              start=1422  delay=1   
+    0x80000060   step_i                         start=1423  delay=38  *
+    0x80000064   unknown                        start=1423  delay=38  
+ 迭代 35: 耗时=37 cycles, IPC=0.11
+    0x80000058   cal_stream                     start=297   delay=1   *
+    0x8000005c   addi a12, a12, -1              start=297   delay=1   
+    0x80000060   step_i                         start=298   delay=36  *
+    0x80000064   unknown                        start=298   delay=36  
+ 迭代 323: 耗时=36 cycles, IPC=0.11
+    0x80000058   cal_stream                     start=1142  delay=1   *
+    0x8000005c   addi a12, a12, -1              start=1142  delay=1   
+    0x80000060   step_i                         start=1143  delay=35  *
+    0x80000064   unknown                        start=1143  delay=35  
+ 迭代 163: 耗时=35 cycles, IPC=0.11
+    0x80000058   cal_stream                     start=671   delay=1   *
+    0x8000005c   addi a12, a12, -1              start=671   delay=1   
+    0x80000060   step_i                         start=672   delay=34  *
+    0x80000064   unknown                        start=672   delay=34  
+ 迭代 451: 耗时=35 cycles, IPC=0.11
+    0x80000058   cal_stream                     start=1523  delay=1   *
+    0x8000005c   addi a12, a12, -1              start=1523  delay=1   
+    0x80000060   step_i                         start=1524  delay=34  *
+    0x80000064   unknown                        start=1524  delay=34  
+ 迭代 131: 耗时=33 cycles, IPC=0.12
+    0x80000058   cal_stream                     start=576   delay=1   *
+    0x8000005c   addi a12, a12, -1              start=576   delay=1   
+    0x80000060   step_i                         start=577   delay=32  *
+    0x80000064   unknown                        start=577   delay=32  
+ 迭代 259: 耗时=33 cycles, IPC=0.12
+    0x80000058   cal_stream                     start=953   delay=1   *
+    0x8000005c   addi a12, a12, -1              start=953   delay=1   
+    0x80000060   step_i                         start=954   delay=32  *
+    0x80000064   unknown                        start=954   delay=32  
+ 迭代 291: 耗时=32 cycles, IPC=0.12
+    0x80000058   cal_stream                     start=1048  delay=1   *
+    0x8000005c   addi a12, a12, -1              start=1048  delay=1   
+    0x80000060   step_i                         start=1049  delay=31  *
+    0x80000064   unknown                        start=1049  delay=31  
+ 迭代 195: 耗时=31 cycles, IPC=0.13
+    0x80000058   cal_stream                     start=769   delay=1   *
+    0x8000005c   addi a12, a12, -1              start=769   delay=1   
+    0x80000060   step_i                         start=770   delay=30  *
+    0x80000064   unknown                        start=770   delay=30  
+ 迭代 355: 耗时=31 cycles, IPC=0.13
+    0x80000058   cal_stream                     start=1240  delay=1   *
+    0x8000005c   addi a12, a12, -1              start=1240  delay=1   
+    0x80000060   step_i                         start=1241  delay=30  *
+    0x80000064   unknown                        start=1241  delay=30  
+ 迭代 99: 耗时=29 cycles, IPC=0.14
+    0x80000058   cal_stream                     start=485   delay=1   *
+    0x8000005c   addi a12, a12, -1              start=485   delay=1   
+    0x80000060   step_i                         start=486   delay=28  *
+    0x80000064   unknown                        start=486   delay=28  
+ 迭代 227: 耗时=29 cycles, IPC=0.14
+    0x80000058   cal_stream                     start=862   delay=1   *
+    0x8000005c   addi a12, a12, -1              start=862   delay=1   
+    0x80000060   step_i                         start=863   delay=28  *
+    0x80000064   unknown                        start=863   delay=28  
+ 迭代 67: 耗时=27 cycles, IPC=0.15
+    0x80000058   cal_stream                     start=396   delay=1   *
+    0x8000005c   addi a12, a12, -1              start=396   delay=1   
+    0x80000060   step_i                         start=397   delay=26  *
+    0x80000064   unknown                        start=397   delay=26  
+ 迭代 387: 耗时=27 cycles, IPC=0.15
+    0x80000058   cal_stream                     start=1333  delay=1   *
+    0x8000005c   addi a12, a12, -1              start=1333  delay=1   
+    0x80000060   step_i                         start=1334  delay=26  *
+    0x80000064   unknown                        start=1334  delay=26  
+ 迭代 483: 耗时=27 cycles, IPC=0.15
+    0x80000058   cal_stream                     start=1620  delay=1   *
+    0x8000005c   addi a12, a12, -1              start=1620  delay=1   
+    0x80000060   step_i                         start=1621  delay=26  *
+    0x80000064   unknown                        start=1621  delay=26  
+ 迭代 2: 耗时=3 cycles, IPC=1.33
+    0x80000058   cal_stream                     start=136   delay=1   *
+    0x8000005c   addi a12, a12, -1              start=137   delay=1   *
+    0x80000060   step_i                         start=138   delay=1   *
+    0x80000064   unknown                        start=138   delay=1   
+ 迭代 4: 耗时=3 cycles, IPC=1.33
+    0x80000058   cal_stream                     start=233   delay=1   *
+    0x8000005c   addi a12, a12, -1              start=233   delay=1   
+    0x80000060   step_i                         start=234   delay=2   *
+    0x80000064   unknown                        start=234   delay=2   
+ 迭代 5: 耗时=3 cycles, IPC=1.33
+    0x80000058   cal_stream                     start=236   delay=1   *
+    0x8000005c   addi a12, a12, -1              start=237   delay=1   *
+    0x80000060   step_i                         start=237   delay=1   
+    0x80000064   unknown                        start=238   delay=1   *
+ 迭代 169: 耗时=3 cycles, IPC=1.33
+    0x80000058   cal_stream                     start=716   delay=1   *
+    0x8000005c   addi a12, a12, -1              start=716   delay=1   
+    0x80000060   step_i                         start=717   delay=2   *
+    0x80000064   unknown                        start=717   delay=2   
+=== 基本块 0 ===
+总耗时: 65 cycles, 平均IPC: 0.06
+迭代次数: 1
+ 迭代 1: 耗时=65 cycles, IPC=0.06
+    0x80000000   addi a8, a0, 0                 start=0     delay=64  *
+    0x80000004   unknown                        start=0     delay=64  
+    0x80000008   addi a2, a2, -4                start=64    delay=1   *
+    0x8000000c   unknown                        start=64    delay=1   
+=== 基本块 1 ===
+总耗时: 58 cycles, 平均IPC: 0.10
+迭代次数: 1
+ 迭代 1: 耗时=58 cycles, IPC=0.10
+    0x8000008c   addi a2, a2, -16               start=65    delay=53  *
+    0x80000090   sw a1, 12(a2)                  start=118   delay=3   *
+    0x80000094   unknown                        start=121   delay=1   *
+    0x80000098   addi a11, a11, 184             start=121   delay=1   
+    0x8000009c   addi a10, a0, 2                start=122   delay=1   *
+    0x800000a0   unknown                        start=122   delay=1   
+=== 基本块 4 ===
+总耗时: 11 cycles, 平均IPC: 0.36
+迭代次数: 1
+ 迭代 1: 耗时=11 cycles, IPC=0.36
+    0x80000068   addi a10, a0, 0                start=1705  delay=10  *
+    0x8000006c   addi a2, a2, 2032              start=1705  delay=10  
+    0x80000070   addi a2, a2, 32                start=1715  delay=1   *
+    0x80000074   unknown                        start=1715  delay=1   
+=== 基本块 2 ===
+总耗时: 11 cycles, 平均IPC: 1.64
+迭代次数: 1
+ 迭代 1: 耗时=11 cycles, IPC=1.64
+    0x80000010   addi a2, a2, -2048             start=123   delay=1   *
+    0x80000014   addi a2, a2, -16               start=123   delay=1   
+    0x80000018   addi a10, a0, 0                start=124   delay=1   *
+    0x8000001c   cfg_i                          start=124   delay=1   
+    0x80000020   addi a12, a0, 1                start=125   delay=1   *
+    0x80000024   unknown                        start=125   delay=1   
+    0x80000028   addi a11, a11, -1856           start=126   delay=1   *
+    0x8000002c   unknown                        start=126   delay=1   
+    0x80000030   addi a13, a13, 192             start=127   delay=1   *
+    0x80000034   cfg_i                          start=127   delay=1   
+    0x80000038   cfg_load                       start=128   delay=1   *
+    0x8000003c   addi a11, a0, 2                start=128   delay=1   
+    0x80000040   cfg_load                       start=129   delay=3   *
+    0x80000044   addi a13, a2, 16               start=129   delay=3   
+    0x80000048   addi a12, a0, 512              start=132   delay=1   *
+    0x8000004c   cfg_i                          start=132   delay=1   
+    0x80000050   cfg_store                      start=133   delay=1   *
+    0x80000054   addi a13, a0, 4                start=133   delay=1   
+=== 基本块 5 ===
+总耗时: 2 cycles, 平均IPC: 0.50
+迭代次数: 1
+ 迭代 1: 耗时=2 cycles, IPC=0.50
+    0x800000a4   unknown                        start=1716  delay=2   *

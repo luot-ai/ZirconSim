@@ -9,3 +9,17 @@
 ```bash
 make 
 ```
+## profiling
+
+进入`RV-Software/XX` 运行
+```bash
+make run
+```
+会得到输出`ZirconSim/profiling/XX-riscv32/base.log`
+
+   
+然后进入`ZirconSim` 运行
+```bash
+python3 trace.py XX-riscv32
+```
+`ZirconSim/profiling/XX-riscv32/`下会生成`blkinfo`和`blkview`，后者可使用 perfetto UI [网页版](https://www.ui.perfetto.dev/) 打开
