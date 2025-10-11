@@ -5,6 +5,9 @@ import json
 import string
 from collections import defaultdict
 
+useSaving = True
+useHIpc = False
+
 class Instruction:
     def __init__(self, seq, pc, asm, start, latency, is_branch):
         self.seq = int(seq)
@@ -59,7 +62,7 @@ class BasicBlock:
                 "cycles": cycles,
                 "ipc": ipc,
                 "instrs": it,   # 直接存 Instruction 对象
-                "below_avg": ipc < avg_ipc +0.5
+                "below_avg": ipc < 2 #avg_ipc +0.5
             })
         return infos
 
@@ -189,37 +192,49 @@ def main():
 
         sorted_blocks = sorted(blocks, key=lambda bb: bb.total_cycles(), reverse=True)
         # --- 粗略基本块信息（按预估优化收益排序） ---
-        outfile.write("按预估优化收益排序的基本块（占比高于平均）:\n")
-        avg_percent = 0 # 1 / 200 #len(blocks) if blocks else 0
-        block_savings = []
-        for bb in blocks:
-            bb_instr_count = sum(len(it) for it in bb.iterations)
-            bb_cycles = bb.total_cycles()
-            # 预估优化 IPC = 2
-            optimized_cycles = bb_instr_count / 2
-            savings = bb_cycles - optimized_cycles
-            savings_percent = savings / total_cycles if total_cycles else 0
-            block_savings.append((bb, savings_percent, bb_cycles))
-        # 按 savings_percent 排序
-        cumulative_percent = 0.0
-        cumulative_cycles = 0
-        block_savings.sort(key=lambda x: x[1], reverse=True)
-        for bb, savings_percent, bb_cycles in block_savings:
-            if savings_percent < avg_percent:
-                continue
-            block_percent = bb_cycles / total_cycles * 100
-            cumulative_percent += block_percent
-            cumulative_cycles += bb_cycles
-            outfile.write(
-                f"Block {bb.block_id}: 总cycles={bb_cycles}, "
-                f"迭代次数 {len(bb.iterations)}, "
-                # f"cycles占比={block_percent:.2f}%, "
-                f"累计cycles={cumulative_cycles}, "
-                # f"累计占比={cumulative_cycles/ total_cycles * 100:.2f}%, "
-                f"当前IPC={bb.avg_ipc():.2f}\n"
-            )
+        if useSaving:
+            #outfile.write("按预估优化收益排序的基本块（占比高于平均）:\n")
+            avg_percent = 0 # 1 / 200 #len(blocks) if blocks else 0
+            block_savings = []
+            for bb in blocks:
+                bb_instr_count = sum(len(it) for it in bb.iterations)
+                bb_cycles = bb.total_cycles()
+                # 预估优化 IPC = 2
+                optimized_cycles = bb_instr_count / 2
+                savings = bb_cycles - optimized_cycles
+                savings_percent = savings / total_cycles if total_cycles else 0
+                block_savings.append((bb, savings_percent, bb_cycles))
+            # 按 savings_percent 排序
+            cumulative_percent = 0.0
+            cumulative_cycles = 0
+            #block_savings.sort(key=lambda x: x[2], reverse=True)
+            block_savings.sort(key=lambda x: x[0].block_id, reverse=False)
+            for bb, savings_percent, bb_cycles in block_savings:
+                if savings_percent < avg_percent:
+                    continue
+                block_percent = bb_cycles / total_cycles * 100
+                cumulative_percent += block_percent
+                cumulative_cycles += bb_cycles
+                outfile.write(
+                    f"Block {bb.block_id}: 总cycles={bb_cycles}, 占比={(bb_cycles/total_cycles):.2f}, "
+                    f"迭代次数 {len(bb.iterations)}, "
+                    f"累计cycles={cumulative_cycles}, "
+                    f"当前IPC={bb.avg_ipc():.2f}\n"
+                )
+        
+        if useHIpc:
+            for bb in blocks:
+                bb_cycles = bb.total_cycles()
+                it_infos = bb.iteration_info()
+                it_infos.sort(key=lambda x: x["cycles"])  
+                lowest_cycles = it_infos[0]['cycles']
+                optimize_cycles = lowest_cycles * len(bb.iterations)
+                save_cycles = bb_cycles - optimize_cycles
+                if save_cycles / bb_cycles < 0.1 or bb_cycles / total_cycles < 0.02:
+                    continue
+                outfile.write(f"基本块 {bb.block_id}, 总耗时: {bb_cycles} cycles, 迭代次数: {len(bb.iterations)}, 平均IPC: {bb.avg_ipc():.2f}, 可优化周期: {save_cycles},占比: {(save_cycles / bb_cycles):.2f}\n")
+
         outfile.write("\n")
-        #f"Block {bb.block_id}: 原总cycles={bb_cycles}, cycles占比={bb_cycles/total_cycles*100:.2f}%, 预估节省占比={savings_percent*100:.2f}%, 当前IPC={bb.avg_ipc():.2f}\n"
         # --- 详细基本块信息（按预估优化收益排序） ---
         for bb, savings_percent, bb_cycles in block_savings:
             if savings_percent < avg_percent:
@@ -230,7 +245,13 @@ def main():
 
             # block 内迭代按 IPC 从低到高排序
             it_infos = bb.iteration_info()
-            it_infos.sort(key=lambda x: x["ipc"])  # 按 IPC 排序展示，但保留 iter_id
+            it_infos.sort(key=lambda x: x["ipc"], reverse=True)  # 按 IPC 排序展示，但保留 iter_id
+            cycles_dict = defaultdict(list)
+            for info in it_infos:
+                cycles_dict[info["cycles"]].append(info["iter_id"])
+            for cycles in sorted(cycles_dict.keys()):
+                iter_ids = " ".join(str(i) for i in sorted(cycles_dict[cycles]))
+                outfile.write(f"    迭代 {iter_ids}, 耗时={cycles} cycles\n")
             for info in it_infos:
                 if not info["below_avg"]:
                     continue

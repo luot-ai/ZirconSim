@@ -1,169 +1,1051 @@
-程序的基本块数量: 6
-总执行 cycles: 1718
-总指令数: 2081
-总体 IPC: 1.21
+程序的基本块数量: 13
+总执行 cycles: 1102
+总指令数: 989
+总体 IPC: 0.90
 
-按预估优化收益排序的基本块（占比高于平均）:
-Block 3: 原总cycles=1571, cycles占比=91.44%, 累计cycles=1571, 累计占比=91.44%, 当前IPC=1.30
-Block 0: 原总cycles=65, cycles占比=3.78%, 累计cycles=1636, 累计占比=95.23%, 当前IPC=0.06
-Block 1: 原总cycles=58, cycles占比=3.38%, 累计cycles=1694, 累计占比=98.60%, 当前IPC=0.10
-Block 4: 原总cycles=11, cycles占比=0.64%, 累计cycles=1705, 累计占比=99.24%, 当前IPC=0.36
-Block 2: 原总cycles=11, cycles占比=0.64%, 累计cycles=1716, 累计占比=99.88%, 当前IPC=1.64
-Block 5: 原总cycles=2, cycles占比=0.12%, 累计cycles=1718, 累计占比=100.00%, 当前IPC=0.50
+Block 0: 总cycles=61, 占比=0.06, 迭代次数 1, 累计cycles=61, 当前IPC=0.07
+Block 1: 总cycles=70, 占比=0.06, 迭代次数 1, 累计cycles=131, 当前IPC=0.09
+Block 2: 总cycles=75, 占比=0.07, 迭代次数 1, 累计cycles=206, 当前IPC=0.23
+Block 3: 总cycles=32, 占比=0.03, 迭代次数 8, 累计cycles=238, 当前IPC=1.75
+Block 4: 总cycles=450, 占比=0.41, 迭代次数 64, 累计cycles=688, 当前IPC=1.00
+Block 5: 总cycles=88, 占比=0.08, 迭代次数 73, 累计cycles=776, 当前IPC=0.83
+Block 6: 总cycles=73, 占比=0.07, 迭代次数 73, 累计cycles=849, 当前IPC=1.00
+Block 7: 总cycles=128, 占比=0.12, 迭代次数 64, 累计cycles=977, 当前IPC=2.00
+Block 8: 总cycles=88, 占比=0.08, 迭代次数 8, 累计cycles=1065, 当前IPC=0.18
+Block 9: 总cycles=16, 占比=0.01, 迭代次数 8, 累计cycles=1081, 当前IPC=1.50
+Block 10: 总cycles=10, 占比=0.01, 迭代次数 1, 累计cycles=1091, 当前IPC=0.20
+Block 11: 总cycles=17, 占比=0.02, 迭代次数 1, 累计cycles=1108, 当前IPC=0.76
+Block 12: 总cycles=1, 占比=0.00, 迭代次数 1, 累计cycles=1109, 当前IPC=1.00
 
-=== 基本块 3 ===
-总耗时: 1571 cycles, 平均IPC: 1.30
-迭代次数: 512
- 迭代 3: 耗时=94 cycles, IPC=0.04
-    0x80000058   cal_stream                     start=139   delay=1   *
-    0x8000005c   addi a12, a12, -1              start=139   delay=1   
-    0x80000060   step_i                         start=140   delay=93  *
-    0x80000064   unknown                        start=140   delay=93  
- 迭代 419: 耗时=39 cycles, IPC=0.10
-    0x80000058   cal_stream                     start=1422  delay=1   *
-    0x8000005c   addi a12, a12, -1              start=1422  delay=1   
-    0x80000060   step_i                         start=1423  delay=38  *
-    0x80000064   unknown                        start=1423  delay=38  
- 迭代 35: 耗时=37 cycles, IPC=0.11
-    0x80000058   cal_stream                     start=297   delay=1   *
-    0x8000005c   addi a12, a12, -1              start=297   delay=1   
-    0x80000060   step_i                         start=298   delay=36  *
-    0x80000064   unknown                        start=298   delay=36  
- 迭代 323: 耗时=36 cycles, IPC=0.11
-    0x80000058   cal_stream                     start=1142  delay=1   *
-    0x8000005c   addi a12, a12, -1              start=1142  delay=1   
-    0x80000060   step_i                         start=1143  delay=35  *
-    0x80000064   unknown                        start=1143  delay=35  
- 迭代 163: 耗时=35 cycles, IPC=0.11
-    0x80000058   cal_stream                     start=671   delay=1   *
-    0x8000005c   addi a12, a12, -1              start=671   delay=1   
-    0x80000060   step_i                         start=672   delay=34  *
-    0x80000064   unknown                        start=672   delay=34  
- 迭代 451: 耗时=35 cycles, IPC=0.11
-    0x80000058   cal_stream                     start=1523  delay=1   *
-    0x8000005c   addi a12, a12, -1              start=1523  delay=1   
-    0x80000060   step_i                         start=1524  delay=34  *
-    0x80000064   unknown                        start=1524  delay=34  
- 迭代 131: 耗时=33 cycles, IPC=0.12
-    0x80000058   cal_stream                     start=576   delay=1   *
-    0x8000005c   addi a12, a12, -1              start=576   delay=1   
-    0x80000060   step_i                         start=577   delay=32  *
-    0x80000064   unknown                        start=577   delay=32  
- 迭代 259: 耗时=33 cycles, IPC=0.12
-    0x80000058   cal_stream                     start=953   delay=1   *
-    0x8000005c   addi a12, a12, -1              start=953   delay=1   
-    0x80000060   step_i                         start=954   delay=32  *
-    0x80000064   unknown                        start=954   delay=32  
- 迭代 291: 耗时=32 cycles, IPC=0.12
-    0x80000058   cal_stream                     start=1048  delay=1   *
-    0x8000005c   addi a12, a12, -1              start=1048  delay=1   
-    0x80000060   step_i                         start=1049  delay=31  *
-    0x80000064   unknown                        start=1049  delay=31  
- 迭代 195: 耗时=31 cycles, IPC=0.13
-    0x80000058   cal_stream                     start=769   delay=1   *
-    0x8000005c   addi a12, a12, -1              start=769   delay=1   
-    0x80000060   step_i                         start=770   delay=30  *
-    0x80000064   unknown                        start=770   delay=30  
- 迭代 355: 耗时=31 cycles, IPC=0.13
-    0x80000058   cal_stream                     start=1240  delay=1   *
-    0x8000005c   addi a12, a12, -1              start=1240  delay=1   
-    0x80000060   step_i                         start=1241  delay=30  *
-    0x80000064   unknown                        start=1241  delay=30  
- 迭代 99: 耗时=29 cycles, IPC=0.14
-    0x80000058   cal_stream                     start=485   delay=1   *
-    0x8000005c   addi a12, a12, -1              start=485   delay=1   
-    0x80000060   step_i                         start=486   delay=28  *
-    0x80000064   unknown                        start=486   delay=28  
- 迭代 227: 耗时=29 cycles, IPC=0.14
-    0x80000058   cal_stream                     start=862   delay=1   *
-    0x8000005c   addi a12, a12, -1              start=862   delay=1   
-    0x80000060   step_i                         start=863   delay=28  *
-    0x80000064   unknown                        start=863   delay=28  
- 迭代 67: 耗时=27 cycles, IPC=0.15
-    0x80000058   cal_stream                     start=396   delay=1   *
-    0x8000005c   addi a12, a12, -1              start=396   delay=1   
-    0x80000060   step_i                         start=397   delay=26  *
-    0x80000064   unknown                        start=397   delay=26  
- 迭代 387: 耗时=27 cycles, IPC=0.15
-    0x80000058   cal_stream                     start=1333  delay=1   *
-    0x8000005c   addi a12, a12, -1              start=1333  delay=1   
-    0x80000060   step_i                         start=1334  delay=26  *
-    0x80000064   unknown                        start=1334  delay=26  
- 迭代 483: 耗时=27 cycles, IPC=0.15
-    0x80000058   cal_stream                     start=1620  delay=1   *
-    0x8000005c   addi a12, a12, -1              start=1620  delay=1   
-    0x80000060   step_i                         start=1621  delay=26  *
-    0x80000064   unknown                        start=1621  delay=26  
- 迭代 2: 耗时=3 cycles, IPC=1.33
-    0x80000058   cal_stream                     start=136   delay=1   *
-    0x8000005c   addi a12, a12, -1              start=137   delay=1   *
-    0x80000060   step_i                         start=138   delay=1   *
-    0x80000064   unknown                        start=138   delay=1   
- 迭代 4: 耗时=3 cycles, IPC=1.33
-    0x80000058   cal_stream                     start=233   delay=1   *
-    0x8000005c   addi a12, a12, -1              start=233   delay=1   
-    0x80000060   step_i                         start=234   delay=2   *
-    0x80000064   unknown                        start=234   delay=2   
- 迭代 5: 耗时=3 cycles, IPC=1.33
-    0x80000058   cal_stream                     start=236   delay=1   *
-    0x8000005c   addi a12, a12, -1              start=237   delay=1   *
-    0x80000060   step_i                         start=237   delay=1   
-    0x80000064   unknown                        start=238   delay=1   *
- 迭代 169: 耗时=3 cycles, IPC=1.33
-    0x80000058   cal_stream                     start=716   delay=1   *
-    0x8000005c   addi a12, a12, -1              start=716   delay=1   
-    0x80000060   step_i                         start=717   delay=2   *
-    0x80000064   unknown                        start=717   delay=2   
 === 基本块 0 ===
-总耗时: 65 cycles, 平均IPC: 0.06
+总耗时: 61 cycles, 平均IPC: 0.07
 迭代次数: 1
- 迭代 1: 耗时=65 cycles, IPC=0.06
-    0x80000000   addi a8, a0, 0                 start=0     delay=64  *
-    0x80000004   unknown                        start=0     delay=64  
-    0x80000008   addi a2, a2, -4                start=64    delay=1   *
-    0x8000000c   unknown                        start=64    delay=1   
+    迭代 1, 耗时=61 cycles
+ 迭代 1: 耗时=61 cycles, IPC=0.07
+    0x80000000   addi a8, a0, 0                 start=0     delay=60  *
+    0x80000004   auipc a2, 36864                start=0     delay=60  
+    0x80000008   addi a2, a2, -4                start=60    delay=1   *
+    0x8000000c   jal a1, 8                      start=60    delay=1   
 === 基本块 1 ===
-总耗时: 58 cycles, 平均IPC: 0.10
+总耗时: 70 cycles, 平均IPC: 0.09
 迭代次数: 1
- 迭代 1: 耗时=58 cycles, IPC=0.10
-    0x8000008c   addi a2, a2, -16               start=65    delay=53  *
-    0x80000090   sw a1, 12(a2)                  start=118   delay=3   *
-    0x80000094   unknown                        start=121   delay=1   *
-    0x80000098   addi a11, a11, 184             start=121   delay=1   
-    0x8000009c   addi a10, a0, 2                start=122   delay=1   *
-    0x800000a0   unknown                        start=122   delay=1   
-=== 基本块 4 ===
-总耗时: 11 cycles, 平均IPC: 0.36
-迭代次数: 1
- 迭代 1: 耗时=11 cycles, IPC=0.36
-    0x80000068   addi a10, a0, 0                start=1705  delay=10  *
-    0x8000006c   addi a2, a2, 2032              start=1705  delay=10  
-    0x80000070   addi a2, a2, 32                start=1715  delay=1   *
-    0x80000074   unknown                        start=1715  delay=1   
+    迭代 1, 耗时=70 cycles
+ 迭代 1: 耗时=70 cycles, IPC=0.09
+    0x80000110   addi a2, a2, -16               start=61    delay=65  *
+    0x80000114   sw a1, 12(a2)                  start=126   delay=3   *
+    0x80000118   lui a11, -2147483648           start=129   delay=1   *
+    0x8000011c   addi a11, a11, 316             start=129   delay=1   
+    0x80000120   addi a10, a0, 2                start=130   delay=1   *
+    0x80000124   jal a1, 119                    start=130   delay=1   
 === 基本块 2 ===
-总耗时: 11 cycles, 平均IPC: 1.64
+总耗时: 75 cycles, 平均IPC: 0.23
 迭代次数: 1
- 迭代 1: 耗时=11 cycles, IPC=1.64
-    0x80000010   addi a2, a2, -2048             start=123   delay=1   *
-    0x80000014   addi a2, a2, -16               start=123   delay=1   
-    0x80000018   addi a10, a0, 0                start=124   delay=1   *
-    0x8000001c   cfg_i                          start=124   delay=1   
-    0x80000020   addi a12, a0, 1                start=125   delay=1   *
-    0x80000024   unknown                        start=125   delay=1   
-    0x80000028   addi a11, a11, -1856           start=126   delay=1   *
-    0x8000002c   unknown                        start=126   delay=1   
-    0x80000030   addi a13, a13, 192             start=127   delay=1   *
-    0x80000034   cfg_i                          start=127   delay=1   
-    0x80000038   cfg_load                       start=128   delay=1   *
-    0x8000003c   addi a11, a0, 2                start=128   delay=1   
-    0x80000040   cfg_load                       start=129   delay=3   *
-    0x80000044   addi a13, a2, 16               start=129   delay=3   
-    0x80000048   addi a12, a0, 512              start=132   delay=1   *
-    0x8000004c   cfg_i                          start=132   delay=1   
-    0x80000050   cfg_store                      start=133   delay=1   *
-    0x80000054   addi a13, a0, 4                start=133   delay=1   
+    迭代 1, 耗时=75 cycles
+ 迭代 1: 耗时=75 cycles, IPC=0.23
+    0x80000020   addi a2, a2, -48               start=131   delay=1   *
+    0x80000024   sw a1, 44(a2)                  start=131   delay=1   
+    0x80000028   sw a8, 40(a2)                  start=132   delay=1   *
+    0x8000002c   sw a9, 36(a2)                  start=133   delay=1   *
+    0x80000030   sw a18, 32(a2)                 start=134   delay=54  *
+    0x80000034   sw a19, 28(a2)                 start=188   delay=4   *
+    0x80000038   sw a20, 24(a2)                 start=192   delay=1   *
+    0x8000003c   sw a21, 20(a2)                 start=193   delay=3   *
+    0x80000040   sw a22, 16(a2)                 start=196   delay=3   *
+    0x80000044   sw a23, 12(a2)                 start=199   delay=3   *
+    0x80000048   sw a24, 8(a2)                  start=202   delay=1   *
+    0x8000004c   addi a8, a0, 0                 start=203   delay=1   *
+    0x80000050   addi a9, a0, 0                 start=203   delay=1   
+    0x80000054   lui a18, -2147483648           start=204   delay=1   *
+    0x80000058   addi a18, a18, 324             start=204   delay=1   
+    0x8000005c   addi a19, a0, -8               start=205   delay=1   *
+    0x80000060   addi a20, a0, 8                start=205   delay=1   
+=== 基本块 3 ===
+总耗时: 32 cycles, 平均IPC: 1.75
+迭代次数: 8
+    迭代 1 2 3 4 5 6 7 8, 耗时=4 cycles
+ 迭代 1: 耗时=4 cycles, IPC=1.75
+    0x80000064   addi a21, a0, 0                start=206   delay=1   *
+    0x80000068   slli a22, a9, 2                start=206   delay=1   
+    0x8000006c   slli a10, a8, 2                start=207   delay=1   *
+    0x80000070   add a22, a18, a22              start=207   delay=1   
+    0x80000074   add a10, a18, a10              start=208   delay=1   *
+    0x80000078   addi a23, a10, 32              start=208   delay=1   
+    0x8000007c   addi a24, a18, 0               start=209   delay=1   *
+ 迭代 2: 耗时=4 cycles, IPC=1.75
+    0x80000064   addi a21, a0, 0                start=433   delay=1   *
+    0x80000068   slli a22, a9, 2                start=433   delay=1   
+    0x8000006c   slli a10, a8, 2                start=434   delay=1   *
+    0x80000070   add a22, a18, a22              start=434   delay=1   
+    0x80000074   add a10, a18, a10              start=435   delay=1   *
+    0x80000078   addi a23, a10, 32              start=435   delay=1   
+    0x8000007c   addi a24, a18, 0               start=436   delay=1   *
+ 迭代 3: 耗时=4 cycles, IPC=1.75
+    0x80000064   addi a21, a0, 0                start=519   delay=1   *
+    0x80000068   slli a22, a9, 2                start=519   delay=1   
+    0x8000006c   slli a10, a8, 2                start=520   delay=1   *
+    0x80000070   add a22, a18, a22              start=520   delay=1   
+    0x80000074   add a10, a18, a10              start=521   delay=1   *
+    0x80000078   addi a23, a10, 32              start=521   delay=1   
+    0x8000007c   addi a24, a18, 0               start=522   delay=1   *
+ 迭代 4: 耗时=4 cycles, IPC=1.75
+    0x80000064   addi a21, a0, 0                start=604   delay=1   *
+    0x80000068   slli a22, a9, 2                start=604   delay=1   
+    0x8000006c   slli a10, a8, 2                start=605   delay=1   *
+    0x80000070   add a22, a18, a22              start=605   delay=1   
+    0x80000074   add a10, a18, a10              start=606   delay=1   *
+    0x80000078   addi a23, a10, 32              start=606   delay=1   
+    0x8000007c   addi a24, a18, 0               start=607   delay=1   *
+ 迭代 5: 耗时=4 cycles, IPC=1.75
+    0x80000064   addi a21, a0, 0                start=688   delay=1   *
+    0x80000068   slli a22, a9, 2                start=688   delay=1   
+    0x8000006c   slli a10, a8, 2                start=689   delay=1   *
+    0x80000070   add a22, a18, a22              start=689   delay=1   
+    0x80000074   add a10, a18, a10              start=690   delay=1   *
+    0x80000078   addi a23, a10, 32              start=690   delay=1   
+    0x8000007c   addi a24, a18, 0               start=691   delay=1   *
+ 迭代 6: 耗时=4 cycles, IPC=1.75
+    0x80000064   addi a21, a0, 0                start=818   delay=1   *
+    0x80000068   slli a22, a9, 2                start=818   delay=1   
+    0x8000006c   slli a10, a8, 2                start=819   delay=1   *
+    0x80000070   add a22, a18, a22              start=819   delay=1   
+    0x80000074   add a10, a18, a10              start=820   delay=1   *
+    0x80000078   addi a23, a10, 32              start=820   delay=1   
+    0x8000007c   addi a24, a18, 0               start=821   delay=1   *
+ 迭代 7: 耗时=4 cycles, IPC=1.75
+    0x80000064   addi a21, a0, 0                start=902   delay=1   *
+    0x80000068   slli a22, a9, 2                start=902   delay=1   
+    0x8000006c   slli a10, a8, 2                start=903   delay=1   *
+    0x80000070   add a22, a18, a22              start=903   delay=1   
+    0x80000074   add a10, a18, a10              start=904   delay=1   *
+    0x80000078   addi a23, a10, 32              start=904   delay=1   
+    0x8000007c   addi a24, a18, 0               start=905   delay=1   *
+ 迭代 8: 耗时=4 cycles, IPC=1.75
+    0x80000064   addi a21, a0, 0                start=987   delay=1   *
+    0x80000068   slli a22, a9, 2                start=987   delay=1   
+    0x8000006c   slli a10, a8, 2                start=988   delay=1   *
+    0x80000070   add a22, a18, a22              start=988   delay=1   
+    0x80000074   add a10, a18, a10              start=989   delay=1   *
+    0x80000078   addi a23, a10, 32              start=989   delay=1   
+    0x8000007c   addi a24, a18, 0               start=990   delay=1   *
+=== 基本块 4 ===
+总耗时: 450 cycles, 平均IPC: 1.00
+迭代次数: 64
+    迭代 2 3 4 5 6 7 10 11 12 13 14 15 16 19 20 21 22 23 24 26 27 28 29 30 31 32 35 36 37 38 39 42 43 44 45 46 47 48 50 51 52 53 54 55 58 59 60 61 62 63 64, 耗时=4 cycles
+    迭代 17 18 25 33 34 41 49 56 57, 耗时=5 cycles
+    迭代 9, 耗时=7 cycles
+    迭代 40, 耗时=49 cycles
+    迭代 8, 耗时=55 cycles
+    迭代 1, 耗时=90 cycles
+ 迭代 2: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=304   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=304   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=305   delay=1   *
+    0x8000008c   add a10, a11, a10              start=305   delay=1   
+    0x80000090   xor a10, a10, a12              start=306   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=306   delay=1   
+    0x80000098   jal a1, 123                    start=307   delay=1   *
+ 迭代 3: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=312   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=312   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=313   delay=1   *
+    0x8000008c   add a10, a11, a10              start=313   delay=1   
+    0x80000090   xor a10, a10, a12              start=314   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=314   delay=1   
+    0x80000098   jal a1, 123                    start=315   delay=1   *
+ 迭代 4: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=320   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=320   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=321   delay=1   *
+    0x8000008c   add a10, a11, a10              start=321   delay=1   
+    0x80000090   xor a10, a10, a12              start=322   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=322   delay=1   
+    0x80000098   jal a1, 123                    start=323   delay=1   *
+ 迭代 5: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=328   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=328   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=329   delay=1   *
+    0x8000008c   add a10, a11, a10              start=329   delay=1   
+    0x80000090   xor a10, a10, a12              start=330   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=330   delay=1   
+    0x80000098   jal a1, 123                    start=331   delay=1   *
+ 迭代 6: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=336   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=336   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=337   delay=1   *
+    0x8000008c   add a10, a11, a10              start=337   delay=1   
+    0x80000090   xor a10, a10, a12              start=338   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=338   delay=1   
+    0x80000098   jal a1, 123                    start=339   delay=1   *
+ 迭代 7: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=344   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=344   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=345   delay=1   *
+    0x8000008c   add a10, a11, a10              start=345   delay=1   
+    0x80000090   xor a10, a10, a12              start=346   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=346   delay=1   
+    0x80000098   jal a1, 123                    start=347   delay=1   *
+ 迭代 10: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=447   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=447   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=448   delay=1   *
+    0x8000008c   add a10, a11, a10              start=448   delay=1   
+    0x80000090   xor a10, a10, a12              start=449   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=449   delay=1   
+    0x80000098   jal a1, 123                    start=450   delay=1   *
+ 迭代 11: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=455   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=455   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=456   delay=1   *
+    0x8000008c   add a10, a11, a10              start=456   delay=1   
+    0x80000090   xor a10, a10, a12              start=457   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=457   delay=1   
+    0x80000098   jal a1, 123                    start=458   delay=1   *
+ 迭代 12: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=463   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=463   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=464   delay=1   *
+    0x8000008c   add a10, a11, a10              start=464   delay=1   
+    0x80000090   xor a10, a10, a12              start=465   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=465   delay=1   
+    0x80000098   jal a1, 123                    start=466   delay=1   *
+ 迭代 13: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=471   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=471   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=472   delay=1   *
+    0x8000008c   add a10, a11, a10              start=472   delay=1   
+    0x80000090   xor a10, a10, a12              start=473   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=473   delay=1   
+    0x80000098   jal a1, 123                    start=474   delay=1   *
+ 迭代 14: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=479   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=479   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=480   delay=1   *
+    0x8000008c   add a10, a11, a10              start=480   delay=1   
+    0x80000090   xor a10, a10, a12              start=481   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=481   delay=1   
+    0x80000098   jal a1, 123                    start=482   delay=1   *
+ 迭代 15: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=487   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=487   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=488   delay=1   *
+    0x8000008c   add a10, a11, a10              start=488   delay=1   
+    0x80000090   xor a10, a10, a12              start=489   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=489   delay=1   
+    0x80000098   jal a1, 123                    start=490   delay=1   *
+ 迭代 16: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=495   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=495   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=496   delay=1   *
+    0x8000008c   add a10, a11, a10              start=496   delay=1   
+    0x80000090   xor a10, a10, a12              start=497   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=497   delay=1   
+    0x80000098   jal a1, 123                    start=498   delay=1   *
+ 迭代 19: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=540   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=540   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=541   delay=1   *
+    0x8000008c   add a10, a11, a10              start=541   delay=1   
+    0x80000090   xor a10, a10, a12              start=542   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=542   delay=1   
+    0x80000098   jal a1, 123                    start=543   delay=1   *
+ 迭代 20: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=548   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=548   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=549   delay=1   *
+    0x8000008c   add a10, a11, a10              start=549   delay=1   
+    0x80000090   xor a10, a10, a12              start=550   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=550   delay=1   
+    0x80000098   jal a1, 123                    start=551   delay=1   *
+ 迭代 21: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=556   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=556   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=557   delay=1   *
+    0x8000008c   add a10, a11, a10              start=557   delay=1   
+    0x80000090   xor a10, a10, a12              start=558   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=558   delay=1   
+    0x80000098   jal a1, 123                    start=559   delay=1   *
+ 迭代 22: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=564   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=564   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=565   delay=1   *
+    0x8000008c   add a10, a11, a10              start=565   delay=1   
+    0x80000090   xor a10, a10, a12              start=566   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=566   delay=1   
+    0x80000098   jal a1, 123                    start=567   delay=1   *
+ 迭代 23: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=572   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=572   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=573   delay=1   *
+    0x8000008c   add a10, a11, a10              start=573   delay=1   
+    0x80000090   xor a10, a10, a12              start=574   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=574   delay=1   
+    0x80000098   jal a1, 123                    start=575   delay=1   *
+ 迭代 24: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=580   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=580   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=581   delay=1   *
+    0x8000008c   add a10, a11, a10              start=581   delay=1   
+    0x80000090   xor a10, a10, a12              start=582   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=583   delay=1   *
+    0x80000098   jal a1, 123                    start=583   delay=1   
+ 迭代 26: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=616   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=616   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=617   delay=1   *
+    0x8000008c   add a10, a11, a10              start=617   delay=1   
+    0x80000090   xor a10, a10, a12              start=618   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=619   delay=1   *
+    0x80000098   jal a1, 123                    start=619   delay=1   
+ 迭代 27: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=624   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=624   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=625   delay=1   *
+    0x8000008c   add a10, a11, a10              start=625   delay=1   
+    0x80000090   xor a10, a10, a12              start=626   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=626   delay=1   
+    0x80000098   jal a1, 123                    start=627   delay=1   *
+ 迭代 28: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=632   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=632   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=633   delay=1   *
+    0x8000008c   add a10, a11, a10              start=633   delay=1   
+    0x80000090   xor a10, a10, a12              start=634   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=634   delay=1   
+    0x80000098   jal a1, 123                    start=635   delay=1   *
+ 迭代 29: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=640   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=640   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=641   delay=1   *
+    0x8000008c   add a10, a11, a10              start=641   delay=1   
+    0x80000090   xor a10, a10, a12              start=642   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=642   delay=1   
+    0x80000098   jal a1, 123                    start=643   delay=1   *
+ 迭代 30: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=648   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=648   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=649   delay=1   *
+    0x8000008c   add a10, a11, a10              start=649   delay=1   
+    0x80000090   xor a10, a10, a12              start=650   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=650   delay=1   
+    0x80000098   jal a1, 123                    start=651   delay=1   *
+ 迭代 31: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=656   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=656   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=657   delay=1   *
+    0x8000008c   add a10, a11, a10              start=657   delay=1   
+    0x80000090   xor a10, a10, a12              start=658   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=658   delay=1   
+    0x80000098   jal a1, 123                    start=659   delay=1   *
+ 迭代 32: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=664   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=664   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=665   delay=1   *
+    0x8000008c   add a10, a11, a10              start=665   delay=1   
+    0x80000090   xor a10, a10, a12              start=666   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=666   delay=1   
+    0x80000098   jal a1, 123                    start=667   delay=1   *
+ 迭代 35: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=709   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=709   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=710   delay=1   *
+    0x8000008c   add a10, a11, a10              start=710   delay=1   
+    0x80000090   xor a10, a10, a12              start=711   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=711   delay=1   
+    0x80000098   jal a1, 123                    start=712   delay=1   *
+ 迭代 36: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=717   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=717   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=718   delay=1   *
+    0x8000008c   add a10, a11, a10              start=718   delay=1   
+    0x80000090   xor a10, a10, a12              start=719   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=719   delay=1   
+    0x80000098   jal a1, 123                    start=720   delay=1   *
+ 迭代 37: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=725   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=725   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=726   delay=1   *
+    0x8000008c   add a10, a11, a10              start=726   delay=1   
+    0x80000090   xor a10, a10, a12              start=727   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=727   delay=1   
+    0x80000098   jal a1, 123                    start=728   delay=1   *
+ 迭代 38: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=733   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=733   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=734   delay=1   *
+    0x8000008c   add a10, a11, a10              start=734   delay=1   
+    0x80000090   xor a10, a10, a12              start=735   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=735   delay=1   
+    0x80000098   jal a1, 123                    start=736   delay=1   *
+ 迭代 39: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=741   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=741   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=742   delay=1   *
+    0x8000008c   add a10, a11, a10              start=742   delay=1   
+    0x80000090   xor a10, a10, a12              start=743   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=743   delay=1   
+    0x80000098   jal a1, 123                    start=744   delay=1   *
+ 迭代 42: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=830   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=830   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=831   delay=1   *
+    0x8000008c   add a10, a11, a10              start=831   delay=1   
+    0x80000090   xor a10, a10, a12              start=832   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=833   delay=1   *
+    0x80000098   jal a1, 123                    start=833   delay=1   
+ 迭代 43: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=838   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=838   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=839   delay=1   *
+    0x8000008c   add a10, a11, a10              start=839   delay=1   
+    0x80000090   xor a10, a10, a12              start=840   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=840   delay=1   
+    0x80000098   jal a1, 123                    start=841   delay=1   *
+ 迭代 44: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=846   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=846   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=847   delay=1   *
+    0x8000008c   add a10, a11, a10              start=847   delay=1   
+    0x80000090   xor a10, a10, a12              start=848   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=848   delay=1   
+    0x80000098   jal a1, 123                    start=849   delay=1   *
+ 迭代 45: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=854   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=854   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=855   delay=1   *
+    0x8000008c   add a10, a11, a10              start=855   delay=1   
+    0x80000090   xor a10, a10, a12              start=856   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=856   delay=1   
+    0x80000098   jal a1, 123                    start=857   delay=1   *
+ 迭代 46: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=862   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=862   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=863   delay=1   *
+    0x8000008c   add a10, a11, a10              start=863   delay=1   
+    0x80000090   xor a10, a10, a12              start=864   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=864   delay=1   
+    0x80000098   jal a1, 123                    start=865   delay=1   *
+ 迭代 47: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=870   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=870   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=871   delay=1   *
+    0x8000008c   add a10, a11, a10              start=871   delay=1   
+    0x80000090   xor a10, a10, a12              start=872   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=872   delay=1   
+    0x80000098   jal a1, 123                    start=873   delay=1   *
+ 迭代 48: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=878   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=878   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=879   delay=1   *
+    0x8000008c   add a10, a11, a10              start=879   delay=1   
+    0x80000090   xor a10, a10, a12              start=880   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=880   delay=1   
+    0x80000098   jal a1, 123                    start=881   delay=1   *
+ 迭代 50: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=914   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=914   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=915   delay=1   *
+    0x8000008c   add a10, a11, a10              start=915   delay=1   
+    0x80000090   xor a10, a10, a12              start=916   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=917   delay=1   *
+    0x80000098   jal a1, 123                    start=917   delay=1   
+ 迭代 51: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=922   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=922   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=923   delay=1   *
+    0x8000008c   add a10, a11, a10              start=923   delay=1   
+    0x80000090   xor a10, a10, a12              start=924   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=924   delay=1   
+    0x80000098   jal a1, 123                    start=925   delay=1   *
+ 迭代 52: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=930   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=930   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=931   delay=1   *
+    0x8000008c   add a10, a11, a10              start=931   delay=1   
+    0x80000090   xor a10, a10, a12              start=932   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=932   delay=1   
+    0x80000098   jal a1, 123                    start=933   delay=1   *
+ 迭代 53: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=938   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=938   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=939   delay=1   *
+    0x8000008c   add a10, a11, a10              start=939   delay=1   
+    0x80000090   xor a10, a10, a12              start=940   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=940   delay=1   
+    0x80000098   jal a1, 123                    start=941   delay=1   *
+ 迭代 54: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=946   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=946   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=947   delay=1   *
+    0x8000008c   add a10, a11, a10              start=947   delay=1   
+    0x80000090   xor a10, a10, a12              start=948   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=948   delay=1   
+    0x80000098   jal a1, 123                    start=949   delay=1   *
+ 迭代 55: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=954   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=954   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=955   delay=1   *
+    0x8000008c   add a10, a11, a10              start=955   delay=1   
+    0x80000090   xor a10, a10, a12              start=956   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=956   delay=1   
+    0x80000098   jal a1, 123                    start=957   delay=1   *
+ 迭代 58: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=999   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=999   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=1000  delay=1   *
+    0x8000008c   add a10, a11, a10              start=1000  delay=1   
+    0x80000090   xor a10, a10, a12              start=1001  delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=1002  delay=1   *
+    0x80000098   jal a1, 123                    start=1002  delay=1   
+ 迭代 59: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=1007  delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=1007  delay=1   
+    0x80000088   lw a12, 0(a23)                 start=1008  delay=1   *
+    0x8000008c   add a10, a11, a10              start=1008  delay=1   
+    0x80000090   xor a10, a10, a12              start=1009  delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=1009  delay=1   
+    0x80000098   jal a1, 123                    start=1010  delay=1   *
+ 迭代 60: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=1015  delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=1015  delay=1   
+    0x80000088   lw a12, 0(a23)                 start=1016  delay=1   *
+    0x8000008c   add a10, a11, a10              start=1016  delay=1   
+    0x80000090   xor a10, a10, a12              start=1017  delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=1017  delay=1   
+    0x80000098   jal a1, 123                    start=1018  delay=1   *
+ 迭代 61: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=1023  delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=1023  delay=1   
+    0x80000088   lw a12, 0(a23)                 start=1024  delay=1   *
+    0x8000008c   add a10, a11, a10              start=1024  delay=1   
+    0x80000090   xor a10, a10, a12              start=1025  delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=1025  delay=1   
+    0x80000098   jal a1, 123                    start=1026  delay=1   *
+ 迭代 62: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=1031  delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=1031  delay=1   
+    0x80000088   lw a12, 0(a23)                 start=1032  delay=1   *
+    0x8000008c   add a10, a11, a10              start=1032  delay=1   
+    0x80000090   xor a10, a10, a12              start=1033  delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=1033  delay=1   
+    0x80000098   jal a1, 123                    start=1034  delay=1   *
+ 迭代 63: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=1039  delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=1039  delay=1   
+    0x80000088   lw a12, 0(a23)                 start=1040  delay=1   *
+    0x8000008c   add a10, a11, a10              start=1040  delay=1   
+    0x80000090   xor a10, a10, a12              start=1041  delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=1041  delay=1   
+    0x80000098   jal a1, 123                    start=1042  delay=1   *
+ 迭代 64: 耗时=4 cycles, IPC=1.75
+    0x80000080   lw a10, 0(a22)                 start=1047  delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=1047  delay=1   
+    0x80000088   lw a12, 0(a23)                 start=1048  delay=1   *
+    0x8000008c   add a10, a11, a10              start=1048  delay=1   
+    0x80000090   xor a10, a10, a12              start=1049  delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=1049  delay=1   
+    0x80000098   jal a1, 123                    start=1050  delay=1   *
+ 迭代 17: 耗时=5 cycles, IPC=1.40
+    0x80000080   lw a10, 0(a22)                 start=522   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=523   delay=1   *
+    0x80000088   lw a12, 0(a23)                 start=524   delay=1   *
+    0x8000008c   add a10, a11, a10              start=524   delay=1   
+    0x80000090   xor a10, a10, a12              start=525   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=526   delay=1   *
+    0x80000098   jal a1, 123                    start=526   delay=1   
+ 迭代 18: 耗时=5 cycles, IPC=1.40
+    0x80000080   lw a10, 0(a22)                 start=531   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=532   delay=1   *
+    0x80000088   lw a12, 0(a23)                 start=532   delay=1   
+    0x8000008c   add a10, a11, a10              start=533   delay=1   *
+    0x80000090   xor a10, a10, a12              start=534   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=535   delay=1   *
+    0x80000098   jal a1, 123                    start=535   delay=1   
+ 迭代 25: 耗时=5 cycles, IPC=1.40
+    0x80000080   lw a10, 0(a22)                 start=607   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=608   delay=1   *
+    0x80000088   lw a12, 0(a23)                 start=609   delay=1   *
+    0x8000008c   add a10, a11, a10              start=609   delay=1   
+    0x80000090   xor a10, a10, a12              start=610   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=611   delay=1   *
+    0x80000098   jal a1, 123                    start=611   delay=1   
+ 迭代 33: 耗时=5 cycles, IPC=1.40
+    0x80000080   lw a10, 0(a22)                 start=691   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=692   delay=1   *
+    0x80000088   lw a12, 0(a23)                 start=693   delay=1   *
+    0x8000008c   add a10, a11, a10              start=693   delay=1   
+    0x80000090   xor a10, a10, a12              start=694   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=695   delay=1   *
+    0x80000098   jal a1, 123                    start=695   delay=1   
+ 迭代 34: 耗时=5 cycles, IPC=1.40
+    0x80000080   lw a10, 0(a22)                 start=700   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=701   delay=1   *
+    0x80000088   lw a12, 0(a23)                 start=701   delay=1   
+    0x8000008c   add a10, a11, a10              start=702   delay=1   *
+    0x80000090   xor a10, a10, a12              start=703   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=704   delay=1   *
+    0x80000098   jal a1, 123                    start=704   delay=1   
+ 迭代 41: 耗时=5 cycles, IPC=1.40
+    0x80000080   lw a10, 0(a22)                 start=821   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=822   delay=1   *
+    0x80000088   lw a12, 0(a23)                 start=823   delay=1   *
+    0x8000008c   add a10, a11, a10              start=823   delay=1   
+    0x80000090   xor a10, a10, a12              start=824   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=825   delay=1   *
+    0x80000098   jal a1, 123                    start=825   delay=1   
+ 迭代 49: 耗时=5 cycles, IPC=1.40
+    0x80000080   lw a10, 0(a22)                 start=905   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=906   delay=1   *
+    0x80000088   lw a12, 0(a23)                 start=907   delay=1   *
+    0x8000008c   add a10, a11, a10              start=907   delay=1   
+    0x80000090   xor a10, a10, a12              start=908   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=909   delay=1   *
+    0x80000098   jal a1, 123                    start=909   delay=1   
+ 迭代 56: 耗时=5 cycles, IPC=1.40
+    0x80000080   lw a10, 0(a22)                 start=962   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=962   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=963   delay=1   *
+    0x8000008c   add a10, a11, a10              start=963   delay=1   
+    0x80000090   xor a10, a10, a12              start=964   delay=2   *
+    0x80000094   sltiu a10, a10, 1              start=966   delay=1   *
+    0x80000098   jal a1, 123                    start=966   delay=1   
+ 迭代 57: 耗时=5 cycles, IPC=1.40
+    0x80000080   lw a10, 0(a22)                 start=990   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=991   delay=1   *
+    0x80000088   lw a12, 0(a23)                 start=992   delay=1   *
+    0x8000008c   add a10, a11, a10              start=992   delay=1   
+    0x80000090   xor a10, a10, a12              start=993   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=994   delay=1   *
+    0x80000098   jal a1, 123                    start=994   delay=1   
+ 迭代 9: 耗时=7 cycles, IPC=1.00
+    0x80000080   lw a10, 0(a22)                 start=436   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=437   delay=3   *
+    0x80000088   lw a12, 0(a23)                 start=437   delay=3   
+    0x8000008c   add a10, a11, a10              start=440   delay=1   *
+    0x80000090   xor a10, a10, a12              start=441   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=442   delay=1   *
+    0x80000098   jal a1, 123                    start=442   delay=1   
+ 迭代 40: 耗时=49 cycles, IPC=0.14
+    0x80000080   lw a10, 0(a22)                 start=749   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=749   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=750   delay=44  *
+    0x8000008c   add a10, a11, a10              start=750   delay=44  
+    0x80000090   xor a10, a10, a12              start=794   delay=3   *
+    0x80000094   sltiu a10, a10, 1              start=797   delay=1   *
+    0x80000098   jal a1, 123                    start=797   delay=1   
+ 迭代 8: 耗时=55 cycles, IPC=0.13
+    0x80000080   lw a10, 0(a22)                 start=352   delay=1   *
+    0x80000084   lw a11, 0(a24)                 start=352   delay=1   
+    0x80000088   lw a12, 0(a23)                 start=353   delay=50  *
+    0x8000008c   add a10, a11, a10              start=353   delay=50  
+    0x80000090   xor a10, a10, a12              start=403   delay=3   *
+    0x80000094   sltiu a10, a10, 1              start=406   delay=1   *
+    0x80000098   jal a1, 123                    start=406   delay=1   
+ 迭代 1: 耗时=90 cycles, IPC=0.08
+    0x80000080   lw a10, 0(a22)                 start=210   delay=84  *
+    0x80000084   lw a11, 0(a24)                 start=294   delay=1   *
+    0x80000088   lw a12, 0(a23)                 start=295   delay=1   *
+    0x8000008c   add a10, a11, a10              start=296   delay=2   *
+    0x80000090   xor a10, a10, a12              start=298   delay=1   *
+    0x80000094   sltiu a10, a10, 1              start=299   delay=1   *
+    0x80000098   jal a1, 123                    start=299   delay=1   
 === 基本块 5 ===
-总耗时: 2 cycles, 平均IPC: 0.50
+总耗时: 88 cycles, 平均IPC: 0.83
+迭代次数: 73
+    迭代 1 2 3 4 5 6 7 8 10 11 12 13 14 15 16 17 19 20 21 22 23 24 25 26 28 29 30 31 32 33 34 35 37 38 39 40 41 42 43 44 46 47 48 49 50 51 52 53 55 56 57 58 59 60 61 62 64 65 66 67 68 69 70 71, 耗时=1 cycles
+    迭代 18 27 36 45 54 63 72 73, 耗时=2 cycles
+    迭代 9, 耗时=8 cycles
+ 迭代 1: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=300   delay=1   *
+ 迭代 2: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=308   delay=1   *
+ 迭代 3: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=316   delay=1   *
+ 迭代 4: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=324   delay=1   *
+ 迭代 5: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=332   delay=1   *
+ 迭代 6: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=340   delay=1   *
+ 迭代 7: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=348   delay=1   *
+ 迭代 8: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=407   delay=1   *
+ 迭代 10: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=443   delay=1   *
+ 迭代 11: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=451   delay=1   *
+ 迭代 12: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=459   delay=1   *
+ 迭代 13: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=467   delay=1   *
+ 迭代 14: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=475   delay=1   *
+ 迭代 15: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=483   delay=1   *
+ 迭代 16: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=491   delay=1   *
+ 迭代 17: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=499   delay=1   *
+ 迭代 19: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=527   delay=1   *
+ 迭代 20: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=536   delay=1   *
+ 迭代 21: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=544   delay=1   *
+ 迭代 22: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=552   delay=1   *
+ 迭代 23: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=560   delay=1   *
+ 迭代 24: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=568   delay=1   *
+ 迭代 25: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=576   delay=1   *
+ 迭代 26: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=584   delay=1   *
+ 迭代 28: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=612   delay=1   *
+ 迭代 29: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=620   delay=1   *
+ 迭代 30: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=628   delay=1   *
+ 迭代 31: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=636   delay=1   *
+ 迭代 32: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=644   delay=1   *
+ 迭代 33: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=652   delay=1   *
+ 迭代 34: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=660   delay=1   *
+ 迭代 35: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=668   delay=1   *
+ 迭代 37: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=696   delay=1   *
+ 迭代 38: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=705   delay=1   *
+ 迭代 39: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=713   delay=1   *
+ 迭代 40: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=721   delay=1   *
+ 迭代 41: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=729   delay=1   *
+ 迭代 42: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=737   delay=1   *
+ 迭代 43: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=745   delay=1   *
+ 迭代 44: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=798   delay=1   *
+ 迭代 46: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=826   delay=1   *
+ 迭代 47: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=834   delay=1   *
+ 迭代 48: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=842   delay=1   *
+ 迭代 49: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=850   delay=1   *
+ 迭代 50: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=858   delay=1   *
+ 迭代 51: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=866   delay=1   *
+ 迭代 52: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=874   delay=1   *
+ 迭代 53: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=882   delay=1   *
+ 迭代 55: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=910   delay=1   *
+ 迭代 56: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=918   delay=1   *
+ 迭代 57: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=926   delay=1   *
+ 迭代 58: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=934   delay=1   *
+ 迭代 59: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=942   delay=1   *
+ 迭代 60: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=950   delay=1   *
+ 迭代 61: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=958   delay=1   *
+ 迭代 62: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=967   delay=1   *
+ 迭代 64: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=995   delay=1   *
+ 迭代 65: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=1003  delay=1   *
+ 迭代 66: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=1011  delay=1   *
+ 迭代 67: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=1019  delay=1   *
+ 迭代 68: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=1027  delay=1   *
+ 迭代 69: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=1035  delay=1   *
+ 迭代 70: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=1043  delay=1   *
+ 迭代 71: 耗时=1 cycles, IPC=1.00
+    0x80000010   beq a10, a0, 8                 start=1051  delay=1   *
+ 迭代 18: 耗时=2 cycles, IPC=0.50
+    0x80000010   beq a10, a0, 8                 start=514   delay=2   *
+ 迭代 27: 耗时=2 cycles, IPC=0.50
+    0x80000010   beq a10, a0, 8                 start=599   delay=2   *
+ 迭代 36: 耗时=2 cycles, IPC=0.50
+    0x80000010   beq a10, a0, 8                 start=683   delay=2   *
+ 迭代 45: 耗时=2 cycles, IPC=0.50
+    0x80000010   beq a10, a0, 8                 start=813   delay=2   *
+ 迭代 54: 耗时=2 cycles, IPC=0.50
+    0x80000010   beq a10, a0, 8                 start=897   delay=2   *
+ 迭代 63: 耗时=2 cycles, IPC=0.50
+    0x80000010   beq a10, a0, 8                 start=982   delay=2   *
+ 迭代 72: 耗时=2 cycles, IPC=0.50
+    0x80000010   beq a10, a0, 8                 start=1066  delay=2   *
+ 迭代 73: 耗时=2 cycles, IPC=0.50
+    0x80000010   beq a10, a0, 8                 start=1081  delay=2   *
+ 迭代 9: 耗时=8 cycles, IPC=0.12
+    0x80000010   beq a10, a0, 8                 start=422   delay=8   *
+=== 基本块 6 ===
+总耗时: 73 cycles, 平均IPC: 1.00
+迭代次数: 73
+    迭代 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73, 耗时=1 cycles
+ 迭代 1: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=301   delay=1   *
+ 迭代 2: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=309   delay=1   *
+ 迭代 3: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=317   delay=1   *
+ 迭代 4: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=325   delay=1   *
+ 迭代 5: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=333   delay=1   *
+ 迭代 6: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=341   delay=1   *
+ 迭代 7: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=349   delay=1   *
+ 迭代 8: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=408   delay=1   *
+ 迭代 9: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=430   delay=1   *
+ 迭代 10: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=444   delay=1   *
+ 迭代 11: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=452   delay=1   *
+ 迭代 12: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=460   delay=1   *
+ 迭代 13: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=468   delay=1   *
+ 迭代 14: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=476   delay=1   *
+ 迭代 15: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=484   delay=1   *
+ 迭代 16: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=492   delay=1   *
+ 迭代 17: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=500   delay=1   *
+ 迭代 18: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=516   delay=1   *
+ 迭代 19: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=528   delay=1   *
+ 迭代 20: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=537   delay=1   *
+ 迭代 21: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=545   delay=1   *
+ 迭代 22: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=553   delay=1   *
+ 迭代 23: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=561   delay=1   *
+ 迭代 24: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=569   delay=1   *
+ 迭代 25: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=577   delay=1   *
+ 迭代 26: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=585   delay=1   *
+ 迭代 27: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=601   delay=1   *
+ 迭代 28: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=613   delay=1   *
+ 迭代 29: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=621   delay=1   *
+ 迭代 30: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=629   delay=1   *
+ 迭代 31: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=637   delay=1   *
+ 迭代 32: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=645   delay=1   *
+ 迭代 33: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=653   delay=1   *
+ 迭代 34: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=661   delay=1   *
+ 迭代 35: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=669   delay=1   *
+ 迭代 36: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=685   delay=1   *
+ 迭代 37: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=697   delay=1   *
+ 迭代 38: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=706   delay=1   *
+ 迭代 39: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=714   delay=1   *
+ 迭代 40: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=722   delay=1   *
+ 迭代 41: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=730   delay=1   *
+ 迭代 42: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=738   delay=1   *
+ 迭代 43: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=746   delay=1   *
+ 迭代 44: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=799   delay=1   *
+ 迭代 45: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=815   delay=1   *
+ 迭代 46: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=827   delay=1   *
+ 迭代 47: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=835   delay=1   *
+ 迭代 48: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=843   delay=1   *
+ 迭代 49: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=851   delay=1   *
+ 迭代 50: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=859   delay=1   *
+ 迭代 51: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=867   delay=1   *
+ 迭代 52: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=875   delay=1   *
+ 迭代 53: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=883   delay=1   *
+ 迭代 54: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=899   delay=1   *
+ 迭代 55: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=911   delay=1   *
+ 迭代 56: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=919   delay=1   *
+ 迭代 57: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=927   delay=1   *
+ 迭代 58: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=935   delay=1   *
+ 迭代 59: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=943   delay=1   *
+ 迭代 60: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=951   delay=1   *
+ 迭代 61: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=959   delay=1   *
+ 迭代 62: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=968   delay=1   *
+ 迭代 63: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=984   delay=1   *
+ 迭代 64: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=996   delay=1   *
+ 迭代 65: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=1004  delay=1   *
+ 迭代 66: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=1012  delay=1   *
+ 迭代 67: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=1020  delay=1   *
+ 迭代 68: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=1028  delay=1   *
+ 迭代 69: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=1036  delay=1   *
+ 迭代 70: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=1044  delay=1   *
+ 迭代 71: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=1052  delay=1   *
+ 迭代 72: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=1068  delay=1   *
+ 迭代 73: 耗时=1 cycles, IPC=1.00
+    0x80000014   jalr a0, a1, 0                 start=1083  delay=1   *
+=== 基本块 7 ===
+总耗时: 128 cycles, 平均IPC: 2.00
+迭代次数: 64
+    迭代 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64, 耗时=2 cycles
+=== 基本块 8 ===
+总耗时: 88 cycles, 平均IPC: 0.18
+迭代次数: 8
+    迭代 1 2 3 4 5 6 7 8, 耗时=11 cycles
+ 迭代 1: 耗时=11 cycles, IPC=0.18
+    0x800000ac   addi a10, a0, 1                start=411   delay=10  *
+    0x800000b0   jal a1, 123                    start=421   delay=1   *
+ 迭代 2: 耗时=11 cycles, IPC=0.18
+    0x800000ac   addi a10, a0, 1                start=503   delay=10  *
+    0x800000b0   jal a1, 123                    start=513   delay=1   *
+ 迭代 3: 耗时=11 cycles, IPC=0.18
+    0x800000ac   addi a10, a0, 1                start=588   delay=10  *
+    0x800000b0   jal a1, 123                    start=598   delay=1   *
+ 迭代 4: 耗时=11 cycles, IPC=0.18
+    0x800000ac   addi a10, a0, 1                start=672   delay=10  *
+    0x800000b0   jal a1, 123                    start=682   delay=1   *
+ 迭代 5: 耗时=11 cycles, IPC=0.18
+    0x800000ac   addi a10, a0, 1                start=802   delay=10  *
+    0x800000b0   jal a1, 123                    start=812   delay=1   *
+ 迭代 6: 耗时=11 cycles, IPC=0.18
+    0x800000ac   addi a10, a0, 1                start=886   delay=10  *
+    0x800000b0   jal a1, 123                    start=896   delay=1   *
+ 迭代 7: 耗时=11 cycles, IPC=0.18
+    0x800000ac   addi a10, a0, 1                start=971   delay=10  *
+    0x800000b0   jal a1, 123                    start=981   delay=1   *
+ 迭代 8: 耗时=11 cycles, IPC=0.18
+    0x800000ac   addi a10, a0, 1                start=1055  delay=10  *
+    0x800000b0   jal a1, 123                    start=1065  delay=1   *
+=== 基本块 9 ===
+总耗时: 16 cycles, 平均IPC: 1.50
+迭代次数: 8
+    迭代 1 2 3 4 5 6 7 8, 耗时=2 cycles
+ 迭代 1: 耗时=2 cycles, IPC=1.50
+    0x800000b4   addi a9, a9, 1                 start=431   delay=1   *
+    0x800000b8   sub a8, a8, a21                start=431   delay=1   
+    0x800000bc   bne a9, a20, -88               start=432   delay=1   *
+ 迭代 2: 耗时=2 cycles, IPC=1.50
+    0x800000b4   addi a9, a9, 1                 start=517   delay=1   *
+    0x800000b8   sub a8, a8, a21                start=517   delay=1   
+    0x800000bc   bne a9, a20, -88               start=518   delay=1   *
+ 迭代 3: 耗时=2 cycles, IPC=1.50
+    0x800000b4   addi a9, a9, 1                 start=602   delay=1   *
+    0x800000b8   sub a8, a8, a21                start=602   delay=1   
+    0x800000bc   bne a9, a20, -88               start=603   delay=1   *
+ 迭代 4: 耗时=2 cycles, IPC=1.50
+    0x800000b4   addi a9, a9, 1                 start=686   delay=1   *
+    0x800000b8   sub a8, a8, a21                start=686   delay=1   
+    0x800000bc   bne a9, a20, -88               start=687   delay=1   *
+ 迭代 5: 耗时=2 cycles, IPC=1.50
+    0x800000b4   addi a9, a9, 1                 start=816   delay=1   *
+    0x800000b8   sub a8, a8, a21                start=816   delay=1   
+    0x800000bc   bne a9, a20, -88               start=817   delay=1   *
+ 迭代 6: 耗时=2 cycles, IPC=1.50
+    0x800000b4   addi a9, a9, 1                 start=900   delay=1   *
+    0x800000b8   sub a8, a8, a21                start=900   delay=1   
+    0x800000bc   bne a9, a20, -88               start=901   delay=1   *
+ 迭代 7: 耗时=2 cycles, IPC=1.50
+    0x800000b4   addi a9, a9, 1                 start=985   delay=1   *
+    0x800000b8   sub a8, a8, a21                start=985   delay=1   
+    0x800000bc   bne a9, a20, -88               start=986   delay=1   *
+ 迭代 8: 耗时=2 cycles, IPC=1.50
+    0x800000b4   addi a9, a9, 1                 start=1069  delay=1   *
+    0x800000b8   sub a8, a8, a21                start=1069  delay=1   
+    0x800000bc   bne a9, a20, -88               start=1070  delay=1   *
+=== 基本块 10 ===
+总耗时: 10 cycles, 平均IPC: 0.20
 迭代次数: 1
- 迭代 1: 耗时=2 cycles, IPC=0.50
-    0x800000a4   unknown                        start=1716  delay=2   *
+    迭代 1, 耗时=10 cycles
+ 迭代 1: 耗时=10 cycles, IPC=0.20
+    0x800000c0   addi a10, a0, 1                start=1071  delay=10  *
+    0x800000c4   jal a1, 122                    start=1071  delay=10  
+=== 基本块 11 ===
+总耗时: 17 cycles, 平均IPC: 0.76
+迭代次数: 1
+    迭代 1, 耗时=17 cycles
+ 迭代 1: 耗时=17 cycles, IPC=0.76
+    0x800000c8   addi a10, a0, 0                start=1084  delay=1   *
+    0x800000cc   lw a1, 44(a2)                  start=1085  delay=6   *
+    0x800000d0   lw a8, 40(a2)                  start=1091  delay=2   *
+    0x800000d4   lw a9, 36(a2)                  start=1091  delay=2   
+    0x800000d8   lw a18, 32(a2)                 start=1093  delay=2   *
+    0x800000dc   lw a19, 28(a2)                 start=1093  delay=2   
+    0x800000e0   lw a20, 24(a2)                 start=1095  delay=2   *
+    0x800000e4   lw a21, 20(a2)                 start=1095  delay=2   
+    0x800000e8   lw a22, 16(a2)                 start=1097  delay=2   *
+    0x800000ec   lw a23, 12(a2)                 start=1097  delay=2   
+    0x800000f0   lw a24, 8(a2)                  start=1099  delay=1   *
+    0x800000f4   addi a2, a2, 48                start=1099  delay=1   
+    0x800000f8   jalr a0, a1, 0                 start=1100  delay=1   *
+=== 基本块 12 ===
+总耗时: 1 cycles, 平均IPC: 1.00
+迭代次数: 1
+    迭代 1, 耗时=1 cycles
+ 迭代 1: 耗时=1 cycles, IPC=1.00
+    0x80000128   unknown                        start=1101  delay=1   *
