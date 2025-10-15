@@ -50,11 +50,16 @@ int Emulator::step(uint32_t num, std::string imgName) {
         std::filesystem::create_directories(reportsDir);
     }
     std::ofstream baselog = std::ofstream(reportsDir + "/base.log");
+    std::ofstream timelinelog = std::ofstream(reportsDir + "/timeline.log");
     if (!baselog.is_open()) {
         std::cerr << "failed to open base.log\n";
         return -4;
     }
-    
+    if (!timelinelog.is_open()) {
+        std::cerr << "failed to open timeline.log\n";
+        return -4;
+    }
+
     std::thread printThread([this](){
         while(true){
             std::this_thread::sleep_for(std::chrono::seconds(1));
@@ -73,6 +78,18 @@ int Emulator::step(uint32_t num, std::string imgName) {
     uint32_t seq = 0;
     while(num-- > 0){
         stat->addCycles(1);
+        if (cpu->io_dbg_axi_rdDoneVec != 0) {
+            timelinelog << "end" << ","
+                    << +cpu->io_dbg_axi_rdDoneVec << ","
+                    << +cpu->io_dbg_axi_Cycles << ","
+                    << stat->getCycles() << std::endl;
+        }
+        if (cpu->io_dbg_axi_rdVldVec != 0) {
+            timelinelog << "start" << ","
+                    << +cpu->io_dbg_axi_rdVldVec << ","
+                    << stat->getCycles() << std::endl;
+        }
+
         for(int i = 0; i < NCOMMIT; i++){
             if(stallForTooLong()){
                 return -3;
