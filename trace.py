@@ -3,6 +3,7 @@ import sys
 import os
 import json
 import string
+from typing import List
 from collections import defaultdict
 
 useSaving = True
@@ -66,7 +67,38 @@ class BasicBlock:
             })
         return infos
 
+def classify_instruction(asm: str) -> str:
+    """根据指令助记符分类"""
+    asm_lower = asm.lower()
+    if asm_lower.startswith(("lb", "lh", "lw", "lbu", "lhu")):
+        return "Load"
+    elif asm_lower.startswith(("sb", "sh", "sw")):
+        return "Store"
+    elif asm_lower.startswith(("beq", "bne", "blt", "bge", "bltu", "bgeu", "jal", "jalr")):
+        return "Branch"
+    else:
+        return "Compute"
 
+
+def output_instrview_json(instrs: List[Instruction], output_path="instrview.json"):
+    """输出每条指令的时间段与类型信息"""
+    instr_events = []
+    for instr in instrs:
+        # 基本字段
+        event = {
+            "name": instr.asm,
+            "cname": "a",
+            "ph": "X",
+            "pid": "cpu",
+            "tid": classify_instruction(instr.asm),
+            "ts": instr.start,
+            "dur": instr.latency,
+        }
+        instr_events.append(event)
+
+    with open(output_path, "w") as f:
+        json.dump(instr_events, f, indent=2)
+    print(f"[+] Instruction-level trace written to {output_path}")
 
 def parse_trace_file(filename):
     instrs = []
@@ -167,12 +199,13 @@ def build_basic_blocks(instrs):
     blocks_list = sorted(blocks_map.values(), key=lambda b: b.block_id)
     return blocks_list
 def main():
-    imgname = sys.argv[1]
+    imgname = sys.argv[1] + "-riscv32"
     trace_file = os.path.join("profiling", imgname, "base.log")
     output_dir = os.path.join("profiling", imgname)
     os.makedirs(output_dir, exist_ok=True)
     output_file = os.path.join(output_dir, "blkinfo")
     view_file = os.path.join(output_dir, "blkview.json")  # 新增 view 文件
+    instr_file =  os.path.join(output_dir, "instrview.json")
 
     instrs = parse_trace_file(trace_file)
     blocks = build_basic_blocks(instrs)
@@ -292,5 +325,7 @@ def main():
             view_events.append(event)
     with open(view_file, "w") as vf:
         json.dump(view_events, vf, indent=2)
+
+    output_instrview_json(instrs,instr_file)
 if __name__ == "__main__":
     main()
