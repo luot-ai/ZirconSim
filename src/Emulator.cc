@@ -73,6 +73,10 @@ int Emulator::step(uint32_t num, std::string imgName) {
     uint8_t *cmtVlds[2] = {&cpu->io_dbg_cmt_robDeq_deq_0_valid, &cpu->io_dbg_cmt_robDeq_deq_1_valid};
     uint32_t *cmtPCs[2] = {&cpu->io_dbg_cmt_robDeq_deq_0_bits_pc, &cpu->io_dbg_cmt_robDeq_deq_1_bits_pc};
     uint8_t *cmtPrds[2] = {&cpu->io_dbg_cmt_robDeq_deq_0_bits_prd, &cpu->io_dbg_cmt_robDeq_deq_1_bits_prd};
+    uint64_t *enqCycles[2] = {&cpu->io_dbg_cmt_robDeq_deq_0_bits_cycle_enqIQ, &cpu->io_dbg_cmt_robDeq_deq_1_bits_cycle_enqIQ};
+    uint64_t *wbCycles[2] = {&cpu->io_dbg_cmt_robDeq_deq_0_bits_cycle_wbROB, &cpu->io_dbg_cmt_robDeq_deq_1_bits_cycle_wbROB};
+    uint64_t *rfCycles[2] = {&cpu->io_dbg_cmt_robDeq_deq_0_bits_cycle_RF, &cpu->io_dbg_cmt_robDeq_deq_1_bits_cycle_RF};
+    uint64_t *d2Cycles[2] = {&cpu->io_dbg_cmt_robDeq_deq_0_bits_cycle_D2, &cpu->io_dbg_cmt_robDeq_deq_1_bits_cycle_D2};
     uint32_t *dbgRf = &cpu->io_dbg_rf_rf_0;
     uint32_t lastCmtCycles = 0;
     uint32_t seq = 0;
@@ -109,6 +113,10 @@ int Emulator::step(uint32_t num, std::string imgName) {
                 << lastCmtCycles << ","
                 << (stat->getCycles() - lastCmtCycles) << ","
                 << isBranch 
+                << "," << *enqCycles[i]
+                << "," << *wbCycles[i]
+                << "," << *rfCycles[i]
+                << "," << *d2Cycles[i]
                 << std::endl;          
                 seq++;
 
