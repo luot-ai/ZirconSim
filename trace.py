@@ -76,9 +76,14 @@ def classify_instruction(asm: str) -> str:
         return "Store"
     elif asm_lower.startswith(("beq", "bne", "blt", "bge", "bltu", "bgeu", "jal", "jalr")):
         return "Branch"
+    elif asm_lower.startswith(("cal_stream")):
+        return "CAL-STREAM"
+    elif asm_lower.startswith(("step_i","cfg_")):
+        return "MISC-STREAM"
+    elif asm_lower.startswith(("mul")):
+        return "multiply"
     else:
         return "Compute"
-
 
 def output_instrview_json(instrs: List[Instruction], output_path="instrview.json"):
     """输出每条指令的时间段与类型信息"""
@@ -100,6 +105,54 @@ def output_instrview_json(instrs: List[Instruction], output_path="instrview.json
         json.dump(instr_events, f, indent=2)
     print(f"[+] Instruction-level trace written to {output_path}")
 
+
+def analyze_instructions_by_pc(instructions, output_file="pc_stats.txt"):
+    """
+    根据 PC 分类统计指令性能，输出为逗号分隔格式（含 asm 和总 IPC）。
+    """
+    stats = defaultdict(lambda: {"total_cycles": 0.0, "count": 0, "asm": None})
+    type_stats = defaultdict(lambda: {"total_cycles": 0.0, "count": 0})  # 新增
+    total_cycles = 0.0
+
+    # 聚合每条指令
+    for inst in instructions:
+        cycle = 1 / inst.ipc if inst.ipc > 0 else 0
+        total_cycles += cycle
+
+        # --- 按 PC 统计 ---
+        if stats[inst.pc]["asm"] is None:
+            stats[inst.pc]["asm"] = inst.asm
+        stats[inst.pc]["total_cycles"] += cycle
+        stats[inst.pc]["count"] += 1
+
+        # --- 按类型统计 ---
+        itype = classify_instruction(inst.asm)
+        type_stats[itype]["total_cycles"] += cycle
+        type_stats[itype]["count"] += 1
+
+    # --- 按 total_cycles 从大到小排序 ---
+    sorted_stats = sorted(stats.items(), key=lambda kv: kv[1]["total_cycles"], reverse=True)
+
+    # --- 输出文件 ---
+    with open(output_file, "w", encoding="utf-8") as f:
+        f.write("pc,asm,count,total_cycles,avg_cycles\n")
+        for pc, data in sorted_stats:
+            asm_safe = data["asm"].replace('"', '""')
+            avg_cycles = data["total_cycles"] / data["count"] if data["count"] > 0 else 0
+            f.write(f'{pc},"{asm_safe}",{data["count"]},{data["total_cycles"]:.6f},{avg_cycles:.6f}\n')
+
+        f.write(f"\nTOTAL_Cycles,{total_cycles:.6f}\n\n")
+
+        # --- 输出分类统计 ---
+        f.write("Type,count,total_cycles,avg_cycles,save_cycles\n")
+        for t, d in type_stats.items():
+            avg_cycles = d["total_cycles"] / d["count"] if d["count"] > 0 else 0
+            save_cycles = d['total_cycles'] - d["count"] / 2
+            f.write(f"{t},{d['count']},{d['total_cycles']:.6f},{avg_cycles:.6f},{save_cycles:.1f}\n")
+
+    print(f"✅ 已输出 {len(sorted_stats)} 条 PC 统计结果到 {output_file}")
+    print(f"📊 所有指令 total_cycles 总和 = {total_cycles:.6f}")
+    return sorted_stats, total_cycles, type_stats
 def parse_trace_file(filename):
     instrs = []
     with open(filename, newline="") as f:
@@ -205,7 +258,7 @@ def main():
     os.makedirs(output_dir, exist_ok=True)
     output_file = os.path.join(output_dir, "blkinfo")
     view_file = os.path.join(output_dir, "blkview.json")  # 新增 view 文件
-    instr_file =  os.path.join(output_dir, "instrview.json")
+    instr_file =  os.path.join(output_dir, "instrview.csv")
 
     instrs = parse_trace_file(trace_file)
     blocks = build_basic_blocks(instrs)
@@ -326,6 +379,7 @@ def main():
     with open(view_file, "w") as vf:
         json.dump(view_events, vf, indent=2)
 
-    output_instrview_json(instrs,instr_file)
+    #output_instrview_json(instrs,instr_file)
+    analyze_instructions_by_pc(instrs,instr_file)
 if __name__ == "__main__":
     main()
