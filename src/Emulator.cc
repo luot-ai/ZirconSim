@@ -110,13 +110,13 @@ int Emulator::step(uint32_t num, std::string imgName) {
                 baselog << seq << ","
                 << "0x" << std::hex << *cmtPCs[i] << std::dec << ","
                 << "\"" << asmStr << "\"" << ","
-                << lastCmtCycles << ","
-                << (stat->getCycles() - lastCmtCycles) << ","
-                << isBranch 
-                << "," << *enqCycles[i]
-                << "," << *wbCycles[i]
-                << "," << *rfCycles[i]
-                << "," << *d2Cycles[i]
+                << lastCmtCycles 
+                << "," << *enqCycles[i]+1
+                << "," << *rfCycles[i]+1
+                << "," << *d2Cycles[i]+1
+                << "," << *wbCycles[i]+1
+                << "," << stat->getCycles()
+                << "," << isBranch
                 << std::endl;          
                 seq++;
 

@@ -9,13 +9,19 @@ from collections import defaultdict
 useSaving = True
 useHIpc = False
 
+
 class Instruction:
-    def __init__(self, seq, pc, asm, start, latency, is_branch):
+    def __init__(self, seq, pc, asm, lastCmt, dispatch, ReadOp, Execute, writeBack, commit, is_branch):
         self.seq = int(seq)
         self.pc = pc
         self.asm = asm
-        self.start = int(start)
-        self.latency = int(latency)
+        self.start = int(lastCmt)
+        self.latency = int(commit) - int(lastCmt)
+        self.dispatch = int(dispatch)
+        self.ReadOp = int(ReadOp)
+        self.Execute = int(Execute)
+        self.writeBack = int(writeBack)
+        self.commit = int(commit)
         self.is_branch = bool(int(is_branch))
         self._ipc = None  # 延迟分配的 IPC（可能是 N/latency）
 
@@ -160,8 +166,8 @@ def parse_trace_file(filename):
         for row in reader:
             if not row:
                 continue
-            seq, pc, asm, start, latency, is_branch = row[:6]
-            instrs.append(Instruction(seq, pc, asm, start, latency, is_branch))
+            seq, pc, asm, lastCmt, dispatch, ReadOp, Execute, writeBack, commit, is_branch = row[:10]
+            instrs.append(Instruction(seq, pc, asm, lastCmt, dispatch, ReadOp, Execute, writeBack, commit, is_branch))
 
     # 调整 IPC：同一 start 的 N 条指令共享 latency
     start_groups = defaultdict(list)
@@ -179,6 +185,107 @@ def parse_trace_file(filename):
 
     return instrs
 
+def analyze_pipeline_stages(instructions, output_file="pipeline_stage_stats.csv"):
+    """
+    统计每条指令从 lastCmtCycle 开始，到 commit 之间的流水级耗时（按 PC 聚合）。
+    若相邻两条指令 commit 相同（同周期退休），则跳过后者。
+    并按指令种类统计每个流水级耗时。
+    """
+    from collections import defaultdict
+
+    stats = defaultdict(lambda: {"count": 0, "total_cycles": 0.0, "asm": None})
+    stage_totals = defaultdict(float)  # 每个流水级总和
+    stage_type_totals = defaultdict(lambda: defaultdict(float))  # stage -> type -> cycles
+
+    if not instructions:
+        print("⚠️ analyze_pipeline_stages: empty instruction list")
+        return
+
+    instrs = sorted(instructions, key=lambda x: x.seq)
+
+    prev_commit = instrs[0].commit
+    for inst in instrs[1:]:
+        if inst.commit == prev_commit:
+            prev_commit = inst.commit
+            continue
+
+        lc = inst.start
+        d, rf, ex, wb, cm = inst.dispatch, inst.ReadOp, inst.Execute, inst.writeBack, inst.commit
+        stage_durations = {}
+
+        # 确定 lastCmt 所在阶段并计算各阶段耗时
+        if lc < d:
+            stage_durations["lastCmt->dispatch"] = d - lc
+            stage_durations["dispatch->readop"] = rf - d
+            stage_durations["readop->execute"] = ex - rf
+            stage_durations["execute->writeback"] = wb - ex
+            stage_durations["writeback->retire"] = cm - wb
+        elif d <= lc < rf:
+            stage_durations["dispatch->readop"] = rf - lc
+            stage_durations["readop->execute"] = ex - rf
+            stage_durations["execute->writeback"] = wb - ex
+            stage_durations["writeback->retire"] = cm - wb
+        elif rf <= lc < ex:
+            stage_durations["readop->execute"] = ex - lc
+            stage_durations["execute->writeback"] = wb - ex
+            stage_durations["writeback->retire"] = cm - wb
+        elif ex <= lc < wb:
+            stage_durations["execute->writeback"] = wb - lc
+            stage_durations["writeback->retire"] = cm - wb
+        elif wb <= lc < cm:
+            stage_durations["writeback->retire"] = cm - lc
+
+        instr_type = classify_instruction(inst.asm)
+
+        for stage, val in stage_durations.items():
+            if val <= 0:
+                continue
+            # 按 PC 聚合
+            key = (stage, inst.pc)
+            entry = stats[key]
+            if entry["asm"] is None:
+                entry["asm"] = inst.asm
+            entry["count"] += 1
+            entry["total_cycles"] += val
+
+            # 按流水级总和
+            stage_totals[stage] += val
+            # 按流水级+指令类型总和
+            stage_type_totals[stage][instr_type] += val
+
+        prev_commit = inst.commit
+
+    # 输出 CSV
+    rows = []
+    for (stage, pc), data in stats.items():
+        avg = data["total_cycles"] / data["count"] if data["count"] else 0
+        rows.append((stage, pc, data["asm"], data["count"], data["total_cycles"], avg))
+
+    rows.sort(key=lambda x: (x[0], -x[4]))
+
+    with open(output_file, "w", encoding="utf-8") as f:
+        f.write("Stage,PC,ASM,Count,Total_Cycles,Avg_Cycles\n")
+        for stage, pc, asm, cnt, total, avg in rows:
+            asm_safe = asm.replace('"', '""') if asm else ""
+            f.write(f'{stage},{pc},"{asm_safe}",{cnt},{total:.3f},{avg:.3f}\n')
+
+        # 输出每个流水级总和
+        f.write("\n# Stage Totals\n")
+        total_cycles_all = 0.0
+        for stage, total in stage_totals.items():
+            f.write(f'{stage}_TOTAL,{total:.3f}\n')
+            total_cycles_all += total
+        f.write(f'ALL_STAGES_TOTAL,{total_cycles_all:.3f}\n\n')
+
+        # 输出每个流水级按指令类型的总和
+        f.write("# Stage Totals by Instruction Type\n")
+        for stage, type_dict in stage_type_totals.items():
+            for instr_type, total in type_dict.items():
+                f.write(f'{stage}_{instr_type}_TOTAL,{total:.3f}\n')
+
+    print(f"✅ 输出文件: {output_file} （共 {len(rows)} 条统计）")
+    print(f"📊 各流水级总和已附加，ALL_STAGES_TOTAL={total_cycles_all:.3f}")
+  
 def build_basic_blocks(instrs):
     """
     更稳健的 basic-block 构造：
@@ -259,6 +366,7 @@ def main():
     output_file = os.path.join(output_dir, "blkinfo")
     view_file = os.path.join(output_dir, "blkview.json")  # 新增 view 文件
     instr_file =  os.path.join(output_dir, "instrview.csv")
+    pipeline_file = os.path.join(output_dir, "pipeline_stage_stats.csv")
 
     instrs = parse_trace_file(trace_file)
     blocks = build_basic_blocks(instrs)
@@ -378,6 +486,7 @@ def main():
             view_events.append(event)
     with open(view_file, "w") as vf:
         json.dump(view_events, vf, indent=2)
+    analyze_pipeline_stages(instrs,pipeline_file)
 
     #output_instrview_json(instrs,instr_file)
     analyze_instructions_by_pc(instrs,instr_file)
