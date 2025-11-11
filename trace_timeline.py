@@ -65,7 +65,7 @@ def convert_trace_to_json(trace_lines):
 
 def main():
     if len(sys.argv) < 2:
-        print("用法: python3 trace_to_json.py trace.txt")
+        print("用法: python3 trace_timeline.py trace.txt")
         sys.exit(1)
 
     trace_file = sys.argv[1]
