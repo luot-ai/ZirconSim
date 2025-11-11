@@ -73,13 +73,31 @@ int Emulator::step(uint32_t num, std::string imgName) {
     uint8_t *cmtVlds[2] = {&cpu->io_dbg_cmt_robDeq_deq_0_valid, &cpu->io_dbg_cmt_robDeq_deq_1_valid};
     uint32_t *cmtPCs[2] = {&cpu->io_dbg_cmt_robDeq_deq_0_bits_pc, &cpu->io_dbg_cmt_robDeq_deq_1_bits_pc};
     uint8_t *cmtPrds[2] = {&cpu->io_dbg_cmt_robDeq_deq_0_bits_prd, &cpu->io_dbg_cmt_robDeq_deq_1_bits_prd};
-    uint64_t *enqCycles[2] = {&cpu->io_dbg_cmt_robDeq_deq_0_bits_cycle_enqIQ, &cpu->io_dbg_cmt_robDeq_deq_1_bits_cycle_enqIQ};
-    uint64_t *wbCycles[2] = {&cpu->io_dbg_cmt_robDeq_deq_0_bits_cycle_wbROB, &cpu->io_dbg_cmt_robDeq_deq_1_bits_cycle_wbROB};
-    uint64_t *rfCycles[2] = {&cpu->io_dbg_cmt_robDeq_deq_0_bits_cycle_RF, &cpu->io_dbg_cmt_robDeq_deq_1_bits_cycle_RF};
-    uint64_t *d2Cycles[2] = {&cpu->io_dbg_cmt_robDeq_deq_0_bits_cycle_D2, &cpu->io_dbg_cmt_robDeq_deq_1_bits_cycle_D2};
     uint32_t *dbgRf = &cpu->io_dbg_rf_rf_0;
     uint32_t lastCmtCycles = 0;
     uint32_t seq = 0;
+
+    uint64_t *fetchCycles[2]     = {&cpu->io_dbg_cmt_robDeq_deq_0_bits_cycle_fetch,     &cpu->io_dbg_cmt_robDeq_deq_1_bits_cycle_fetch};
+    uint64_t *preDecodeCycles[2] = {&cpu->io_dbg_cmt_robDeq_deq_0_bits_cycle_preDecode, &cpu->io_dbg_cmt_robDeq_deq_1_bits_cycle_preDecode};
+    uint64_t *decodeCycles[2]    = {&cpu->io_dbg_cmt_robDeq_deq_0_bits_cycle_decode,    &cpu->io_dbg_cmt_robDeq_deq_1_bits_cycle_decode};
+    uint64_t *dispatchCycles[2]  = {&cpu->io_dbg_cmt_robDeq_deq_0_bits_cycle_dispatch,  &cpu->io_dbg_cmt_robDeq_deq_1_bits_cycle_dispatch};
+    uint64_t *issueCycles[2]     = {&cpu->io_dbg_cmt_robDeq_deq_0_bits_cycle_issue,     &cpu->io_dbg_cmt_robDeq_deq_1_bits_cycle_issue};
+    uint64_t *readOpCycles[2]    = {&cpu->io_dbg_cmt_robDeq_deq_0_bits_cycle_readOp,    &cpu->io_dbg_cmt_robDeq_deq_1_bits_cycle_readOp};
+    uint64_t *exeCycles[2]       = {&cpu->io_dbg_cmt_robDeq_deq_0_bits_cycle_exe,       &cpu->io_dbg_cmt_robDeq_deq_1_bits_cycle_exe};
+    uint64_t *exe1Cycles[2]      = {&cpu->io_dbg_cmt_robDeq_deq_0_bits_cycle_exe1,      &cpu->io_dbg_cmt_robDeq_deq_1_bits_cycle_exe1};
+    uint64_t *exe2Cycles[2]      = {&cpu->io_dbg_cmt_robDeq_deq_0_bits_cycle_exe2,      &cpu->io_dbg_cmt_robDeq_deq_1_bits_cycle_exe2};
+    uint64_t *wbCycles[2]        = {&cpu->io_dbg_cmt_robDeq_deq_0_bits_cycle_wb,        &cpu->io_dbg_cmt_robDeq_deq_1_bits_cycle_wb};
+    uint64_t *wbROBCycles[2]     = {&cpu->io_dbg_cmt_robDeq_deq_0_bits_cycle_wbROB,     &cpu->io_dbg_cmt_robDeq_deq_1_bits_cycle_wbROB};
+    uint64_t **allCycles[] = {
+        fetchCycles, preDecodeCycles, decodeCycles, dispatchCycles, issueCycles,
+        readOpCycles, exeCycles, exe1Cycles, exe2Cycles, wbCycles, wbROBCycles
+    };
+    const char *stageNames[] = {
+        "fetch", "preDecode", "decode", "dispatch", "issue",
+        "readOp", "exe", "exe1", "exe2", "wb", "wbROB"
+    };
+    const int numStages = sizeof(allCycles) / sizeof(allCycles[0]);
+
     while(num-- > 0){
         stat->addCycles(1);
         if (cpu->io_dbg_axi_rdDoneVec != 0) {
@@ -107,17 +125,17 @@ int Emulator::step(uint32_t num, std::string imgName) {
                 std::string asmStr = simulator->disassemble(cmtInst);
                 uint8_t opcode  = bits(cmtInst, 6, 0);
                 bool isBranch = opcode == 0x6F || opcode == 0x63 || opcode == 0x67;
+                // 输出一条指令的记录
                 baselog << seq << ","
-                << "0x" << std::hex << *cmtPCs[i] << std::dec << ","
-                << "\"" << asmStr << "\"" << ","
-                << lastCmtCycles 
-                << "," << *enqCycles[i]+1
-                << "," << *rfCycles[i]+1
-                << "," << *d2Cycles[i]+1
-                << "," << *wbCycles[i]+1
-                << "," << stat->getCycles()
-                << "," << isBranch
-                << std::endl;          
+                        << "0x" << std::hex << *cmtPCs[i] << std::dec << ","
+                        << "\"" << asmStr << "\","
+                        << lastCmtCycles;
+                for (int s = 0; s < numStages; s++) {
+                    baselog << "," << (*allCycles[s][i] + 1);
+                }
+                baselog << "," << stat->getCycles()
+                        << "," << isBranch
+                        << std::endl;       
                 seq++;
 
                 uint8_t cmtRd = bits(cmtInst, 11, 7);
