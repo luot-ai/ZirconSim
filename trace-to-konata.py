@@ -1,5 +1,6 @@
 import csv
-
+import sys
+import os
 class Instruction:
     def __init__(self, id_in_file, seqnum, pc, disasm, is_branch):
         self.id = id_in_file
@@ -46,30 +47,29 @@ def parse_csv(input_csv):
                 disasm=row["asm"],
                 is_branch=int(row.get("is_branch",0))
             )
-            cyc = {k: safe_int(row[k]) for k in row if k not in ["pc","asm","is_branch"]}
+            cyc = {k: safe_int(row[k]) for k in row if k not in ["pc","asm","is_branch","lastcommit"]}
             typ = classify_instruction(row["asm"])
 
             # pipeline stages
             instr.add_stage("F", cyc["fetch"], cyc["predecode"])
             instr.add_stage("PD", cyc["predecode"], cyc["decode"])
-            instr.add_stage("D", cyc["decode"], cyc["dispatch"])
-            instr.add_stage("IS", cyc["dispatch"], cyc["issue"])
-            instr.add_stage("RF", cyc["issue"], cyc["readOp"])
+            instr.add_stage("DEC", cyc["decode"], cyc["dispatch"])
+            instr.add_stage("DISP", cyc["dispatch"], cyc["exe"])
+            ##1104instr.add_stage("RF", cyc["issue"], cyc["readOp"])
 
             if typ in ["Load","Store"]:
-                instr.add_stage("DC1", cyc["readOp"], cyc["exe"])
-                instr.add_stage("DC2", cyc["exe"], cyc["exe1"])
-                exe_end = cyc["exe1"]
+                instr.add_stage("DC1", cyc["exe"], cyc["exe1"])
+                instr.add_stage("DC2", cyc["exe1"], cyc["wb"])
             elif typ in ["MulDiv"]:
-                instr.add_stage("EXE", cyc["readOp"], cyc["exe"])
                 instr.add_stage("EXE1", cyc["exe"], cyc["exe1"])
                 instr.add_stage("EXE2", cyc["exe1"], cyc["exe2"])
-                exe_end = cyc["exe2"]
+                instr.add_stage("EXE3", cyc["exe2"], cyc["wb"])
             else:  # ALU/Branch
-                instr.add_stage("EXE", cyc["readOp"], cyc["exe"])
-                exe_end = cyc["exe"]
+                instr.add_stage("EXE", cyc["exe"], cyc["wb"])
 
-            instr.add_stage("WB", exe_end, cyc["wb"])
+            instr.add_stage("WB", cyc["wb"], cyc["wbROB"])
+            instr.add_stage("CMT", cyc["wbROB"], cyc["retire"])
+            #print(cyc["wb"], cyc["wbRob"])
             instr.retire_tick = cyc["retire"]
 
             instructions.append(instr)
@@ -138,8 +138,10 @@ def generate_kanata_log(instructions, output_file):
 
 
 if __name__ == "__main__":
-    input_csv = "cfft.csv"
-    output_log = "instructions.log"
+    imgname = sys.argv[1] + "-riscv32"
+    input_csv = os.path.join("profiling", imgname, "base.log")
+    output_dir = os.path.join("profiling", imgname)
+    output_log = os.path.join(output_dir, "instructions.log")
     print("Converting CSV to Kanata format...")
     instructions = parse_csv(input_csv)
     generate_kanata_log(instructions, output_log)
