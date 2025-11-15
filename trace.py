@@ -163,10 +163,11 @@ def parse_trace_file(filename):
     instrs = []
     with open(filename, newline="") as f:
         reader = csv.reader(f)
-        for row in reader:
+        next(reader) 
+        for seq, row in enumerate(reader):
             if not row:
                 continue
-            seq, pc, asm, lastCmt, dispatch, ReadOp, Execute, writeBack, commit, is_branch = row[:10]
+            pc, asm, fetch, preDecode, decode, dispatch, issue, ReadOp, Execute,Execute1,Execute2, writeBack,writeBackROB, commit,lastCmt , is_branch = row[:16]
             instrs.append(Instruction(seq, pc, asm, lastCmt, dispatch, ReadOp, Execute, writeBack, commit, is_branch))
 
     # 调整 IPC：同一 start 的 N 条指令共享 latency
@@ -360,7 +361,7 @@ def build_basic_blocks(instrs):
     return blocks_list
 def main():
     imgname = sys.argv[1] + "-riscv32"
-    trace_file = os.path.join("profiling", imgname, "base.log")
+    trace_file = os.path.join("profiling", imgname, "base.csv")
     output_dir = os.path.join("profiling", imgname)
     os.makedirs(output_dir, exist_ok=True)
     output_file = os.path.join(output_dir, "blkinfo")
