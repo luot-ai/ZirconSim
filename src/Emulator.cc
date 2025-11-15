@@ -97,7 +97,8 @@ int Emulator::step(uint32_t num, std::string imgName) {
         "readOp", "exe", "exe1", "exe2", "wb", "wbROB"
     };
     const int numStages = sizeof(allCycles) / sizeof(allCycles[0]);
-
+    baselog << "pc,asm,fetch,predecode,decode,dispatch,issue,readOp,exe,exe1,exe2,wb,wbROB,retire,lastcommit,is_branch"
+            << std::endl;   ;
     while(num-- > 0){
         stat->addCycles(1);
         if (cpu->io_dbg_axi_rdDoneVec != 0) {
@@ -126,14 +127,13 @@ int Emulator::step(uint32_t num, std::string imgName) {
                 uint8_t opcode  = bits(cmtInst, 6, 0);
                 bool isBranch = opcode == 0x6F || opcode == 0x63 || opcode == 0x67;
                 // 输出一条指令的记录
-                baselog << seq << ","
-                        << "0x" << std::hex << *cmtPCs[i] << std::dec << ","
-                        << "\"" << asmStr << "\","
-                        << lastCmtCycles;
+                baselog << "0x" << std::hex << *cmtPCs[i] << std::dec << ","
+                        << "\"" << asmStr << "\"";
                 for (int s = 0; s < numStages; s++) {
                     baselog << "," << (*allCycles[s][i] + 1);
                 }
                 baselog << "," << stat->getCycles()
+                        << "," << lastCmtCycles
                         << "," << isBranch
                         << std::endl;       
                 seq++;
