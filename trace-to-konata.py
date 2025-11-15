@@ -54,8 +54,9 @@ def parse_csv(input_csv):
             instr.add_stage("F", cyc["fetch"], cyc["predecode"])
             instr.add_stage("PD", cyc["predecode"], cyc["decode"])
             instr.add_stage("DEC", cyc["decode"], cyc["dispatch"])
-            instr.add_stage("DISP", cyc["dispatch"], cyc["exe"])
-            ##1104instr.add_stage("RF", cyc["issue"], cyc["readOp"])
+            instr.add_stage("DISP", cyc["dispatch"], cyc["issue"])
+            instr.add_stage("IS", cyc["issue"], cyc["readOp"])
+            instr.add_stage("RF", cyc["readOp"], cyc["exe"])
 
             if typ in ["Load","Store"]:
                 instr.add_stage("DC1", cyc["exe"], cyc["exe1"])
