@@ -4,7 +4,7 @@
 #include <thread>
 #include <chrono>
 #include "utils.h"
-
+//#define DUMP_WAVE
 // #define DUMP_WAVE 0
 
 void Emulator::reset() {

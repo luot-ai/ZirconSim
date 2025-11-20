@@ -361,7 +361,7 @@ def build_basic_blocks(instrs):
     return blocks_list
 def main():
     imgname = sys.argv[1] + "-riscv32"
-    trace_file = os.path.join("profiling", imgname, "base.csv")
+    trace_file = os.path.join("profiling", imgname, "base.log")
     output_dir = os.path.join("profiling", imgname)
     os.makedirs(output_dir, exist_ok=True)
     output_file = os.path.join(output_dir, "blkinfo")
@@ -402,8 +402,8 @@ def main():
             # 按 savings_percent 排序
             cumulative_percent = 0.0
             cumulative_cycles = 0
-            #block_savings.sort(key=lambda x: x[2], reverse=True)
-            block_savings.sort(key=lambda x: x[0].block_id, reverse=False)
+            block_savings.sort(key=lambda x: x[2], reverse=True)
+            #block_savings.sort(key=lambda x: x[0].block_id, reverse=False)
             for bb, savings_percent, bb_cycles in block_savings:
                 if savings_percent < avg_percent:
                     continue
