@@ -51,12 +51,17 @@ int Emulator::step(uint32_t num, std::string imgName) {
     }
     std::ofstream baselog = std::ofstream(reportsDir + "/base.log");
     std::ofstream timelinelog = std::ofstream(reportsDir + "/timeline.log");
+    std::ofstream cachelog = std::ofstream(reportsDir + "/cachelog.log");
     if (!baselog.is_open()) {
         std::cerr << "failed to open base.log\n";
         return -4;
     }
     if (!timelinelog.is_open()) {
         std::cerr << "failed to open timeline.log\n";
+        return -4;
+    }
+    if (!cachelog.is_open()) {
+        std::cerr << "failed to open cachelog.log\n";
         return -4;
     }
 
@@ -99,6 +104,9 @@ int Emulator::step(uint32_t num, std::string imgName) {
     const int numStages = sizeof(allCycles) / sizeof(allCycles[0]);
     baselog << "pc,asm,fetch,predecode,decode,dispatch,issue,readOp,exe,exe1,exe2,wb,wbROB,retire,lastcommit,is_branch"
             << std::endl;   ;
+    int cacheMissing = 0;
+    int cacheMissCycle = 0;
+    int cacheMissAddr = 0;
     while(num-- > 0){
         stat->addCycles(1);
         if (cpu->io_dbg_axi_rdDoneVec != 0) {
@@ -107,10 +115,22 @@ int Emulator::step(uint32_t num, std::string imgName) {
                     << +cpu->io_dbg_axi_Cycles << ","
                     << stat->getCycles() << std::endl;
         }
-        if (cpu->io_dbg_axi_rdVldVec != 0) {
+        if (cpu->io_dbg_axi_rdVldVec != 0 ) {
             timelinelog << "start" << ","
                     << +cpu->io_dbg_axi_rdVldVec << ","
                     << stat->getCycles() << std::endl;
+        }
+        if (cpu->io_dbg_dcProfiling_rMiss != 0) {
+            if (cacheMissing == 0) {
+                cacheMissing = 1;
+                cacheMissCycle = stat->getCycles();
+                cacheMissAddr = cpu->io_dbg_dcProfiling_addr;
+            }
+        }
+        if (cpu->io_dbg_dcProfiling_rMiss == 0 && cacheMissing == 1) {
+            cacheMissing = 0;
+            cachelog << cacheMissCycle << "," << (stat->getCycles() - cacheMissCycle) << ",0x"
+            << std::hex << cacheMissAddr << std::dec << std::endl;
         }
 
         for(int i = 0; i < NCOMMIT; i++){
