@@ -491,29 +491,7 @@ def main():
             #it_infos.sort(key=lambda x: x["ipc"], reverse=True)  # 按 IPC 排序展示，但保留 iter_id
             if bb.block_id == 20:
                 dump_grouped_infos(it_infos, outfile)
-            # cycles_dict = defaultdict(list)
-            # for info in it_infos:
-            #     cycles_dict[info["cycles"]].append(info["iter_id"])
-            # for cycles in sorted(cycles_dict.keys()):
-            #     iter_ids = " ".join(str(i) for i in sorted(cycles_dict[cycles]))
-            #     outfile.write(f"    迭代 {iter_ids}, 耗时={cycles} cycles\n")
-            # for info in it_infos:
-            #     if not info["below_avg"]:
-            #         continue
-            #     outfile.write(f" 迭代 {info['iter_id']}: 耗时={info['cycles']} cycles, IPC={info['ipc']:.2f}\n")
 
-            #     prev_start = None
-            #     for instr in info["instrs"]:
-            #         pc_str = f"{instr.pc:<12}"
-            #         asm_str = f"{instr.asm:<30}"
-            #         start_str = f"start={instr.start:<5}"
-            #         delay_str = f"delay={instr.latency:<3}"
-
-            #         # 如果当前周期与上一条不同，则标记为第一条指令
-            #         mark = "*" if instr.start != prev_start else ""
-            #         prev_start = instr.start
-
-            #         outfile.write(f"    {pc_str} {asm_str} {start_str} {delay_str} {mark}\n")
 
 if __name__ == "__main__":
     main()
