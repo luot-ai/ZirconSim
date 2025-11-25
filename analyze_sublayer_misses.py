@@ -6,6 +6,13 @@ GROUP_SIZE = 5120
 SUB_SIZE = 512
 SUB_COUNT = GROUP_SIZE // SUB_SIZE  # =10
 
+# twiddle 地址范围（包含端点）
+START = 0x80000854
+END   = 0x80001853
+
+OSTART = 0x8000dfcc
+OEND = 0x8000ffcb
+
 # --------------------------
 # 1) 解析指令 trace（与用户第一份格式）
 # --------------------------
@@ -28,19 +35,33 @@ def parse_instr_trace(filename):
     instrs = []
     with open(filename, newline='') as f:
         reader = csv.reader(f)
-        next(reader) 
-        # 如果是没有表头直接开始也能工作
+        # 尝试跳过表头（如果存在）
+        try:
+            first = next(reader)
+            # 判断第一行是否为表头（包含非数字的 commit/lastCmt 字段）
+            try:
+                # 尝试把第14/13列转成 int，若失败则认为是表头
+                int(first[13])
+                int(first[14])
+                # 如果没有异常，第一行是数据，需要把它作为第一条指令加入
+                row0 = first
+                # 处理 row0
+                cols = row0 + ["0"] * 16
+                pc = cols[0].strip(); asm = cols[1].strip()
+                dispatch = cols[5]; ReadOp = cols[7]; Execute = cols[8]
+                writeBack = cols[11]; commit = cols[13]; lastCmt = cols[14]; is_branch = cols[15]
+                instrs.append(Instruction(len(instrs), pc, asm, lastCmt, dispatch, ReadOp, Execute, writeBack, commit, is_branch))
+            except Exception:
+                # 第一行是表头，继续从 reader 迭代真实数据
+                pass
+        except StopIteration:
+            return instrs
+
         for row in reader:
             if not row: continue
-            # 兼容你给出的示例行（16 列或更多）
-            # pc, asm, fetch, preDecode, decode, dispatch, issue, ReadOp, Execute,Execute1,Execute2, writeBack,writeBackROB, commit,lastCmt , is_branch
-            # 我们只需要部分字段： pc, asm, dispatch, ReadOp, Execute, writeBack, commit, lastCmt, is_branch
             try:
-                # 若行里 asm 含逗号可能被拆分；合并第1和第2列如果 asm 用双引号包围的情况被 csv 正确解析则不用担心
                 pc = row[0].strip()
                 asm = row[1].strip()
-                # lastCmt 在样例中位置为 14（0-index 14），commit=13，dispatch=5, ReadOp=7, Execute=8, writeBack=11, is_branch=15
-                # 以防输入列数变化，使用 try/except fallback
                 dispatch = row[5]
                 ReadOp = row[7]
                 Execute = row[8]
@@ -49,12 +70,16 @@ def parse_instr_trace(filename):
                 lastCmt = row[14]
                 is_branch = row[15]
             except Exception:
-                # 尝试截取前16列再解析
                 cols = row + ["0"] * 16
                 pc = cols[0].strip(); asm = cols[1].strip()
                 dispatch = cols[5]; ReadOp = cols[7]; Execute = cols[8]
                 writeBack = cols[11]; commit = cols[13]; lastCmt = cols[14]; is_branch = cols[15]
-            instrs.append(Instruction(len(instrs), pc, asm, lastCmt, dispatch, ReadOp, Execute, writeBack, commit, is_branch))
+            # 有可能某些行仍是损坏的，保护性 try
+            try:
+                instrs.append(Instruction(len(instrs), pc, asm, lastCmt, dispatch, ReadOp, Execute, writeBack, commit, is_branch))
+            except Exception:
+                # 跳过无法解析的行
+                continue
     return instrs
 
 # --------------------------
@@ -110,8 +135,11 @@ def iterations_to_infos(iterations):
     infos = []
     for idx, it in enumerate(iterations):
         if not it: continue
-        min_start = min(instr.start for instr in it)
-        max_end = max(instr.start + instr.latency for instr in it)
+        try:
+            min_start = min(instr.start for instr in it)
+            max_end = max(instr.start + instr.latency for instr in it)
+        except Exception:
+            continue
         cycles = max_end - min_start
         infos.append({
             "iter_id": idx + 1,
@@ -136,15 +164,24 @@ def parse_cache_trace(filename):
             try:
                 ts = int(parts[0])
                 dur = int(parts[1])
-            except:
+                # 解析地址，允许 0x 前缀或不带
+                addr_str = parts[2].strip()
+                # 有时 addr 前后可能带空格或有其他字段，尝试仅取 0x... 部分
+                if addr_str.startswith("0x") or addr_str.startswith("0X"):
+                    addr = int(addr_str, 16)
+                else:
+                    # 可能是 "0x8000e044" 带其它字符，尝试直接转换
+                    addr = int(addr_str, 16)
+            except Exception:
+                # 若无法解析 addr 或数值，跳过此条 cache event
                 continue
-            events.append({"ts": ts, "dur": dur})
+            events.append({"ts": ts, "dur": dur, "addr": addr})
     # 为加速查询按时间排序
     events.sort(key=lambda e: e["ts"])
     return events
 
 # --------------------------
-# 5) 统计每个小层的 miss count / miss_time
+# 5) 统计每个小层的 miss count / miss_time（并拆分 twiddle/output 与 L1/L2）
 # --------------------------
 def analyze_sublayers_for_iteration_infos(it_infos, cache_events, group_size=GROUP_SIZE, sub_size=SUB_SIZE):
     results = []  # list of dicts per sublayer
@@ -165,13 +202,20 @@ def analyze_sublayers_for_iteration_infos(it_infos, cache_events, group_size=GRO
             layer_end = sub[-1]["end"]
             window_len = layer_end - layer_start if layer_end > layer_start else 0
 
-            # 统计 cache events 在 [layer_start, layer_end)
+            # 初始化统计量
             miss_count = 0
             miss_dur_sum = 0
+
+            # twiddle/output × L1/L2 的计数与时长
+            tw_l1 = 0; tw_l1_dur = 0
+            tw_l2 = 0; tw_l2_dur = 0
+            out_l1 = 0; out_l1_dur = 0
+            out_l2 = 0; out_l2_dur = 0
+            miss_taken_l1 = 0; miss_taken_l1_dur = 0
+            miss_taken_l2 = 0; miss_taken_l2_dur = 0
             # efficient scan: cache_events sorted by ts
             # binary search start index
             lo = 0; hi = len(cache_events)
-            # find first index with ts >= layer_start
             while lo < hi:
                 mid = (lo + hi)//2
                 if cache_events[mid]["ts"] < layer_start:
@@ -179,9 +223,42 @@ def analyze_sublayers_for_iteration_infos(it_infos, cache_events, group_size=GRO
                 else:
                     hi = mid
             idx = lo
+            # 遍历属于该 window 的 cache events
             while idx < len(cache_events) and cache_events[idx]["ts"] < layer_end:
+                ev = cache_events[idx]
                 miss_count += 1
-                miss_dur_sum += cache_events[idx]["dur"]
+                miss_dur_sum += ev["dur"]
+
+                # 判定 twiddle / output
+                addr = ev.get("addr")
+                is_twiddle = (addr is not None and START <= addr <= END)
+                is_output = (addr is not None and OSTART <= addr <= OEND)
+                # 判定 L1 / L2
+                is_l2 = (ev.get("dur", 0) > 10)
+
+                # 累计到对应 bucket
+                if is_twiddle:
+                    if is_l2:
+                        tw_l2 += 1
+                        tw_l2_dur += ev["dur"]
+                    else:
+                        tw_l1 += 1
+                        tw_l1_dur += ev["dur"]
+                elif is_output:
+                    if is_l2:
+                        out_l2 += 1
+                        out_l2_dur += ev["dur"]
+                    else:
+                        out_l1 += 1
+                        out_l1_dur += ev["dur"]
+                else:
+                    if is_l2:
+                        miss_taken_l2 += 1
+                        miss_taken_l2_dur += ev["dur"]
+                    else:
+                        miss_taken_l1 += 1
+                        miss_taken_l1_dur += ev["dur"]
+
                 idx += 1
 
             results.append({
@@ -195,7 +272,20 @@ def analyze_sublayers_for_iteration_infos(it_infos, cache_events, group_size=GRO
                 "window_len": window_len,
                 "miss_count": miss_count,
                 "miss_dur_sum": miss_dur_sum,
-                "occupancy_ratio": (miss_dur_sum / window_len) if window_len>0 else 0.0
+                "occupancy_ratio": (miss_dur_sum / window_len) if window_len>0 else 0.0,
+                # 新增细分
+                "tw_l1": tw_l1,
+                "tw_l1_dur": tw_l1_dur,
+                "tw_l2": tw_l2,
+                "tw_l2_dur": tw_l2_dur,
+                "out_l1": out_l1,
+                "out_l1_dur": out_l1_dur,
+                "out_l2": out_l2,
+                "out_l2_dur": out_l2_dur,
+                "miss_taken_l1": miss_taken_l1,
+                "miss_taken_l1_dur": miss_taken_l1_dur,
+                "miss_taken_l2": miss_taken_l2,         
+                "miss_taken_l2_dur": miss_taken_l2_dur
             })
     return results
 
@@ -222,7 +312,11 @@ def main():
 
     # 对每个 block 输出其每个小层统计（可选：只分析 top-k blocks）
     with open(out_csv, "w", encoding="utf-8") as fout:
-        fout.write("block_id,group_idx,sub_idx_in_group,global_sub_index,iter_first,iter_last,start,end,window_len,miss_count,miss_dur_sum,occupancy_ratio\n")
+        fout.write(
+            "block_id,group_idx,sub_idx_in_group,global_sub_index,iter_first,iter_last,"
+            "start,end,window_len,miss_count,miss_dur_sum,occupancy_ratio,"
+            "tw_l1,tw_l1_dur,tw_l2,tw_l2_dur,out_l1,out_l1_dur,out_l2,out_l2_dur,miss_taken_l1, miss_taken_l1_dur,miss_taken_l2, miss_taken_l2_dur \n"
+        )
         for blk in blocks:
             block_id = blk["block_id"]
             iterations = blk["iterations"]
@@ -231,7 +325,14 @@ def main():
                 continue
             results = analyze_sublayers_for_iteration_infos(it_infos, cache_events)
             for r in results:
-                fout.write(f"{block_id},{r['group_idx']},{r['sub_idx_in_group']},{r['global_sub_index']},{r['iter_first']},{r['iter_last']},{r['start']},{r['end']},{r['window_len']},{r['miss_count']},{r['miss_dur_sum']:.0f},{r['occupancy_ratio']:.6f}\n")
+                fout.write(
+                    f"{block_id},{r['group_idx']},{r['sub_idx_in_group']},{r['global_sub_index']},"
+                    f"{r['iter_first']},{r['iter_last']},{r['start']},{r['end']},{r['window_len']},"
+                    f"{r['miss_count']},{r['miss_dur_sum']:.0f},{r['occupancy_ratio']:.6f},"
+                    f"{r['tw_l1']},{r['tw_l1_dur']:.0f},{r['tw_l2']},{r['tw_l2_dur']:.0f},"
+                    f"{r['out_l1']},{r['out_l1_dur']:.0f},{r['out_l2']},{r['out_l2_dur']:.0f},"
+                    f"{r['miss_taken_l1']},{r['miss_taken_l1_dur']:.0f},{r['miss_taken_l2']},{r['miss_taken_l2_dur']:.0f}\n"
+                )
 
     print(f"[+] 完成，输出：{out_csv}")
 
