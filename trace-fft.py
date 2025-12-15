@@ -401,6 +401,11 @@ def dump_grouped_infos(it_infos, outfile):
             # 输出小层总耗时
             outfile.write(f"    → 本层总耗时：{sub_total_cycles} cycles\n\n")
 
+            # 输出小层开始结束时间
+            outfile.write(f"    本层时间范围: "
+                          f"{sub[0]['instrs'][0].start} - "
+                          f"{sub[-1]['instrs'][-1].start +  sub[-1]['instrs'][-1].latency}\n\n")
+
             group_total_cycles += sub_total_cycles
 
         # 输出大组总耗时
