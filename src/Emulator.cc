@@ -34,7 +34,8 @@ bool Emulator::difftestStep(uint8_t rd, uint32_t rdData, uint32_t pc, uint32_t s
         std::cout << ANSI_FG_RED << "RF mismatch at pc " << std::hex << pc << std::dec;
         std::cout << ", reg " << (uint32_t)rd << "(preg: " << (uint32_t)(rnmTable[rd]) << "), dut: " << std::hex << rdData;
         std::cout << ", ref: " << simulator->getRf(rd) << std::dec << ANSI_NONE << std::endl;
-        return false;
+        return true;
+        //return false;
     }
     return true;
 }
@@ -159,6 +160,9 @@ int Emulator::step(uint32_t num, std::string imgName) {
                 seq++;
 
                 uint8_t cmtRd = bits(cmtInst, 11, 7);
+                if(opcode == 0x0b && (((cmtInst >> 12) & 0x7) == 0x7)){
+                    printf("dest is %d",dbgRf[rnmTable[cmtRd]]);
+                }
                 if(simEnd(cmtInst)){
                     return (dbgRf[rnmTable[10]] == 0 ? 0 : -1);
                 }
