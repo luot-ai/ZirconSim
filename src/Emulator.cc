@@ -24,19 +24,17 @@ bool Emulator::difftestRF(uint8_t rd, uint32_t rdData, uint32_t pc) {
 }
 bool Emulator::difftestStep(uint8_t rd, uint32_t rdData, uint32_t pc, uint32_t step) {
     if(!difftestPC(pc)){
-        //std::cout << ANSI_FG_RED << "PC mismatch at pc " << std::hex << simulator->getPC() << ", dut: " << pc << ANSI_NONE << std::endl;
-        return true;
+        std::cout << ANSI_FG_RED << "PC mismatch at pc " << std::hex << simulator->getPC() << ", dut: " << pc << ANSI_NONE << std::endl;
         return false;
     }
     for(int i = 0; i < step; i++){
         simulator->step(1);
     }
     if(!difftestRF(rd, rdData, pc)){
-        //std::cout << ANSI_FG_RED << "RF mismatch at pc " << std::hex << pc << std::dec;
-        //std::cout << ", reg " << (uint32_t)rd << "(preg: " << (uint32_t)(rnmTable[rd]) << "), dut: " << std::hex << rdData;
-        //std::cout << ", ref: " << simulator->getRf(rd) << std::dec << ANSI_NONE << std::endl;
-        return true;
-        //return false;
+        std::cout << ANSI_FG_RED << "RF mismatch at pc " << std::hex << pc << std::dec;
+        std::cout << ", reg " << (uint32_t)rd << "(preg: " << (uint32_t)(rnmTable[rd]) << "), dut: " << std::hex << rdData;
+        std::cout << ", ref: " << simulator->getRf(rd) << std::dec << ANSI_NONE << std::endl;
+        return false;
     }
     return true;
 }
