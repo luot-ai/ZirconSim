@@ -119,7 +119,8 @@ int Emulator::step(uint32_t num, std::string imgName) {
         if (cpu->io_dbg_axi_rdVldVec != 0 ) {
             timelinelog << "start" << ","
                     << +cpu->io_dbg_axi_rdVldVec << ","
-                    << stat->getCycles() << std::endl;
+                    << stat->getCycles() <<  ",0x"
+                    << std::hex << +cpu->io_dbg_axi_addr << std::dec << "," << std::endl;
         }
         if (cpu->io_dbg_dcProfiling_rMiss != 0) {
             if (cacheMissing == 0) {
