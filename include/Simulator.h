@@ -156,13 +156,40 @@ class Simulator {
             case 0x67: sprintf(buf,"jalr a%d, a%d, %d", rd, rs1, signExtend(inst>>20,12)); break;
     
             case 0x0B: { // stream type
-                switch(funct3){
-                    case 0x0: sprintf(buf,"cfg_i"); break;
-                    case 0x1: sprintf(buf,"cfg_store"); break;
-                    case 0x2: sprintf(buf,"cal_stream"); break;
-                    case 0x3: sprintf(buf,"step_i"); break;
-                    case 0x5: sprintf(buf,"cfg_load"); break;
-                    default: sprintf(buf,"unknown stream"); break;
+                switch (funct3) {
+                    case 0x0:
+                        // CFGI / CFGILIMIT / CFGIREPEAT 由 funct7 再区分
+                        switch (funct7) {
+                            case 0x00: sprintf(buf, "cfg_i"); break;
+                            case 0x01: sprintf(buf, "cfg_i_limit"); break;
+                            case 0x02: sprintf(buf, "cfg_i_repeat"); break;
+                            default:   sprintf(buf, "cfg_i_unknown"); break;
+                        }
+                        break;
+                    case 0x1:
+                        sprintf(buf, "cfg_store");
+                        break;
+                    case 0x2:
+                        sprintf(buf, "cal_stream");
+                        break;
+                    case 0x3:
+                        sprintf(buf, "cfg_stride");
+                        break;
+                    case 0x4:
+                        sprintf(buf, "cfg_reuse");
+                        break;
+                    case 0x5:
+                        sprintf(buf, "cfg_load");
+                        break;
+                    case 0x6:
+                        sprintf(buf, "cfg_tilestride");
+                        break;
+                    case 0x7:
+                        sprintf(buf, "cal_stream_rd, a%d",rd);
+                        break;
+                    default:
+                        sprintf(buf, "unknown stream");
+                        break;
                 }
             } break;
     

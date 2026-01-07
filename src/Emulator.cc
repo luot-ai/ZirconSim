@@ -4,7 +4,7 @@
 #include <thread>
 #include <chrono>
 #include "utils.h"
-
+#define DUMP_WAVE
 // #define DUMP_WAVE 0
 
 void Emulator::reset() {
@@ -51,12 +51,17 @@ int Emulator::step(uint32_t num, std::string imgName) {
     }
     std::ofstream baselog = std::ofstream(reportsDir + "/base.log");
     std::ofstream timelinelog = std::ofstream(reportsDir + "/timeline.log");
+    std::ofstream cachelog = std::ofstream(reportsDir + "/cachelog.log");
     if (!baselog.is_open()) {
         std::cerr << "failed to open base.log\n";
         return -4;
     }
     if (!timelinelog.is_open()) {
         std::cerr << "failed to open timeline.log\n";
+        return -4;
+    }
+    if (!cachelog.is_open()) {
+        std::cerr << "failed to open cachelog.log\n";
         return -4;
     }
 
@@ -97,7 +102,12 @@ int Emulator::step(uint32_t num, std::string imgName) {
         "readOp", "exe", "exe1", "exe2", "wb", "wbROB"
     };
     const int numStages = sizeof(allCycles) / sizeof(allCycles[0]);
-
+    baselog << "pc,asm,fetch,predecode,decode,dispatch,issue,readOp,exe,exe1,exe2,wb,wbROB,retire,lastcommit,is_branch"
+            << std::endl;   ;
+    int cacheMissing = 0;
+    int cacheMissCycle = 0;
+    int cacheMissAddr = 0;
+    int cnt = 0;
     while(num-- > 0){
         stat->addCycles(1);
         if (cpu->io_dbg_axi_rdDoneVec != 0) {
@@ -106,12 +116,24 @@ int Emulator::step(uint32_t num, std::string imgName) {
                     << +cpu->io_dbg_axi_Cycles << ","
                     << stat->getCycles() << std::endl;
         }
-        if (cpu->io_dbg_axi_rdVldVec != 0) {
+        if (cpu->io_dbg_axi_rdVldVec != 0 ) {
             timelinelog << "start" << ","
                     << +cpu->io_dbg_axi_rdVldVec << ","
-                    << stat->getCycles() << std::endl;
+                    << stat->getCycles() <<  ",0x"
+                    << std::hex << +cpu->io_dbg_axi_addr << std::dec << "," << std::endl;
         }
-
+        if (cpu->io_dbg_dcProfiling_rMiss != 0) {
+            if (cacheMissing == 0) {
+                cacheMissing = 1;
+                cacheMissCycle = stat->getCycles();
+                cacheMissAddr = cpu->io_dbg_dcProfiling_addr;
+            }
+        }
+        if (cpu->io_dbg_dcProfiling_rMiss == 0 && cacheMissing == 1) {
+            cacheMissing = 0;
+            cachelog << cacheMissCycle << "," << (stat->getCycles() - cacheMissCycle) << ",0x"
+            << std::hex << cacheMissAddr << std::dec << std::endl;
+        }
         for(int i = 0; i < NCOMMIT; i++){
             if(stallForTooLong()){
                 return -3;
@@ -126,14 +148,13 @@ int Emulator::step(uint32_t num, std::string imgName) {
                 uint8_t opcode  = bits(cmtInst, 6, 0);
                 bool isBranch = opcode == 0x6F || opcode == 0x63 || opcode == 0x67;
                 // 输出一条指令的记录
-                baselog << seq << ","
-                        << "0x" << std::hex << *cmtPCs[i] << std::dec << ","
-                        << "\"" << asmStr << "\","
-                        << lastCmtCycles;
+                baselog << "0x" << std::hex << *cmtPCs[i] << std::dec << ","
+                        << "\"" << asmStr << "\"";
                 for (int s = 0; s < numStages; s++) {
                     baselog << "," << (*allCycles[s][i] + 1);
                 }
                 baselog << "," << stat->getCycles()
+                        << "," << lastCmtCycles
                         << "," << isBranch
                         << std::endl;       
                 seq++;
@@ -144,6 +165,16 @@ int Emulator::step(uint32_t num, std::string imgName) {
                 }
                 if(*cmtPrds[i] != 0){
                     rnmTableUpdate(cmtRd, *cmtPrds[i]);
+                }
+                if(opcode == 0x0b && (((cmtInst >> 12) & 0x7) == 0x7)){
+                    printf("dest is %d\n",dbgRf[rnmTable[cmtRd]]);
+                    cnt++;
+                    if(cnt % 32 == 0){
+                        printf("============== one col ================\n");
+                        if(cnt %512 == 0){
+                            printf("============== one row ================\n");
+                        }
+                    }
                 }
                 if(!difftestStep(cmtRd, dbgRf[rnmTable[cmtRd]], *cmtPCs[i], 1)){
                     return -2;

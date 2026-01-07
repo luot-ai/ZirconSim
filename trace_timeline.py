@@ -12,7 +12,7 @@ TYPE_MAP = {
 def parse_trace_line(line):
     parts = line.strip().split(',')
     if parts[0] == "start":
-        return {"type": "start", "kind": int(parts[1]), "start": int(parts[2])}
+        return {"type": "start", "kind": int(parts[1]), "start": int(parts[2]), "addr": int(parts[3], 16)}
     elif parts[0] == "end":
         return {"type": "end", "kind": int(parts[1]), "dur": int(parts[2]), "end": int(parts[3])}
     else:
@@ -50,7 +50,7 @@ def convert_trace_to_json(trace_lines):
             # 3️⃣ 生成 JSON 对象
             type_count[entry["kind"]] += 1
             obj = {
-                "name": f"{TYPE_MAP[entry['kind']]}_{type_count[entry['kind']]}",
+                "name": f"{hex(start_entry['addr'])}_{type_count[entry['kind']]}",
                 "cname": "a",
                 "ph": "X",
                 "pid": "cpu",

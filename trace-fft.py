@@ -359,12 +359,65 @@ def build_basic_blocks(instrs):
     # 返回 list 按 block_id 排序，保证输出稳定
     blocks_list = sorted(blocks_map.values(), key=lambda b: b.block_id)
     return blocks_list
+GROUP_SIZE = 5120
+SUB_SIZE   = 512     # 每层固定 512 行
+SUB_COUNT  = GROUP_SIZE // SUB_SIZE   # = 10
+def dump_grouped_infos(it_infos, outfile):
+    total = len(it_infos)
+    group_id = 0
+
+    for g_start in range(0, total, GROUP_SIZE):
+        g_end = min(g_start + GROUP_SIZE, total)
+        group = it_infos[g_start: g_end]
+
+        # ===== 打印大标题 =====
+        outfile.write("\n")
+        outfile.write("=" * 60 + "\n")
+        outfile.write(f"大组 {group_id}：迭代 {group[0]['iter_id']} – {group[-1]['iter_id']}\n")
+        outfile.write("=" * 60 + "\n\n")
+
+        group_total_cycles = 0   # <== 大组总 cycles
+
+        # ===== 5120 内部分 10 个小层，每层 512 行 =====
+        for sub_id in range(SUB_COUNT):
+            s_start = sub_id * SUB_SIZE
+            s_end   = s_start + SUB_SIZE
+
+            if s_start >= len(group):  # 不足 5120 时提前退出
+                break
+
+            sub = group[s_start:s_end]
+
+            outfile.write(f"  {group_id}.{sub_id+1} 层: 迭代 {sub[0]['iter_id']} – {sub[-1]['iter_id']}\n")
+
+            sub_total_cycles = 0  # <== 小层总 cycles
+
+            for info in sub:
+                outfile.write(
+                    f"    迭代 {info['iter_id']}: 耗时={info['cycles']} cycles, IPC={info['ipc']:.2f}\n"
+                )
+                sub_total_cycles += info["cycles"]
+
+            # 输出小层总耗时
+            outfile.write(f"    → 本层总耗时：{sub_total_cycles} cycles\n\n")
+
+            # 输出小层开始结束时间
+            outfile.write(f"    本层时间范围: "
+                          f"{sub[0]['instrs'][0].start} - "
+                          f"{sub[-1]['instrs'][-1].start +  sub[-1]['instrs'][-1].latency}\n\n")
+
+            group_total_cycles += sub_total_cycles
+
+        # 输出大组总耗时
+        outfile.write(f"  → 大组总耗时：{group_total_cycles} cycles\n")
+
+        group_id += 1
 def main():
     imgname = sys.argv[1] + "-riscv32"
     trace_file = os.path.join("profiling", imgname, "base.log")
     output_dir = os.path.join("profiling", imgname)
     os.makedirs(output_dir, exist_ok=True)
-    output_file = os.path.join(output_dir, "blkinfo")
+    output_file = os.path.join(output_dir, "blkinfo-sim")
     view_file = os.path.join(output_dir, "blkview.json")  # 新增 view 文件
     instr_file =  os.path.join(output_dir, "instrview.csv")
     pipeline_file = os.path.join(output_dir, "pipeline_stage_stats.csv")
@@ -440,56 +493,10 @@ def main():
 
             # block 内迭代按 IPC 从低到高排序
             it_infos = bb.iteration_info()
-            it_infos.sort(key=lambda x: x["ipc"], reverse=True)  # 按 IPC 排序展示，但保留 iter_id
-            cycles_dict = defaultdict(list)
-            for info in it_infos:
-                cycles_dict[info["cycles"]].append(info["iter_id"])
-            for cycles in sorted(cycles_dict.keys()):
-                iter_ids = " ".join(str(i) for i in sorted(cycles_dict[cycles]))
-                outfile.write(f"    迭代 {iter_ids}, 耗时={cycles} cycles\n")
-            for info in it_infos:
-                if not info["below_avg"]:
-                    continue
-                outfile.write(f" 迭代 {info['iter_id']}: 耗时={info['cycles']} cycles, IPC={info['ipc']:.2f}\n")
+            #it_infos.sort(key=lambda x: x["ipc"], reverse=True)  # 按 IPC 排序展示，但保留 iter_id
+            if bb.block_id == 20:
+                dump_grouped_infos(it_infos, outfile)
 
-                prev_start = None
-                for instr in info["instrs"]:
-                    pc_str = f"{instr.pc:<12}"
-                    asm_str = f"{instr.asm:<30}"
-                    start_str = f"start={instr.start:<5}"
-                    delay_str = f"delay={instr.latency:<3}"
 
-                    # 如果当前周期与上一条不同，则标记为第一条指令
-                    mark = "*" if instr.start != prev_start else ""
-                    prev_start = instr.start
-
-                    outfile.write(f"    {pc_str} {asm_str} {start_str} {delay_str} {mark}\n")
-
-    # ========== 新增 blkview.json 输出 ==========
-    colors = list(string.ascii_lowercase) 
-    view_events = []
-    for bb in blocks:
-        for iter_idx, it in enumerate(bb.iterations, start=1):
-            if not it:
-                continue
-            color = colors[(iter_idx - 1) % len(colors)]
-            min_start = min(instr.start for instr in it)
-            max_end = max(instr.start + instr.latency for instr in it)
-            event = {
-                "name": f"{color}: {iter_idx} Iter",
-                "cname": color,   # 可换成 red/blue 等颜色
-                "ph": "X",
-                "pid": "cpu",
-                "tid": f"Block {bb.block_id}",   # 每个迭代号作为 thread id
-                "ts": min_start,
-                "dur": max_end - min_start
-            }
-            view_events.append(event)
-    with open(view_file, "w") as vf:
-        json.dump(view_events, vf, indent=2)
-    analyze_pipeline_stages(instrs,pipeline_file)
-
-    #output_instrview_json(instrs,instr_file)
-    analyze_instructions_by_pc(instrs,instr_file)
 if __name__ == "__main__":
     main()
