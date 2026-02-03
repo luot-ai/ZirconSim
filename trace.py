@@ -359,6 +359,26 @@ def build_basic_blocks(instrs):
     # 返回 list 按 block_id 排序，保证输出稳定
     blocks_list = sorted(blocks_map.values(), key=lambda b: b.block_id)
     return blocks_list
+def dump_block_cycles_csv(blocks, output_csv):
+    """
+    输出每个基本块每次迭代的执行时间区间
+    CSV 格式：
+    block_id,iteration_id,start,end,cycles
+    """
+    with open(output_csv, "w", encoding="utf-8") as f:
+        f.write("block_id,iteration_id,start,end,cycles\n")
+
+        for bb in blocks:
+            for it_id, it in enumerate(bb.iterations):
+                if not it:
+                    continue
+                min_start = min(instr.start for instr in it)
+                max_end   = max(instr.start + instr.latency for instr in it)
+                cycles = (max_end - min_start)
+                f.write(f"{bb.block_id},{it_id},{min_start},{max_end},{cycles}\n")
+
+    print(f"✅ Block-level cycle CSV written to {output_csv}")
+
 def main():
     imgname = sys.argv[1] + "-riscv32"
     trace_file = os.path.join("profiling", imgname, "base.log")
@@ -491,5 +511,8 @@ def main():
 
     #output_instrview_json(instrs,instr_file)
     analyze_instructions_by_pc(instrs,instr_file)
+
+    block_csv = os.path.join(output_dir, "block_cycles.csv")
+    dump_block_cycles_csv(blocks, block_csv)
 if __name__ == "__main__":
     main()
