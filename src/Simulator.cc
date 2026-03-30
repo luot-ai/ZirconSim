@@ -19,6 +19,9 @@ void Simulator::step(uint32_t num) {
         default: break;
     }
     rf[0] = 0;
+    if(opcode != 0x0b){
+        cktS = false;
+    }
 }
 
 void Simulator::executeRType(uint32_t inst) {
@@ -255,6 +258,10 @@ int s = 1;
 
 int ifCal = 0;
 int total = 0;
+int curE = 0;
+int curO = 0;
+
+int tag = 0;
 complex_t add_res,sub_res,orRes;
 complex_t y[FFT_32];
 complex_t *dst = y;
@@ -271,6 +278,7 @@ void Simulator::executeStreamType(uint32_t inst) {
     uint32_t value2 = rf[rs2];
     pc += 4;
 
+    cktS = false;
     if (funct3 == 0x02 || funct3 == 0x06 || funct3 == 0x07){
         if(!ifCal){
             init_temp();
@@ -286,7 +294,9 @@ void Simulator::executeStreamType(uint32_t inst) {
             dst[q + s*(2*p+1)] = orRes;
 
             printf("==========================================================\n");
-            printf("block%d, stage%d, iter%d, odd%d, even%d\n",block,stage,total%16,q + s * (p + 0),q + s * (p + m));
+            curE = stage*32 + q + s*(2*p+0);
+            curO = stage*32 + q + s*(2*p+1);
+            printf("block%d, stage%d, iter%d, odd%d, even%d\n", block, stage, total%16,q + s * (p + 0), q + s * (p + m));
             total++;
             q += 1;
             if(q >= s){
@@ -304,6 +314,7 @@ void Simulator::executeStreamType(uint32_t inst) {
                     src = dst;
                     dst = tmp;
                     if(stage >= 5){
+                        stage = 0;
                         m = 16;
                         s = 1;
                         block++;
@@ -314,32 +325,59 @@ void Simulator::executeStreamType(uint32_t inst) {
             ifCal = 1;
         }
 
+        int res = 0;
         switch (funct3){
             case 0x02: {
                 assert(cnt == 0 || cnt == 1);
-                int res = cnt==0 ? add_res.real : add_res.imag;
+                res = cnt==0 ? add_res.real : add_res.imag;
                 printf("add! res is %d\n", res);
+                curSWidx = curE*2 + cnt;
                 cnt++;
+                cktS = true;
+                if(tag==2){
+                    tag = 0;
+                }
                 break;
             }
             case 0x07: {
-                assert(cnt == 2 || cnt == 3);
-                rf[rd] = cnt==2 ? sub_res.real : sub_res.imag;
-                printf("sub! res is %d\n", rf[rd]);
-                cnt++;
-                break;
+                if(funct7 == 0x08){
+                    assert(cnt == 2 || cnt == 3);
+                    rf[rd] = cnt==2 ? sub_res.real : sub_res.imag;
+                    printf("sub! res is %d\n", rf[rd]);
+                    cnt++;
+                    if(cnt == 4 && tag == 2){
+                        cnt = 0;//back to cal_stream_rd_add
+                        ifCal = 0;
+                    }
+                    break;
+                }
+                else{
+                    assert(funct7 == 0x00);
+                    assert(cnt == 0 || cnt == 1);
+                    rf[rd] = cnt==0 ? add_res.real : add_res.imag;
+                    printf("add_rd! res is %d\n", rf[rd]);
+                    cnt++;
+                    break;
+                }
             }
             case 0x06: {
                 assert(cnt == 4 || cnt == 5);
-                int res = cnt==4 ? orRes.real : orRes.imag;
-                printf("value1 is %d,value2 is %d,or res is %d\n",value1,value2,value1 | value2);
+                if (stage == 4 ){
+                    tag++;
+                    assert(tag <= 2); //因为stage提前++，所以执行完最后两条指令
+                }
+                res = cnt==4 ? orRes.real : orRes.imag;
+                //printf("value1 is %d,value2 is %d,or res is %d\n",value1,value2,value1 | value2);
                 printf("OR! res is %d\n", res);
+                curSWidx = curO*2 + (cnt-4);
                 cnt = cnt== 4 ? 5 : 0;
                 if(cnt == 0) { ifCal = 0; }
+                cktS = true;
                 break;
             }
             default: break;
         }
+        curSWdata = res;
     }
 }
 

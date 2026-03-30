@@ -37,6 +37,7 @@ class Emulator {
     bool difftestPC(uint32_t pc);
     bool difftestRF(uint8_t rd, uint32_t rdData, uint32_t pc);
     bool difftestStep(uint8_t rd, uint32_t rdData, uint32_t pc, uint32_t step);
+    bool difftestStream(uint32_t swdata,uint32_t swidx);
 
     public:
     Emulator(

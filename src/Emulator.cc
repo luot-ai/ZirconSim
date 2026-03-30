@@ -39,6 +39,22 @@ bool Emulator::difftestStep(uint8_t rd, uint32_t rdData, uint32_t pc, uint32_t s
     return true;
 }
 
+bool Emulator::difftestStream(uint32_t swdata,uint32_t swidx) {
+    bool reV = true;
+    if(swdata != simulator->getS() && simulator->needCktS()){
+        std::cout << ANSI_FG_RED << "Stream mismatch at pc " << std::hex << simulator->getPC() << ", dut: " << swdata;
+        std::cout << ", ref: " << simulator->getS() << std::dec << ANSI_NONE << std::endl;
+        reV = false;
+    }
+    if(swidx != simulator->getWIdx() && simulator->needCktS()){
+        std::cout << ANSI_FG_RED << "Stream idx mismatch at pc " << std::hex << simulator->getPC() << ", dut: " << swidx;
+        std::cout << ", ref: " << simulator->getWIdx() << std::dec << ANSI_NONE << std::endl;
+        reV = false;
+    }
+    return reV;
+}
+
+
 uint32_t bits(uint32_t value, uint32_t hi, uint32_t lo){
     return (value >> lo) & ~((-1) << (hi - lo + 1));
 }
@@ -97,6 +113,9 @@ int Emulator::step(uint32_t num, std::string imgName) {
         fetchCycles, preDecodeCycles, decodeCycles, dispatchCycles, issueCycles,
         readOpCycles, exeCycles, exe1Cycles, exe2Cycles, wbCycles, wbROBCycles
     };
+
+    uint32_t *wData[2]     = {&cpu->io_dbg_cmt_robDeq_deq_0_bits_sWdata,     &cpu->io_dbg_cmt_robDeq_deq_1_bits_sWdata};
+    uint32_t *wIdx[2]      = {&cpu->io_dbg_cmt_robDeq_deq_0_bits_itercnt_2,      &cpu->io_dbg_cmt_robDeq_deq_1_bits_itercnt_2};
     const char *stageNames[] = {
         "fetch", "preDecode", "decode", "dispatch", "issue",
         "readOp", "exe", "exe1", "exe2", "wb", "wbROB"
@@ -143,6 +162,8 @@ int Emulator::step(uint32_t num, std::string imgName) {
                 stat->addInsts(1);
                 stat->pcBufferPush(*cmtPCs[i]);
                 uint32_t cmtInst = memory->debugRead(*cmtPCs[i]);
+                uint32_t swdata = *wData[i];
+                uint32_t swidx = *wIdx[i];
 
                 std::string asmStr = simulator->disassemble(cmtInst);
                 uint8_t opcode  = bits(cmtInst, 6, 0);
@@ -167,7 +188,7 @@ int Emulator::step(uint32_t num, std::string imgName) {
                     rnmTableUpdate(cmtRd, *cmtPrds[i]);
                 }
                 if(opcode == 0x0b && (((cmtInst >> 12) & 0x7) == 0x7)){
-                    printf("dest is %d\n",dbgRf[rnmTable[cmtRd]]);
+                    //printf("dest is %d\n",dbgRf[rnmTable[cmtRd]]);
                     cnt++;
                     if(cnt % 32 == 0){
                         printf("============== one col ================\n");
@@ -177,6 +198,9 @@ int Emulator::step(uint32_t num, std::string imgName) {
                     }
                 }
                 if(!difftestStep(cmtRd, dbgRf[rnmTable[cmtRd]], *cmtPCs[i], 1)){
+                    return -2;
+                }
+                if(!difftestStream(swdata,swidx)){
                     return -2;
                 }
             }

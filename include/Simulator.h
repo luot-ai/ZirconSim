@@ -18,6 +18,9 @@ class Simulator {
     private:
     uint32_t pc = 0x80000000;
     uint32_t rf[32] = {0};
+    uint32_t curSWdata = 0;
+    uint32_t curSWidx = 0;
+    bool cktS = false;
     AXIMemory* memory = nullptr;
     uint32_t bits(uint32_t value, uint32_t hi, uint32_t lo){
         return (value >> lo) & ~((-1) << (hi - lo + 1));
@@ -52,6 +55,15 @@ class Simulator {
     }
     uint32_t getRf(uint8_t rd){
         return rf[rd];
+    }
+    uint32_t getS(){
+        return curSWdata;
+    }
+    uint32_t getWIdx(){
+        return curSWidx;
+    }
+    bool needCktS(){
+        return cktS;
     }
     InstStatistic getInstStat(){
         return instStat;
