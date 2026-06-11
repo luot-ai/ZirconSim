@@ -5,6 +5,7 @@
 #include "Device.h"
 #include <iostream>
 #include "utils.h"
+#include "StreamDifftest.h"
 
 
 int main(int argc, char** argv) {
@@ -15,6 +16,11 @@ int main(int argc, char** argv) {
     VerilatedVcdC *m_trace = new VerilatedVcdC;
     cpu->trace(m_trace, 5);
     m_trace->open("waveform.vcd");
+
+    if (argc < 2) {
+        std::cerr << "usage: " << argv[0] << " <image> [--stream-diff=none|stream-add|gemm|fft32]" << std::endl;
+        return -1;
+    }
 
     std::string imgPath = argv[1];
 
@@ -27,7 +33,22 @@ int main(int argc, char** argv) {
     std::cout << ANSI_FG_CYAN << "SIMULATION STARTED." << ANSI_NONE << std::endl;
 
     emulator->reset();
-    std::string imgName = imgPath.substr(imgPath.find_last_of('/') + 1, imgPath.find_last_of('.') - imgPath.find_last_of('/') - 1);
+    size_t slashPos = imgPath.find_last_of("/\\");
+    size_t dotPos = imgPath.find_last_of('.');
+    size_t nameStart = slashPos == std::string::npos ? 0 : slashPos + 1;
+    size_t nameLen = dotPos == std::string::npos || dotPos < nameStart ? std::string::npos : dotPos - nameStart;
+    std::string imgName = imgPath.substr(nameStart, nameLen);
+    StreamDifftestMode streamMode = StreamDifftest::inferModeFromImage(imgName);
+    for (int i = 2; i < argc; i++) {
+        std::string arg = argv[i];
+        const std::string prefix = "--stream-diff=";
+        if (arg.rfind(prefix, 0) == 0) {
+            streamMode = StreamDifftest::modeFromString(arg.substr(prefix.size()));
+        }
+    }
+    simulator->setStreamDifftestMode(streamMode);
+    std::cout << ANSI_FG_CYAN << "Stream difftest mode: "
+              << StreamDifftest::modeName(streamMode) << ANSI_NONE << std::endl;
     int ret = emulator->step(-1,imgName);
 
     std::cout << "========================================" <<  std::endl;

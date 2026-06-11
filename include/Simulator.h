@@ -3,6 +3,7 @@
 
 #include <cstdint>
 #include "AXIMemory.h"
+#include "StreamDifftest.h"
 
 
 struct InstStatistic {
@@ -21,6 +22,7 @@ class Simulator {
     uint32_t curSWdata = 0;
     uint32_t curSWidx = 0;
     bool cktS = false;
+    StreamDifftest streamDifftest;
     AXIMemory* memory = nullptr;
     uint32_t bits(uint32_t value, uint32_t hi, uint32_t lo){
         return (value >> lo) & ~((-1) << (hi - lo + 1));
@@ -47,7 +49,8 @@ class Simulator {
     InstStatistic instStat;
 
     public:
-    Simulator(AXIMemory* memory): memory(memory) {}
+    Simulator(AXIMemory* memory, StreamDifftestMode streamMode = StreamDifftestMode::None):
+        streamDifftest(streamMode), memory(memory) {}
 
     void step(uint32_t num);
     uint32_t getPC(){
@@ -64,6 +67,12 @@ class Simulator {
     }
     bool needCktS(){
         return cktS;
+    }
+    void setStreamDifftestMode(StreamDifftestMode mode){
+        streamDifftest.setMode(mode);
+    }
+    StreamDifftestMode getStreamDifftestMode() const {
+        return streamDifftest.getMode();
     }
     InstStatistic getInstStat(){
         return instStat;
@@ -182,10 +191,10 @@ class Simulator {
                         sprintf(buf, "cfg_store");
                         break;
                     case 0x2:
-                        sprintf(buf, "cal_stream");
+                        sprintf(buf, funct7 == 0x01 ? "cal_stream_pp" : "cal_stream");
                         break;
                     case 0x3:
-                        sprintf(buf, "cfg_stride");
+                        sprintf(buf, funct7 == 0x01 ? "cfg_tilestride" : "cfg_stride");
                         break;
                     case 0x4:
                         sprintf(buf, "cfg_reuse");
@@ -194,10 +203,16 @@ class Simulator {
                         sprintf(buf, "cfg_load");
                         break;
                     case 0x6:
-                        sprintf(buf, "cfg_tilestride");
+                        sprintf(buf, "cal_rjrk_stream_pp");
                         break;
                     case 0x7:
-                        sprintf(buf, "cal_stream_rd, a%d",rd);
+                        if (funct7 == 0x08) {
+                            sprintf(buf, "cal_stream_rd_sub, a%d", rd);
+                        } else if (funct7 == 0x10) {
+                            sprintf(buf, "cal_stream_rd_mul, a%d", rd);
+                        } else {
+                            sprintf(buf, "cal_stream_rd_add, a%d", rd);
+                        }
                         break;
                     default:
                         sprintf(buf, "unknown stream");
