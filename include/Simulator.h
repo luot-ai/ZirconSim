@@ -184,6 +184,7 @@ class Simulator {
                             case 0x00: sprintf(buf, "cfg_i"); break;
                             case 0x01: sprintf(buf, "cfg_i_limit"); break;
                             case 0x02: sprintf(buf, "cfg_i_repeat"); break;
+                            case 0x03: sprintf(buf, "cfg_i_offset"); break;
                             default:   sprintf(buf, "cfg_i_unknown"); break;
                         }
                         break;
@@ -197,7 +198,7 @@ class Simulator {
                         sprintf(buf, funct7 == 0x01 ? "cfg_tilestride" : "cfg_stride");
                         break;
                     case 0x4:
-                        sprintf(buf, "cfg_reuse");
+                        sprintf(buf, funct7 == 0x01 ? "cfg_reuse_empty" : "cfg_reuse");
                         break;
                     case 0x5:
                         sprintf(buf, "cfg_load");

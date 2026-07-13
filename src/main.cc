@@ -18,7 +18,7 @@ int main(int argc, char** argv) {
     m_trace->open("waveform.vcd");
 
     if (argc < 2) {
-        std::cerr << "usage: " << argv[0] << " <image> [--stream-diff=none|stream-add|gemm|fft32]" << std::endl;
+        std::cerr << "usage: " << argv[0] << " <image> [--stream-diff=none|stream-add|gemm|fir|fft32]" << std::endl;
         return -1;
     }
 

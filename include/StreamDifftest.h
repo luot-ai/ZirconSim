@@ -9,6 +9,7 @@ enum class StreamDifftestMode {
     None,
     StreamAdd,
     Gemm,
+    Fir,
     Fft32,
 };
 
@@ -40,6 +41,7 @@ class StreamDifftest {
         uint32_t length = 0;
         uint32_t limit = 0;
         uint32_t repeat = 0;
+        uint32_t offset = 0;
         uint32_t reuse = 0;
         uint32_t stride = 4;
         uint32_t tileStride = 0;
@@ -54,10 +56,14 @@ class StreamDifftest {
     uint32_t gemmK = 0;
     GemmFifoConfig addFifos[4];
     uint32_t addIndex = 0;
+    GemmFifoConfig firFifos[4];
+    uint32_t firTap = 0;
+    uint32_t firWindow = 0;
 
     StreamDifftestResult executeNone(uint32_t inst, uint32_t rf[32], AXIMemory* memory);
     StreamDifftestResult executeStreamAdd(uint32_t inst, uint32_t rf[32], AXIMemory* memory);
     StreamDifftestResult executeGemm(uint32_t inst, uint32_t rf[32], AXIMemory* memory);
+    StreamDifftestResult executeFir(uint32_t inst, uint32_t rf[32], AXIMemory* memory);
     StreamDifftestResult executeFft32(uint32_t inst, uint32_t rf[32], AXIMemory* memory);
 
     void resetFft32();

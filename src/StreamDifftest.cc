@@ -68,6 +68,9 @@ StreamDifftestMode StreamDifftest::modeFromString(const std::string& modeName) {
     if (modeName == "gemm" || modeName == "matrix") {
         return StreamDifftestMode::Gemm;
     }
+    if (modeName == "fir") {
+        return StreamDifftestMode::Fir;
+    }
     if (modeName == "fft" || modeName == "fft32" || modeName == "cfft") {
         return StreamDifftestMode::Fft32;
     }
@@ -84,6 +87,9 @@ StreamDifftestMode StreamDifftest::inferModeFromImage(const std::string& imgName
     if (imgName.find("matrix") != std::string::npos || imgName.find("gemm") != std::string::npos) {
         return StreamDifftestMode::Gemm;
     }
+    if (imgName.find("FIR") != std::string::npos || imgName.find("fir") != std::string::npos) {
+        return StreamDifftestMode::Fir;
+    }
     return StreamDifftestMode::None;
 }
 
@@ -91,6 +97,7 @@ const char* StreamDifftest::modeName(StreamDifftestMode mode) {
     switch (mode) {
         case StreamDifftestMode::StreamAdd: return "stream-add";
         case StreamDifftestMode::Gemm: return "gemm";
+        case StreamDifftestMode::Fir: return "fir";
         case StreamDifftestMode::Fft32: return "fft32";
         case StreamDifftestMode::None:
         default: return "none";
@@ -109,6 +116,11 @@ void StreamDifftest::setMode(StreamDifftestMode nextMode) {
     for (auto& fifo : addFifos) {
         fifo = GemmFifoConfig{};
     }
+    firTap = 0;
+    firWindow = 0;
+    for (auto& fifo : firFifos) {
+        fifo = GemmFifoConfig{};
+    }
     resetFft32();
 }
 
@@ -116,6 +128,7 @@ StreamDifftestResult StreamDifftest::execute(uint32_t inst, uint32_t rf[32], AXI
     switch (mode) {
         case StreamDifftestMode::StreamAdd: return executeStreamAdd(inst, rf, memory);
         case StreamDifftestMode::Gemm: return executeGemm(inst, rf, memory);
+        case StreamDifftestMode::Fir: return executeFir(inst, rf, memory);
         case StreamDifftestMode::Fft32: return executeFft32(inst, rf, memory);
         case StreamDifftestMode::None:
         default: return executeNone(inst, rf, memory);
@@ -261,6 +274,83 @@ StreamDifftestResult StreamDifftest::executeGemm(uint32_t inst, uint32_t rf[32],
             }
             break;
         }
+        default:
+            break;
+    }
+
+    return result;
+}
+
+StreamDifftestResult StreamDifftest::executeFir(uint32_t inst, uint32_t rf[32], AXIMemory* memory) {
+    StreamDifftestResult result;
+    uint8_t rd = bits(inst, 11, 7);
+    uint8_t rs1 = bits(inst, 19, 15);
+    uint8_t rs2 = bits(inst, 24, 20);
+    uint8_t funct7 = bits(inst, 31, 25);
+    uint8_t funct3 = bits(inst, 14, 12);
+    uint32_t value1 = rf[rs1];
+    uint32_t value2 = rf[rs2];
+    uint32_t fifoId = value2 & 0x3;
+
+    switch (funct3) {
+        case 0x0:
+            if (funct7 == 0x00) {
+                firFifos[fifoId].outer = value1 & 0xffff;
+                firFifos[fifoId].length = value1 >> 16;
+            } else if (funct7 == 0x01) {
+                firFifos[fifoId].limit = value1;
+            } else if (funct7 == 0x02) {
+                firFifos[fifoId].repeat = value1;
+            } else if (funct7 == 0x03) {
+                firFifos[fifoId].offset = value1;
+            }
+            break;
+        case 0x3:
+            if (funct7 == 0x01) {
+                firFifos[fifoId].tileStride = value1;
+            } else {
+                firFifos[fifoId].stride = value1;
+            }
+            break;
+        case 0x4:
+            if (funct7 == 0x00) {
+                firFifos[fifoId].reuse = value1;
+            }
+            break;
+        case 0x5:
+            firFifos[fifoId].base = value1;
+            break;
+        case 0x7:
+            if (funct7 == 0x10) {
+                uint32_t src0 = value1 & 0x3;
+                uint32_t src1 = (value1 >> 2) & 0x3;
+                uint32_t filterOrder = firFifos[src0].limit ? firFifos[src0].limit : firFifos[src0].length;
+                if (filterOrder == 0) {
+                    filterOrder = 16;
+                }
+                uint32_t stride0 = firFifos[src0].stride ? firFifos[src0].stride : 4;
+                uint32_t stride1 = firFifos[src1].stride ? firFifos[src1].stride : 4;
+                uint32_t coeffIndex = firTap + firFifos[src0].offset;
+                uint32_t inputIndex = firWindow + firTap;
+                if (firFifos[src1].offset > 0) {
+                    inputIndex += firFifos[src1].offset - 1;
+                }
+                uint32_t coeffAddr = firFifos[src0].base + coeffIndex * stride0;
+                uint32_t inputAddr = firFifos[src1].base + inputIndex * stride1;
+                int32_t coeff = (int32_t)memory->refMemoryRead(coeffAddr);
+                int32_t input = (int32_t)memory->refMemoryRead(inputAddr);
+
+                result.rdValid = true;
+                result.rd = rd;
+                result.rdData = (uint32_t)(coeff * input);
+
+                firTap++;
+                if (firTap >= filterOrder) {
+                    firTap = 0;
+                    firWindow++;
+                }
+            }
+            break;
         default:
             break;
     }
